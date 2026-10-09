@@ -1,0 +1,2507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabulous Games — The Curated Browser Gaming Vault</title>
+  <meta name="description" content="Play classic 3D PC titles, shooters, zombies, and open-world masterpieces directly in your browser tab. Zero installs, pure WebAssembly & WebGL acceleration.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕹️</text></svg>">
+  <style>
+    :root {
+      --bg-dark: #070913;
+      --bg-card: #0f1526;
+      --bg-card-hover: #151d36;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(0, 240, 255, 0.3);
+      --cyan: #00f0ff;
+      --magenta: #ff0077;
+      --purple: #a855f7;
+      --green: #22c55e;
+      --yellow: #f59e0b;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(0, 240, 255, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 85% 20%, rgba(255, 0, 119, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #70f7ff;
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Sticky Announcement */
+    .top-bar {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 10px 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .top-bar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .top-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; filter: drop-shadow(0 0 6px var(--green)); }
+      100% { opacity: 0.6; }
+    }
+
+    /* Hero Banner */
+    .hero-banner-container {
+      margin: 24px 0 32px 0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    .hero-banner-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Sister Project Sticker Spotlight */
+    .sister-spotlight {
+      background: linear-gradient(135deg, rgba(24, 19, 43, 0.8) 0%, rgba(15, 21, 38, 0.9) 100%);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: 0 8px 32px rgba(121, 40, 202, 0.15);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .sister-spotlight:hover {
+      border-color: rgba(0, 240, 255, 0.6);
+      box-shadow: 0 10px 40px rgba(0, 240, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .sister-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+    }
+
+    .sister-sticker-link {
+      display: block;
+      flex-shrink: 0;
+      max-width: 320px;
+      transition: transform 0.2s ease;
+    }
+
+    .sister-sticker-link:hover {
+      transform: scale(1.03);
+    }
+
+    .sister-sticker-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .sister-text h3 {
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sister-text p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .sister-actions {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none !important;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-sister {
+      background: linear-gradient(135deg, #a855f7 0%, #ff0077 100%);
+      color: #fff !important;
+      box-shadow: 0 4px 15px rgba(255, 0, 119, 0.3);
+    }
+
+    .btn-sister:hover {
+      filter: brightness(1.15);
+      box-shadow: 0 6px 20px rgba(255, 0, 119, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main) !important;
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--cyan);
+    }
+
+    /* Controls & Filter Bar */
+    .controls-wrapper {
+      background: rgba(15, 21, 38, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .search-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 280px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      background: rgba(8, 10, 19, 0.85);
+      border: 1px solid var(--border-color);
+      color: #fff;
+      padding: 14px 20px 14px 48px;
+      border-radius: 12px;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      pointer-events: none;
+    }
+
+    .sort-box {
+      min-width: 200px;
+    }
+
+    .select-dropdown {
+      width: 100%;
+      background: rgba(8, 10, 19, 0.85);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .select-dropdown:focus {
+      border-color: var(--cyan);
+    }
+
+    /* Filter Pills */
+    .filter-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .filter-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-right: 6px;
+    }
+
+    .pill-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .pill-btn.active {
+      background: rgba(0, 240, 255, 0.15);
+      color: var(--cyan);
+      border-color: var(--cyan);
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+    }
+
+    .results-count-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    /* Grid of Games */
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 28px;
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 480px) {
+      .games-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Game Card */
+    .game-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .game-card:hover {
+      transform: translateY(-6px);
+      background: var(--bg-card-hover);
+      border-color: var(--border-highlight);
+      box-shadow: 0 16px 40px rgba(0, 240, 255, 0.15);
+    }
+
+    /* Cover Header */
+    .cover-link-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #090c17;
+      overflow: hidden;
+      display: block;
+    }
+
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .game-card:hover .cover-img {
+      transform: scale(1.05);
+    }
+
+    .cover-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 21, 38, 0.95) 0%, rgba(15, 21, 38, 0.2) 60%, transparent 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+      pointer-events: none;
+    }
+
+    .play-hover-badge {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .game-card:hover .play-hover-badge {
+      opacity: 1;
+    }
+
+    .play-pill {
+      background: var(--cyan);
+      color: #070913;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      padding: 10px 22px;
+      border-radius: 25px;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Card Badges */
+    .floating-badges {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .badge-status {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 5px 12px;
+      border-radius: 8px;
+      backdrop-filter: blur(8px);
+    }
+
+    .badge-year {
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Card Body */
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-header-row {
+      margin-bottom: 8px;
+    }
+
+    .game-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .game-title a {
+      color: #fff;
+    }
+
+    .game-title a:hover {
+      color: var(--cyan);
+    }
+
+    .game-meta-subtitle {
+      font-size: 0.8rem;
+      color: var(--cyan);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .game-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    /* Good To Know & Controls Accordion */
+    .info-box {
+      background: rgba(8, 10, 19, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      font-size: 0.8rem;
+    }
+
+    .info-label {
+      color: var(--yellow);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.8px;
+    }
+
+    .info-text {
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    .controls-snippet {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+
+    /* Tags row */
+    .tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .tag-chip {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-dim);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    /* Launch button */
+    .btn-launch {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
+      border: 1px solid rgba(0, 240, 255, 0.4);
+      color: #fff !important;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-launch:hover {
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--magenta) 100%);
+      color: #070913 !important;
+      border-color: transparent;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+      transform: translateY(-2px);
+    }
+
+    /* Audit & Excluded Section */
+    .audit-section {
+      background: rgba(15, 21, 38, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 60px;
+    }
+
+    .audit-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .audit-title {
+      font-size: 1.2rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .audit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .audit-item {
+      background: rgba(8, 10, 19, 0.7);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .audit-item-title {
+      color: #f87171;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .audit-item-reason {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0 60px 0;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Quick Guide Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-highlight);
+      border-radius: 20px;
+      max-width: 650px;
+      width: 100%;
+      padding: 32px;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-title {
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-body p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    .key-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 0.88rem;
+    }
+
+    .key-table td, .key-table th {
+      padding: 8px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .key-table th {
+      color: var(--cyan);
+      text-align: left;
+    }
+
+    .key-table td:first-child {
+      font-family: var(--font-mono);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-badge-group">
+        <span><span class="status-dot"></span> <strong>23 Verified Working Games</strong> Live &amp; Tested</span>
+        <span>•</span>
+        <span>⚡ Pure WebAssembly &amp; WebGL Acceleration</span>
+      </div>
+      <div>
+        <a href="#sister-spotlight" style="color: var(--purple); font-weight: 600;">★ Sister Repo: Retro Arcade Vault (124 Titles) →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Hero Banner -->
+    <div class="hero-banner-container">
+      <img src="assets/banner.svg" alt="Tabulous Games Banner" class="hero-banner-img">
+    </div>
+
+    <!-- Sister Project Spotlight Banner & Sticker -->
+    <div class="sister-spotlight" id="sister-spotlight">
+      <div class="sister-info">
+        <a href="https://github.com/LIN4CRE/retro-arcade-vault" target="_blank" rel="noopener noreferrer" class="sister-sticker-link" title="Click to view Retro Arcade Vault on GitHub">
+          <img src="assets/retro-arcade-sticker.svg" alt="Retro Arcade Vault Sticker" class="sister-sticker-img">
+        </a>
+        <div class="sister-text">
+          <h3>
+            <span>🕹️ Sister Project: Retro Arcade Vault</span>
+            <span style="background: rgba(168,85,247,0.25); color: #d8b4fe; font-size: 0.72rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #a855f7;">124 TITLES</span>
+          </h3>
+          <p>
+            Looking for legendary console gems? Our companion repository <strong>Retro Arcade Vault</strong> features 124 curated masterpieces across <strong>PS1, GBA, Nintendo DS, SNES, and Sega Genesis</strong>. Zero downloads or emulators needed — run them straight in your browser tab with full gamepad support!
+          </p>
+        </div>
+      </div>
+      <div class="sister-actions">
+        <a href="https://github.com/LIN4CRE/retro-arcade-vault" target="_blank" rel="noopener noreferrer" class="btn btn-sister">
+          <span>GitHub Repo ↗</span>
+        </a>
+        <a href="https://lin4cre.github.io/retro-arcade-vault/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <span>Live Arcade Demo ↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Interactive Filters and Search Bar -->
+    <div class="controls-wrapper">
+      <div class="search-row">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search by game title, genre, year, Treyarch, id Software, WASM... (Press / to focus)">
+        </div>
+        <div class="sort-box">
+          <select id="sortSelect" class="select-dropdown">
+            <option value="default">Sort: Curated Order</option>
+            <option value="title-asc">Title: A to Z</option>
+            <option value="title-desc">Title: Z to A</option>
+            <option value="year-desc">Year: Newest First</option>
+            <option value="year-asc">Year: Oldest First</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="filter-pills-row">
+        <span class="filter-label">Categories:</span>
+        <button class="pill-btn active" data-category="all">All Games (23)</button>
+        <button class="pill-btn" data-category="zombies">🧟 Zombies &amp; Co-op (4)</button>
+        <button class="pill-btn" data-category="shooters">🎯 Shooters &amp; FPS (6)</button>
+        <button class="pill-btn" data-category="classic-pc">⚡ Classic Id / Retro PC (6)</button>
+        <button class="pill-btn" data-category="openworld">🚗 Open World &amp; Action (5)</button>
+        <button class="pill-btn" data-category="sports">🛹 Sports &amp; Arcade (2)</button>
+      </div>
+
+      <!-- Status Filter Pills -->
+      <div class="filter-pills-row">
+        <span class="filter-label">Status:</span>
+        <button class="pill-btn active" data-status="all">All Statuses</button>
+        <button class="pill-btn" data-status="instant">⚡ Instant Play (16)</button>
+        <button class="pill-btn" data-status="multiplayer">🌐 Multiplayer (5)</button>
+        <button class="pill-btn" data-status="files">📁 Custom Files / Addons (2)</button>
+      </div>
+
+      <div class="results-count-bar">
+        <span id="resultsCount">Showing <strong>23</strong> of 23 games</span>
+        <a href="javascript:void(0)" id="openHelpBtn" style="color: var(--cyan); font-weight: 600;">⌨️ Browser Controls &amp; Tips Guide</a>
+      </div>
+    </div>
+
+    <!-- Games Grid -->
+    <main class="games-grid" id="gamesGrid">
+      
+        <article class="game-card" 
+          data-id="bo1-zombies"
+          data-category="zombies"
+          data-status="instant"
+          data-title="call of duty: black ops — zombies"
+          data-year="2010"
+          data-tags="fps zombies survival treyarch cult classic treyarch / activision webgl / webassembly canvas">
+          
+          <a href="http://vel.gg/bo1z" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Call of Duty: Black Ops — Zombies in a new tab">
+            <img src="assets/covers/bo1.jpg" alt="Call of Duty: Black Ops — Zombies Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">2010</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                CO-OP SURVIVAL
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="http://vel.gg/bo1z" target="_blank" rel="noopener noreferrer">Call of Duty: Black Ops — Zombies</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Treyarch / Activision</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebGL / WebAssembly Canvas</span>
+              </div>
+            </div>
+
+            <p class="game-desc">The iconic survival mode that defined a generation. Fight off relentless waves of the undead, board up barricades, rack up points, and unlock mystery box weapons.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Click inside the window to lock mouse pointer (Press ESC to release). Sound initializes upon first interaction.</div>
+              <div class="controls-snippet">🎮 WASD to move • Mouse to aim • Left Click to shoot • R to reload • F to rebuild/buy • Space to jump • Shift to sprint</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#FPS</span><span class="tag-chip">#Zombies</span><span class="tag-chip">#Survival</span><span class="tag-chip">#Treyarch</span><span class="tag-chip">#Cult Classic</span>
+            </div>
+
+            <a href="http://vel.gg/bo1z" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch BO1 Zombies</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="moon-zombies"
+          data-category="zombies"
+          data-status="instant"
+          data-title="call of duty: black ops — moon"
+          data-year="2011"
+          data-tags="zombies space low gravity dlc classic fps treyarch / rezurrection dlc webgl / cloudflare pages">
+          
+          <a href="https://moon-zombies.pages.dev/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Call of Duty: Black Ops — Moon in a new tab">
+            <img src="assets/covers/moon.svg" alt="Call of Duty: Black Ops — Moon Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">2011</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                LOW GRAVITY
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://moon-zombies.pages.dev/" target="_blank" rel="noopener noreferrer">Call of Duty: Black Ops — Moon</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Treyarch / Rezurrection DLC</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebGL / Cloudflare Pages</span>
+              </div>
+            </div>
+
+            <p class="game-desc">Blast off to Area 51 and the lunar surface in this standalone recreation of the Moon survival map. Experience low-gravity jumping, decompression zones, and the iconic biodome.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Remember to equip your P.E.S. spacesuit helmet when venturing outside onto the lunar surface to avoid asphyxiation!</div>
+              <div class="controls-snippet">🎮 WASD to move • Mouse to aim • Left Click to fire • Space for low-gravity leaps • F to interact/buy weapons</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Zombies</span><span class="tag-chip">#Space</span><span class="tag-chip">#Low Gravity</span><span class="tag-chip">#DLC Classic</span><span class="tag-chip">#FPS</span>
+            </div>
+
+            <a href="https://moon-zombies.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch BO1 Moon Map</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="kino-der-toten"
+          data-category="zombies"
+          data-status="instant"
+          data-title="call of duty: black ops — kino der toten"
+          data-year="2010"
+          data-tags="zombies theater pack-a-punch barricades masterpiece treyarch webgl / cloudflare pages">
+          
+          <a href="https://kino-der-toten.pages.dev/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Call of Duty: Black Ops — Kino der Toten in a new tab">
+            <img src="assets/covers/kino.svg" alt="Call of Duty: Black Ops — Kino der Toten Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">2010</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                THEATER OF THE DAMNED
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://kino-der-toten.pages.dev/" target="_blank" rel="noopener noreferrer">Call of Duty: Black Ops — Kino der Toten</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Treyarch</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebGL / Cloudflare Pages</span>
+              </div>
+            </div>
+
+            <p class="game-desc">The greatest Zombies launch map in history. Navigate the abandoned Berlin theater, turn on the power switch, link the teleporter to the projection booth, and Pack-a-Punch your arsenal.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Turn on the power in the main auditorium to activate traps and link the teleporter for instant Pack-a-Punch access.</div>
+              <div class="controls-snippet">🎮 WASD to move • Mouse to aim • Left Click to shoot • R to reload • F to activate power/doors • 1-3 to switch weapons</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Zombies</span><span class="tag-chip">#Theater</span><span class="tag-chip">#Pack-a-Punch</span><span class="tag-chip">#Barricades</span><span class="tag-chip">#Masterpiece</span>
+            </div>
+
+            <a href="https://kino-der-toten.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Kino der Toten</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="cheese-cube"
+          data-category="zombies"
+          data-status="instant"
+          data-title="call of duty: black ops iii — cheese cube unlimited"
+          data-year="2015"
+          data-tags="custom map challenge verticality zombies bo3 treyarch / community challenge webgl / cloudflare pages">
+          
+          <a href="https://cheese-cube.pages.dev/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Call of Duty: Black Ops III — Cheese Cube Unlimited in a new tab">
+            <img src="assets/covers/cheesecube.svg" alt="Call of Duty: Black Ops III — Cheese Cube Unlimited Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">2015</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                CHALLENGE MAP
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://cheese-cube.pages.dev/" target="_blank" rel="noopener noreferrer">Call of Duty: Black Ops III — Cheese Cube Unlimited</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Treyarch / Community Challenge</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebGL / Cloudflare Pages</span>
+              </div>
+            </div>
+
+            <p class="game-desc">The most famous custom challenge map ever built for Call of Duty Zombies. Scale an absurd multi-tiered cheese monolith, buying weapons and dodging tight corner ambushes.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Higher floors get increasingly narrow and dangerous. Initial asset decompression takes a few seconds on first launch.</div>
+              <div class="controls-snippet">🎮 WASD to move • Mouse to look • Space to jump • Shift to sprint • F to open barricades and buy wall weapons</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Custom Map</span><span class="tag-chip">#Challenge</span><span class="tag-chip">#Verticality</span><span class="tag-chip">#Zombies</span><span class="tag-chip">#BO3</span>
+            </div>
+
+            <a href="https://cheese-cube.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Cheese Cube Unlimited</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="bo2-multiplayer"
+          data-category="shooters"
+          data-status="multiplayer"
+          data-title="call of duty: black ops ii (vibe slops ii)"
+          data-year="2012"
+          data-tags="multiplayer fps black ops ii pvp loadouts treyarch / luckeysystems webgl / websockets netcode">
+          
+          <a href="https://vibeslops.luckeysystems.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Call of Duty: Black Ops II (Vibe Slops II) in a new tab">
+            <img src="assets/covers/bo2.jpg" alt="Call of Duty: Black Ops II (Vibe Slops II) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #ff007722; color: #ff0077; border: 1px solid #ff007766;">
+                Multiplayer
+              </span>
+              <span class="badge-year">2012</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                ONLINE ARENA
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://vibeslops.luckeysystems.com/" target="_blank" rel="noopener noreferrer">Call of Duty: Black Ops II (Vibe Slops II)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Treyarch / LuckeySystems</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebGL / WebSockets Netcode</span>
+              </div>
+            </div>
+
+            <p class="game-desc">A full browser-based multiplayer build of Call of Duty: Black Ops II. Pick your loadout, hop into live lobbies, and dominate classic maps with authentic gunplay and movement.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Features multiplayer networking. Pick a username and join an active server lobby or host your own.</div>
+              <div class="controls-snippet">🎮 WASD to move • Mouse to look & shoot • Right Click to ADS • C to crouch • Space to jump • Tab for scoreboard</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Multiplayer</span><span class="tag-chip">#FPS</span><span class="tag-chip">#Black Ops II</span><span class="tag-chip">#PVP</span><span class="tag-chip">#Loadouts</span>
+            </div>
+
+            <a href="https://vibeslops.luckeysystems.com/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Black Ops II Web</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="cs-surf"
+          data-category="shooters"
+          data-status="instant"
+          data-title="counter-strike surf (surfd.net)"
+          data-year="2004"
+          data-tags="surfing source engine speedrun skill smooth 60fps valve / surfd community webgl / source physics engine">
+          
+          <a href="https://surfd.net/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Counter-Strike Surf (Surfd.net) in a new tab">
+            <img src="assets/covers/cssurf.jpg" alt="Counter-Strike Surf (Surfd.net) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">2004</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                PHYSICS SPEEDRUN
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://surfd.net/" target="_blank" rel="noopener noreferrer">Counter-Strike Surf (Surfd.net)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Valve / Surfd Community</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebGL / Source Physics Engine</span>
+              </div>
+            </div>
+
+            <p class="game-desc">Pure Counter-Strike surfing physics replicated flawlessly in the browser. Glide along steep ramps at terminal velocity, master air strafing, and race against the clock.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Never hold W while surfing! Hold A when on the right side of a ramp, and D when on the left side. Steer gently with mouse.</div>
+              <div class="controls-snippet">🎮 WASD & Strafe (A & D) • Smooth Mouse Sweeps • Space to jump • R to restart ramp • Tab for timer leaderboard</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Surfing</span><span class="tag-chip">#Source Engine</span><span class="tag-chip">#Speedrun</span><span class="tag-chip">#Skill</span><span class="tag-chip">#Smooth 60FPS</span>
+            </div>
+
+            <a href="https://surfd.net/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch CS Surf</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="halo-ce-web"
+          data-category="shooters"
+          data-status="instant"
+          data-title="halo: combat evolved (web port)"
+          data-year="2001"
+          data-tags="master chief halo bungie campaign legendary bungie / mitchell hynes webgl / webassembly engine">
+          
+          <a href="https://mitchellhynes.com/halo/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Halo: Combat Evolved (Web Port) in a new tab">
+            <img src="assets/covers/haloce.jpg" alt="Halo: Combat Evolved (Web Port) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">2001</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                SCI-FI LEGEND
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://mitchellhynes.com/halo/" target="_blank" rel="noopener noreferrer">Halo: Combat Evolved (Web Port)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Bungie / Mitchell Hynes</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebGL / WebAssembly Engine</span>
+              </div>
+            </div>
+
+            <p class="game-desc">Mitchell Hynes’s remarkable browser adaptation of Master Chief’s debut. Board the Pillar of Autumn, wield the legendary M6D pistol and assault rifle, and combat the Covenant armada.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Runs fully in-browser with zero plugins. Allow pointer lock when prompted for 360-degree Spartan control.</div>
+              <div class="controls-snippet">🎮 WASD to move • Mouse to aim • Left Click to fire • Right Click for grenades • Space to jump • E to enter vehicles/action</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Master Chief</span><span class="tag-chip">#Halo</span><span class="tag-chip">#Bungie</span><span class="tag-chip">#Campaign</span><span class="tag-chip">#Legendary</span>
+            </div>
+
+            <a href="https://mitchellhynes.com/halo/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Halo CE Web</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="halo-ce-mobile"
+          data-category="shooters"
+          data-status="files"
+          data-title="halo: combat evolved mobile / web (hcemobile)"
+          data-year="2001"
+          data-tags="halo gamepad support custom maps mobile ready bungie / hcemobile team webassembly / webgl / gamepad api">
+          
+          <a href="https://hcemobile.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Halo: Combat Evolved Mobile / Web (HCEMobile) in a new tab">
+            <img src="assets/covers/halomcc.jpg" alt="Halo: Combat Evolved Mobile / Web (HCEMobile) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #a855f722; color: #a855f7; border: 1px solid #a855f766;">
+                Load Files / Web
+              </span>
+              <span class="badge-year">2001</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                CROSS-PLATFORM
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://hcemobile.com/" target="_blank" rel="noopener noreferrer">Halo: Combat Evolved Mobile / Web (HCEMobile)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Bungie / HCEMobile Team</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebAssembly / WebGL / Gamepad API</span>
+              </div>
+            </div>
+
+            <p class="game-desc">A dedicated cross-platform client of Halo CE featuring custom mobile touch overlays, full Gamepad API integration, and customizable resolution and rendering shaders.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Supports loading your own custom CE map files (.map) or campaign assets for complete standalone offline playback.</div>
+              <div class="controls-snippet">🎮 Keyboard & Mouse OR Bluetooth/USB Gamepad (Xbox/PlayStation controller fully supported natively)</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Halo</span><span class="tag-chip">#Gamepad Support</span><span class="tag-chip">#Custom Maps</span><span class="tag-chip">#Mobile Ready</span>
+            </div>
+
+            <a href="https://hcemobile.com/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch HCEMobile</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="skate-3"
+          data-category="sports"
+          data-status="instant"
+          data-title="skate 3 (web fan project)"
+          data-year="2010"
+          data-tags="skating ea physics sandbox bails ea black box / community webgl / canvas physics">
+          
+          <a href="https://skate.aaddpp.lol/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Skate 3 (Web Fan Project) in a new tab">
+            <img src="assets/covers/skate3.jpg" alt="Skate 3 (Web Fan Project) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">2010</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                FLICK-IT SKATING
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://skate.aaddpp.lol/" target="_blank" rel="noopener noreferrer">Skate 3 (Web Fan Project)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>EA Black Box / Community</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebGL / Canvas Physics</span>
+              </div>
+            </div>
+
+            <p class="game-desc">Shred the plaza in Port Carverton! Recreates the fluid analog flick-it board physics and ragdoll bail mechanics of the beloved EA Skate franchise.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Plug in an Xbox or PlayStation controller for the authentic dual-stick flick-it trick experience.</div>
+              <div class="controls-snippet">🎮 Gamepad Analog Sticks Recommended • Keyboard: Arrow Keys / WASD for board manipulation & Ollies</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Skating</span><span class="tag-chip">#EA</span><span class="tag-chip">#Physics</span><span class="tag-chip">#Sandbox</span><span class="tag-chip">#Bails</span>
+            </div>
+
+            <a href="https://skate.aaddpp.lol/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Skate 3 Fan Game</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="pes-6"
+          data-category="sports"
+          data-status="instant"
+          data-title="pro evolution soccer 6 (pes 6 web)"
+          data-year="2006"
+          data-tags="soccer konami adriano ppsspp multiplayer konami / ppsspp web ppsspp webassembly emulation">
+          
+          <a href="https://pes6.optijuegos.net/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Pro Evolution Soccer 6 (PES 6 Web) in a new tab">
+            <img src="assets/covers/pes6.jpg" alt="Pro Evolution Soccer 6 (PES 6 Web) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">2006</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                GOLDEN ERA SOCCER
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://pes6.optijuegos.net/" target="_blank" rel="noopener noreferrer">Pro Evolution Soccer 6 (PES 6 Web)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Konami / PPSSPP Web</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">PPSSPP WebAssembly Emulation</span>
+              </div>
+            </div>
+
+            <p class="game-desc">Widely celebrated as the greatest soccer simulation ever made. Master crisp one-touch passing, tactical build-up play, and unleash Adriano’s legendary 99-shot-power rockets.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Runs via in-browser PPSSPP WebAssembly. Full screen mode is highly recommended for best stadium immersion.</div>
+              <div class="controls-snippet">🎮 Arrow Keys for D-Pad • Z/X/C/V or A/S/D/W for Pass, Through Ball, Shoot, Sprint • Gamepad fully mapped</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Soccer</span><span class="tag-chip">#Konami</span><span class="tag-chip">#Adriano</span><span class="tag-chip">#PPSSPP</span><span class="tag-chip">#Multiplayer</span>
+            </div>
+
+            <a href="https://pes6.optijuegos.net/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch PES 6 Web</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="gta-vice-city"
+          data-category="openworld"
+          data-status="instant"
+          data-title="grand theft auto: vice city (revc wasm)"
+          data-year="2002"
+          data-tags="rockstar vice city revc 80s open world rockstar north / revc team revc webassembly / webgl">
+          
+          <a href="https://joncodeofficial.github.io/gta-vice-city-wasm/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Grand Theft Auto: Vice City (reVC WASM) in a new tab">
+            <img src="assets/covers/gtavc.webp" alt="Grand Theft Auto: Vice City (reVC WASM) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">2002</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                80s NEON SUNSET
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://joncodeofficial.github.io/gta-vice-city-wasm/" target="_blank" rel="noopener noreferrer">Grand Theft Auto: Vice City (reVC WASM)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Rockstar North / reVC Team</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">reVC WebAssembly / WebGL</span>
+              </div>
+            </div>
+
+            <p class="game-desc">Cruise down Ocean Drive in 1986 as Tommy Vercetti. Palm trees, synthwave radio, Hawaiian shirts, and open-world chaos powered by the pristine reverse-engineered reVC engine.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Save files persist in browser local storage. Click canvas to capture mouse look.</div>
+              <div class="controls-snippet">🎮 WASD to move/steer • Mouse to aim • Left Click to fire/punch • Space for handbrake/jump • F/Enter to enter vehicles</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Rockstar</span><span class="tag-chip">#Vice City</span><span class="tag-chip">#reVC</span><span class="tag-chip">#80s</span><span class="tag-chip">#Open World</span>
+            </div>
+
+            <a href="https://joncodeofficial.github.io/gta-vice-city-wasm/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch GTA: Vice City</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="gta-3"
+          data-category="openworld"
+          data-status="instant"
+          data-title="grand theft auto iii (re3 wasm)"
+          data-year="2001"
+          data-tags="gta liberty city rockstar 3d classic crime rockstar north / wasm arcade re3 webassembly / webgl">
+          
+          <a href="https://wasmarcade.com/gta3" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Grand Theft Auto III (re3 WASM) in a new tab">
+            <img src="assets/covers/gta3.webp" alt="Grand Theft Auto III (re3 WASM) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">2001</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                LIBERTY CITY
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://wasmarcade.com/gta3" target="_blank" rel="noopener noreferrer">Grand Theft Auto III (re3 WASM)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Rockstar North / WASM Arcade</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">re3 WebAssembly / WebGL</span>
+              </div>
+            </div>
+
+            <p class="game-desc">The revolutionary title that introduced 3D open-world gaming. Guide Claude through the crime-ridden districts of Liberty City, steal cars, evade the LCPD, and complete underworld contracts.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Hosted on WASM Arcade with optimized WebGL rendering and instant browser memory allocation.</div>
+              <div class="controls-snippet">🎮 WASD to run/steer • Left Click to fire • Space to sprint/handbrake • F or Enter to jack vehicles • C to change camera</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#GTA</span><span class="tag-chip">#Liberty City</span><span class="tag-chip">#Rockstar</span><span class="tag-chip">#3D Classic</span><span class="tag-chip">#Crime</span>
+            </div>
+
+            <a href="https://wasmarcade.com/gta3" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch GTA III Web</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="simpsons-hit-and-run"
+          data-category="openworld"
+          data-status="instant"
+          data-title="the simpsons: hit & run (shar wasm)"
+          data-year="2003"
+          data-tags="simpsons springfield driving humor open world radical entertainment / vivendi webassembly / cloudflare workers">
+          
+          <a href="http://shar-wasm.cjoseph.workers.dev/?skipmovie" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch The Simpsons: Hit & Run (SHAR WASM) in a new tab">
+            <img src="assets/covers/simpsons.webp" alt="The Simpsons: Hit & Run (SHAR WASM) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">2003</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                FAN FAVORITE
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="http://shar-wasm.cjoseph.workers.dev/?skipmovie" target="_blank" rel="noopener noreferrer">The Simpsons: Hit & Run (SHAR WASM)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Radical Entertainment / Vivendi</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebAssembly / Cloudflare Workers</span>
+              </div>
+            </div>
+
+            <p class="game-desc">The holy grail of cartoon sandbox games. Drive around Springfield as Homer, Bart, Lisa, and Apu, smashing wasp cameras, kicking pedestrians, and uncovering the alien conspiracy.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Pre-configured with ?skipmovie parameter for instant direct-to-menu loading. Fast and buttery smooth.</div>
+              <div class="controls-snippet">🎮 Arrow Keys or WASD to drive/run • Space to jump/handbrake • Left Click / E to kick • Enter to get in cars</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Simpsons</span><span class="tag-chip">#Springfield</span><span class="tag-chip">#Driving</span><span class="tag-chip">#Humor</span><span class="tag-chip">#Open World</span>
+            </div>
+
+            <a href="http://shar-wasm.cjoseph.workers.dev/?skipmovie" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Simpsons Hit & Run</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="simpsons-wasmarcade"
+          data-category="openworld"
+          data-status="instant"
+          data-title="the simpsons: hit & run (wasm arcade mirror)"
+          data-year="2003"
+          data-tags="simpsons mirror fast cdn wasm arcade radical entertainment wasm arcade pipeline">
+          
+          <a href="https://wasmarcade.com/simpsons" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch The Simpsons: Hit & Run (WASM Arcade Mirror) in a new tab">
+            <img src="assets/covers/simpsons.webp" alt="The Simpsons: Hit & Run (WASM Arcade Mirror) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">2003</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                HIGH-SPEED MIRROR
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://wasmarcade.com/simpsons" target="_blank" rel="noopener noreferrer">The Simpsons: Hit & Run (WASM Arcade Mirror)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Radical Entertainment</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WASM Arcade Pipeline</span>
+              </div>
+            </div>
+
+            <p class="game-desc">High-availability mirror of The Simpsons: Hit & Run on WASM Arcade with zero downloads, pre-cached textures, and native audio support.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Alternative high-speed server if the worker endpoint is busy.</div>
+              <div class="controls-snippet">🎮 Keyboard & Gamepad supported • Standard WASD drive controls</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Simpsons</span><span class="tag-chip">#Mirror</span><span class="tag-chip">#Fast CDN</span><span class="tag-chip">#WASM Arcade</span>
+            </div>
+
+            <a href="https://wasmarcade.com/simpsons" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Simpsons Mirror</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="minecraft-wasm"
+          data-category="openworld"
+          data-status="instant"
+          data-title="minecraft java 1.8.8 (eaglercraft wasm)"
+          data-year="2011"
+          data-tags="minecraft eaglercraft building survival multiplayer mojang / eaglercraft team teavm / webassembly java">
+          
+          <a href="https://wasmarcade.com/minecraft" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Minecraft Java 1.8.8 (Eaglercraft WASM) in a new tab">
+            <img src="assets/covers/minecraft.webp" alt="Minecraft Java 1.8.8 (Eaglercraft WASM) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">2011</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                SANDBOX MASTERPIECE
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://wasmarcade.com/minecraft" target="_blank" rel="noopener noreferrer">Minecraft Java 1.8.8 (Eaglercraft WASM)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Mojang / Eaglercraft Team</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">TeaVM / WebAssembly Java</span>
+              </div>
+            </div>
+
+            <p class="game-desc">Full Minecraft Java Edition 1.8.8 running natively in your browser! Craft tools, mine diamonds, build towering castles, create survival worlds with local saves, or join online multiplayer servers.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Singleplayer worlds save automatically to your browser’s IndexedDB! Can also load custom texture packs and connect to Eaglercraft servers.</div>
+              <div class="controls-snippet">🎮 WASD to walk • Space to jump • Left Click to mine/attack • Right Click to place block/use • E for inventory • Q to drop</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Minecraft</span><span class="tag-chip">#Eaglercraft</span><span class="tag-chip">#Building</span><span class="tag-chip">#Survival</span><span class="tag-chip">#Multiplayer</span>
+            </div>
+
+            <a href="https://wasmarcade.com/minecraft" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Minecraft 1.8.8</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="quake-1"
+          data-category="classic-pc"
+          data-status="multiplayer"
+          data-title="quake (quakeworld online)"
+          data-year="1996"
+          data-tags="id software john carmack rocket jump deathmatch pioneer id software / pieter webquake / webgl / websockets">
+          
+          <a href="https://q1.pieter.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Quake (QuakeWorld Online) in a new tab">
+            <img src="assets/covers/q1.jpg" alt="Quake (QuakeWorld Online) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #22c55e22; color: #22c55e; border: 1px solid #22c55e66;">
+                Instant & Online
+              </span>
+              <span class="badge-year">1996</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                GOTHIC DEATHMATCH
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://q1.pieter.com/" target="_blank" rel="noopener noreferrer">Quake (QuakeWorld Online)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>id Software / Pieter</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebQuake / WebGL / WebSockets</span>
+              </div>
+            </div>
+
+            <p class="game-desc">The birth of full 3D first-person shooters and multiplayer esports. Rocket jump across dark slipgates, grab the Quad Damage, and frag opponents in DM6 and DM4.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Live server browser included in the menu! You can join public deathmatch matches immediately.</div>
+              <div class="controls-snippet">🎮 WASD to move • Mouse to look & fire • Space to jump (and rocket jump) • 1-8 to switch weapons • Tab for scoreboard</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#id Software</span><span class="tag-chip">#John Carmack</span><span class="tag-chip">#Rocket Jump</span><span class="tag-chip">#Deathmatch</span><span class="tag-chip">#Pioneer</span>
+            </div>
+
+            <a href="https://q1.pieter.com/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Quake 1</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="quake-2"
+          data-category="classic-pc"
+          data-status="multiplayer"
+          data-title="quake ii (jsquake ii)"
+          data-year="1997"
+          data-tags="id software railgun strogg multiplayer fast fps id software webgl / webassembly netcode">
+          
+          <a href="https://q2.pieter.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Quake II (JSQuake II) in a new tab">
+            <img src="assets/covers/q2.jpg" alt="Quake II (JSQuake II) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #22c55e22; color: #22c55e; border: 1px solid #22c55e66;">
+                Instant & Online
+              </span>
+              <span class="badge-year">1997</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                RAILGUN ARENA
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://q2.pieter.com/" target="_blank" rel="noopener noreferrer">Quake II (JSQuake II)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>id Software</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebGL / WebAssembly Netcode</span>
+              </div>
+            </div>
+
+            <p class="game-desc">Infiltrate the Strogg home world in id Software’s industrial sci-fi sequel. Pick up the legendary Railgun, Super Shotgun, and BFG10K with smooth 120+ FPS browser rendering.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Full multiplayer support with active dedicated servers and bot support.</div>
+              <div class="controls-snippet">🎮 WASD to strafe/move • Mouse aim & fire • Wheel or numbers to swap weapons • Space to jump • C to crouch</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#id Software</span><span class="tag-chip">#Railgun</span><span class="tag-chip">#Strogg</span><span class="tag-chip">#Multiplayer</span><span class="tag-chip">#Fast FPS</span>
+            </div>
+
+            <a href="https://q2.pieter.com/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Quake 2</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="quake-3-arena"
+          data-category="classic-pc"
+          data-status="multiplayer"
+          data-title="quake iii arena (ioquake3 web)"
+          data-year="1999"
+          data-tags="arena fps competitive fast-paced railgun masterpiece id software ioquake3 webassembly / webgl">
+          
+          <a href="https://q3.pieter.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Quake III Arena (ioquake3 Web) in a new tab">
+            <img src="assets/covers/q3.jpg" alt="Quake III Arena (ioquake3 Web) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #22c55e22; color: #22c55e; border: 1px solid #22c55e66;">
+                Instant & Online
+              </span>
+              <span class="badge-year">1999</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                THE ARENA ETERNAL
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://q3.pieter.com/" target="_blank" rel="noopener noreferrer">Quake III Arena (ioquake3 Web)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>id Software</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">ioquake3 WebAssembly / WebGL</span>
+              </div>
+            </div>
+
+            <p class="game-desc">Welcome to the Arena Eternal. The pinnacle of pure competitive arena shooters. Jump pads, railgun flick shots, instagib mode, and iconic maps like The Longest Yard (q3dm17).</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Instant-play multiplayer with active servers, low-ping WebSockets netcode, and AI bots.</div>
+              <div class="controls-snippet">🎮 WASD to strafe • Mouse to aim • Left Click to fire • Space to jump • Shift to walk • T for chat</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Arena FPS</span><span class="tag-chip">#Competitive</span><span class="tag-chip">#Fast-Paced</span><span class="tag-chip">#Railgun</span><span class="tag-chip">#Masterpiece</span>
+            </div>
+
+            <a href="https://q3.pieter.com/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Quake III Arena</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="rtcw"
+          data-category="classic-pc"
+          data-status="multiplayer"
+          data-title="return to castle wolfenstein (iortcw web)"
+          data-year="2001"
+          data-tags="wolfenstein wwii multiplayer classes occult gray matter / id software iortcw webassembly / webgl">
+          
+          <a href="https://rtcw.pieter.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Return to Castle Wolfenstein (iortcw Web) in a new tab">
+            <img src="assets/covers/rtcw.jpg" alt="Return to Castle Wolfenstein (iortcw Web) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #22c55e22; color: #22c55e; border: 1px solid #22c55e66;">
+                Instant & Online
+              </span>
+              <span class="badge-year">2001</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                OBJECTIVE MULTIPLAYER
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://rtcw.pieter.com/" target="_blank" rel="noopener noreferrer">Return to Castle Wolfenstein (iortcw Web)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Gray Matter / id Software</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">iortcw WebAssembly / WebGL</span>
+              </div>
+            </div>
+
+            <p class="game-desc">Fight as B.J. Blazkowicz against occult paranormal divisions and cyborg super-soldiers. Features legendary team-based objective multiplayer with Medic, Engineer, and Lieutenant classes.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Class-based objective multiplayer. Revive teammates as a Medic and dynamite objectives as an Engineer.</div>
+              <div class="controls-snippet">🎮 WASD to move • Left Click to shoot • Right Click to aim/alt-fire • Space to jump • C to crouch • X for prone</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Wolfenstein</span><span class="tag-chip">#WWII</span><span class="tag-chip">#Multiplayer</span><span class="tag-chip">#Classes</span><span class="tag-chip">#Occult</span>
+            </div>
+
+            <a href="https://rtcw.pieter.com/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch RTCW Web</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="urban-terror"
+          data-category="shooters"
+          data-status="instant"
+          data-title="urban terror (ut.pieter.com)"
+          data-year="2007"
+          data-tags="urban terror parkour tactical team survivor quake engine frozensand ioquake3 webassembly">
+          
+          <a href="https://ut.pieter.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Urban Terror (ut.pieter.com) in a new tab">
+            <img src="assets/covers/urbanterror.svg" alt="Urban Terror (ut.pieter.com) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">2007</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                TACTICAL PARKOUR
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://ut.pieter.com/" target="_blank" rel="noopener noreferrer">Urban Terror (ut.pieter.com)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>FrozenSand</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">ioquake3 WebAssembly</span>
+              </div>
+            </div>
+
+            <p class="game-desc">"Fun over realism!" A tactical first-person shooter combining realistic weapon ballistics with acrobatic parkour: wall jumps, power slides, stamina meters, and bandaging mechanics.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Features a large initial asset download on very first visit. Once cached, boots in seconds.</div>
+              <div class="controls-snippet">🎮 WASD to move • Mouse to aim/shoot • Space to jump/wall-jump • C to slide • Q for bandage bleed wounds</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Urban Terror</span><span class="tag-chip">#Parkour</span><span class="tag-chip">#Tactical</span><span class="tag-chip">#Team Survivor</span><span class="tag-chip">#Quake Engine</span>
+            </div>
+
+            <a href="https://ut.pieter.com/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Urban Terror</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="half-life-1"
+          data-category="classic-pc"
+          data-status="instant"
+          data-title="half-life (pixelsuft webxash)"
+          data-year="1998"
+          data-tags="valve gordon freeman black mesa crowbar goty 1998 valve / pixelsuft xash3d fwgs webassembly">
+          
+          <a href="https://pixelsuft.github.io/hl/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Half-Life (Pixelsuft WebXash) in a new tab">
+            <img src="assets/covers/hl1.jpg" alt="Half-Life (Pixelsuft WebXash) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">1998</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                BLACK MESA INCIDENT
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://pixelsuft.github.io/hl/" target="_blank" rel="noopener noreferrer">Half-Life (Pixelsuft WebXash)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Valve / Pixelsuft</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">Xash3D FWGS WebAssembly</span>
+              </div>
+            </div>
+
+            <p class="game-desc">Step into the hazard suit of theoretical physicist Gordon Freeman. Experience the groundbreaking scripted narrative of the Black Mesa Resonance Cascade and fight back against the HECU military.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Pre-loaded with the official demo/hazard course! You can also drag-and-drop your own Half-Life steam assets to play the full campaign.</div>
+              <div class="controls-snippet">🎮 WASD to walk • Mouse look & fire • E to use/open doors • Space to jump • Ctrl to crouch • F for flashlight</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Valve</span><span class="tag-chip">#Gordon Freeman</span><span class="tag-chip">#Black Mesa</span><span class="tag-chip">#Crowbar</span><span class="tag-chip">#GOTY 1998</span>
+            </div>
+
+            <a href="https://pixelsuft.github.io/hl/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Half-Life 1</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="cs-16-webxash"
+          data-category="shooters"
+          data-status="files"
+          data-title="counter-strike 1.6 & half-life (webxash)"
+          data-year="2000"
+          data-tags="counter-strike de_dust2 goldsrc valve tactical valve / x8bitrain xash3d webassembly framework">
+          
+          <a href="https://x8bitrain.github.io/webXash/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Counter-Strike 1.6 & Half-Life (webXash) in a new tab">
+            <img src="assets/covers/cs16.jpg" alt="Counter-Strike 1.6 & Half-Life (webXash) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #a855f722; color: #a855f7; border: 1px solid #a855f766;">
+                Shareware / Custom
+              </span>
+              <span class="badge-year">2000</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                TACTICAL COUNTER-TERROR
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://x8bitrain.github.io/webXash/" target="_blank" rel="noopener noreferrer">Counter-Strike 1.6 & Half-Life (webXash)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Valve / x8bitrain</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">Xash3D WebAssembly Framework</span>
+              </div>
+            </div>
+
+            <p class="game-desc">The definitive competitive tactical shooter. Terrorists vs. Counter-Terrorists in de_dust2, cs_assault, and cs_office running inside modern WebAssembly.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">WebXash supports custom mods, localized save files, and direct zip asset loading from your local disk.</div>
+              <div class="controls-snippet">🎮 WASD to move • Left Click to shoot • Right Click for silencer/zoom • B to buy menu • E to defuse/plant</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Counter-Strike</span><span class="tag-chip">#de_dust2</span><span class="tag-chip">#GoldSrc</span><span class="tag-chip">#Valve</span><span class="tag-chip">#Tactical</span>
+            </div>
+
+            <a href="https://x8bitrain.github.io/webXash/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch CS 1.6 / webXash</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+        <article class="game-card" 
+          data-id="diablo-1"
+          data-category="classic-pc"
+          data-status="instant"
+          data-title="diablo 1 (diabloweb / devilutionx)"
+          data-year="1996"
+          data-tags="blizzard tristram loot dungeon crawler arpg legend blizzard north / devilutionx team devilutionx webassembly">
+          
+          <a href="https://johnimril.github.io/diablo_web/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Diablo 1 (DiabloWeb / DevilutionX) in a new tab">
+            <img src="assets/covers/diablo.png" alt="Diablo 1 (DiabloWeb / DevilutionX) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="badge-year">1996</span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                ACTION RPG ICON
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://johnimril.github.io/diablo_web/" target="_blank" rel="noopener noreferrer">Diablo 1 (DiabloWeb / DevilutionX)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Blizzard North / DevilutionX Team</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">DevilutionX WebAssembly</span>
+              </div>
+            </div>
+
+            <p class="game-desc">The dark gothic action RPG that started it all. Choose Warrior, Rogue, or Sorcerer, descend through 16 randomly generated dungeon levels beneath Tristram, and defeat Diablo.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Pre-loaded with the shareware demo! If you have the original game, simply drop your DIABDAT.MPQ into the window to play the full game with saving!</div>
+              <div class="controls-snippet">🎮 Left Click to move & attack • Right Click to cast spell • Shift + Click to attack in place • I for inventory • C for stats</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Blizzard</span><span class="tag-chip">#Tristram</span><span class="tag-chip">#Loot</span><span class="tag-chip">#Dungeon Crawler</span><span class="tag-chip">#ARPG Legend</span>
+            </div>
+
+            <a href="https://johnimril.github.io/diablo_web/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Diablo 1 Web</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+      
+    </main>
+
+    <!-- Excluded and Audited Section -->
+    <section class="audit-section" id="audit-section">
+      <div class="audit-header">
+        <h3 class="audit-title">
+          <span>🔍 Transparency Audit: Excluded or Inactive Links</span>
+        </h3>
+        <span style="font-size: 0.85rem; color: var(--text-dim);">4 links tested &amp; filtered out</span>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        Every link provided in the original request was independently verified against live servers. To ensure a professional, 100% working experience without dead ends, broken hosts, or misleading storefronts, the following 4 entries were excluded from the live cards:
+      </p>
+      <div class="audit-grid">
+        
+          <div class="audit-item">
+            <div class="audit-item-title">
+              <span>✕</span>
+              <span>Modern Warfare 2 (Railway)</span>
+            </div>
+            <div class="audit-item-reason">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #cbd5e1; margin-bottom: 4px; word-break: break-all;">http://ovz-game-production.up.railway.app/</div>
+              <div>Server responds with HTTP 429 / Cloudflare automated bot-check ("Checking your browser"). Unreachable directly for interactive play.</div>
+            </div>
+          </div>
+        
+          <div class="audit-item">
+            <div class="audit-item-title">
+              <span>✕</span>
+              <span>Skate Rust</span>
+            </div>
+            <div class="audit-item-reason">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #cbd5e1; margin-bottom: 4px; word-break: break-all;">http://global-terror.net/</div>
+              <div>Commercial streetwear store & horror lore merchandise website. Does not host a playable game client.</div>
+            </div>
+          </div>
+        
+          <div class="audit-item">
+            <div class="audit-item-title">
+              <span>✕</span>
+              <span>GTA 5 (Wayback Machine)</span>
+            </div>
+            <div class="audit-item-reason">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #cbd5e1; margin-bottom: 4px; word-break: break-all;">http://web.archive.org/web/2026100605…</div>
+              <div>Truncated URL string in prompt. Resolves only to the general Internet Archive home page.</div>
+            </div>
+          </div>
+        
+          <div class="audit-item">
+            <div class="audit-item-title">
+              <span>✕</span>
+              <span>Hedgewars (Webwars)</span>
+            </div>
+            <div class="audit-item-reason">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #cbd5e1; margin-bottom: 4px; word-break: break-all;">http://webwars.link/</div>
+              <div>Server crashes with Django DisallowedHost (400 Bad Request) due to misconfigured ALLOWED_HOSTS setting.</div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Browser Controls & Tips Modal -->
+  <div class="modal-overlay" id="helpModal">
+    <div class="modal-card">
+      <button class="modal-close" id="closeModalBtn">&times;</button>
+      <h2 class="modal-title">🕹️ Browser Gaming Pro-Tips &amp; Controls</h2>
+      <div class="modal-body">
+        <p>Most modern web ports use <strong>WebAssembly (WASM)</strong> and <strong>WebGL</strong> to compile original C/C++ game engines directly into native machine code inside your browser.</p>
+        
+        <table class="key-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>How to Use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pointer Lock (Mouse Aim)</td>
+              <td>Click anywhere on the game window to lock your mouse cursor for 360° mouse look. Press <code>ESC</code> to unlock.</td>
+            </tr>
+            <tr>
+              <td>Audio Initialization</td>
+              <td>Browsers block sound autoplay by default. Clicking the screen or pressing any key initiates the audio context.</td>
+            </tr>
+            <tr>
+              <td>True Fullscreen</td>
+              <td>Press <code>F11</code> in your browser, or click the fullscreen toggle inside the game for maximum immersion.</td>
+            </tr>
+            <tr>
+              <td>Gamepads &amp; Controllers</td>
+              <td>Plug in an Xbox or PlayStation controller via USB or Bluetooth! Web standard Gamepad API is enabled for PES 6, Halo, and Skate.</td>
+            </tr>
+            <tr>
+              <td>Save Data</td>
+              <td>Saved games and user configurations persist in your browser's local IndexedDB cache. Don't clear cache if you want to keep saves!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#gamesGrid">Back to Top ↑</a>
+        <a href="https://github.com/LIN4CRE/retro-arcade-vault" target="_blank" rel="noopener noreferrer">Retro Arcade Vault (Sister Project)</a>
+        <a href="#audit-section">Link Audit Report</a>
+      </div>
+      <p>Tabulous Games is an open-source educational curation of browser-based WebAssembly and WebGL video game ports.</p>
+      <p style="margin-top: 6px; font-size: 0.78rem;">All trademarks, box arts, and assets belong to their respective copyright holders (Activision, id Software, Valve, Rockstar Games, Blizzard, EA, Konami).</p>
+    </div>
+  </footer>
+
+  <!-- Live Filter Script -->
+  <script>
+    (function() {
+      const searchInput = document.getElementById('searchInput');
+      const sortSelect = document.getElementById('sortSelect');
+      const categoryPills = document.querySelectorAll('[data-category]');
+      const statusPills = document.querySelectorAll('[data-status]');
+      const gamesGrid = document.getElementById('gamesGrid');
+      const resultsCount = document.getElementById('resultsCount');
+      const cards = Array.from(document.querySelectorAll('.game-card'));
+
+      let activeCategory = 'all';
+      let activeStatus = 'all';
+      let searchQuery = '';
+
+      // Keyboard shortcut: '/' to focus search, ESC to clear
+      window.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== searchInput) {
+          e.preventDefault();
+          searchInput.focus();
+        } else if (e.key === 'Escape' && document.activeElement === searchInput) {
+          searchInput.value = '';
+          searchQuery = '';
+          filterAndSort();
+        }
+      });
+
+      // Search input handler
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.toLowerCase().trim();
+        filterAndSort();
+      });
+
+      // Category filter clicks
+      categoryPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          categoryPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          activeCategory = pill.getAttribute('data-category');
+          filterAndSort();
+        });
+      });
+
+      // Status filter clicks
+      statusPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          statusPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          activeStatus = pill.getAttribute('data-status');
+          filterAndSort();
+        });
+      });
+
+      // Sort change
+      sortSelect.addEventListener('change', () => {
+        filterAndSort();
+      });
+
+      function filterAndSort() {
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          const stat = card.getAttribute('data-status');
+          const title = card.getAttribute('data-title');
+          const tags = card.getAttribute('data-tags');
+
+          const matchCat = (activeCategory === 'all' || cat === activeCategory);
+          const matchStat = (activeStatus === 'all' || stat === activeStatus);
+          const matchSearch = (!searchQuery || title.includes(searchQuery) || tags.includes(searchQuery));
+
+          if (matchCat && matchStat && matchSearch) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Sorting
+        const sortVal = sortSelect.value;
+        const visibleCards = cards.filter(c => c.style.display !== 'none');
+
+        visibleCards.sort((a, b) => {
+          if (sortVal === 'title-asc') {
+            return a.getAttribute('data-title').localeCompare(b.getAttribute('data-title'));
+          } else if (sortVal === 'title-desc') {
+            return b.getAttribute('data-title').localeCompare(a.getAttribute('data-title'));
+          } else if (sortVal === 'year-desc') {
+            return parseInt(b.getAttribute('data-year')) - parseInt(a.getAttribute('data-year'));
+          } else if (sortVal === 'year-asc') {
+            return parseInt(a.getAttribute('data-year')) - parseInt(b.getAttribute('data-year'));
+          }
+          return 0;
+        });
+
+        visibleCards.forEach(c => gamesGrid.appendChild(c));
+
+        resultsCount.innerHTML = `Showing <strong>${visibleCount}</strong> of ${cards.length} games`;
+      }
+
+      // Modal logic
+      const modal = document.getElementById('helpModal');
+      const openBtn = document.getElementById('openHelpBtn');
+      const closeBtn = document.getElementById('closeModalBtn');
+
+      openBtn.addEventListener('click', () => modal.classList.add('active'));
+      closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.classList.remove('active');
+      });
+    })();
+  </script>
+</body>
+</html>

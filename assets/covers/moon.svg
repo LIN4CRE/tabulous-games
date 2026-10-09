@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="100%" height="100%">
+  <defs>
+    <radialGradient id="spaceGrad" cx="60%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="50%" stop-color="#090a18"/>
+      <stop offset="100%" stop-color="#020205"/>
+    </radialGradient>
+    <radialGradient id="moonSphere" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="70%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </radialGradient>
+    <filter id="moonGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="600" height="350" fill="url(#spaceGrad)"/>
+  <!-- Stars -->
+  <circle cx="80" cy="50" r="1.5" fill="#fff" opacity="0.8"/>
+  <circle cx="160" cy="120" r="1" fill="#fff" opacity="0.6"/>
+  <circle cx="480" cy="80" r="2" fill="#fff" opacity="0.9"/>
+  <circle cx="530" cy="190" r="1.5" fill="#fff" opacity="0.7"/>
+  <circle cx="280" cy="40" r="1.2" fill="#fff" opacity="0.5"/>
+  <!-- Moon Graphic -->
+  <circle cx="430" cy="150" r="95" fill="url(#moonSphere)" opacity="0.9" filter="url(#moonGlow)"/>
+  <circle cx="400" cy="120" r="16" fill="#475569" opacity="0.5"/>
+  <circle cx="450" cy="170" r="22" fill="#475569" opacity="0.4"/>
+  <circle cx="475" cy="115" r="12" fill="#475569" opacity="0.45"/>
+  <!-- Atmosphere Ring -->
+  <circle cx="430" cy="150" r="105" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.4"/>
+  <!-- Overlay Vignette & Title -->
+  <rect width="600" height="350" fill="rgba(5, 7, 15, 0.4)"/>
+  <g transform="translate(45, 130)">
+    <rect x="0" y="0" width="125" height="24" rx="12" fill="rgba(0, 240, 255, 0.2)" stroke="#00f0ff" stroke-width="1"/>
+    <text x="12" y="16" fill="#38bdf8" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" letter-spacing="2">REZURRECTION</text>
+    <text x="0" y="65" fill="#ffffff" font-family="'Segoe UI', 'Arial Black', sans-serif" font-size="44" font-weight="900" letter-spacing="2">MOON</text>
+    <text x="0" y="100" fill="#94a3b8" font-family="'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="600">CALL OF DUTY: BLACK OPS ZOMBIES</text>
+    <text x="0" y="130" fill="#00f0ff" font-family="monospace" font-size="12">AREA 51 // NO MAN'S LAND // LOW GRAVITY</text>
+  </g>
+</svg>

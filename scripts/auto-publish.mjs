@@ -35,6 +35,24 @@ const db = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'));
 const report = fs.existsSync(REPORT_PATH) ? JSON.parse(fs.readFileSync(REPORT_PATH, 'utf8')) : {};
 const today = new Date().toISOString().slice(0, 10);
 
+// Guard rail: if the scan says it is degraded, or a large share of the
+// catalogue suddenly fails, assume a network/outage problem and change nothing.
+const deadCount = (report.deadLinks || []).length;
+const outageThreshold = Math.max(3, Math.ceil(db.games.length * 0.15));
+const OUTAGE = Boolean(report.degraded) || deadCount > outageThreshold;
+if (OUTAGE) {
+  console.warn(
+    `auto-publish: refusing to act — ${deadCount} dead link(s) of ${db.games.length} games ` +
+      `(threshold ${outageThreshold})${report.degraded ? ', run flagged degraded' : ''}. ` +
+      'Re-run when the scanner has healthy network access.'
+  );
+  if (process.env.GITHUB_OUTPUT) {
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, 'published=0\nretired=0\n');
+  }
+  process.exit(0);
+}
+
+
 const STATUS = {
   instant: { label: 'Instant Play', color: '#00f0ff' },
   multiplayer: { label: 'Multiplayer', color: '#ff0077' },

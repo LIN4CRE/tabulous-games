@@ -124,9 +124,10 @@ New browser ports appear almost weekly, so the catalogue is no longer maintained
 *   **`scripts/make-covers.mjs`** draws the vector cover art for any entry that has no raster cover, and **`scripts/build.mjs`** regenerates the cards, filters, counts and this README from `games.json`.
 
 ```bash
-node scripts/discover-games.mjs            # scan the web, write data/discoveries.*
+npm run check                              # build --check + cover check (same as CI)
+npm run discover                           # scan the web, write data/discoveries.*
 node scripts/discover-games.mjs --fixtures # offline self-test of the parsers
-node scripts/finalise-games.mjs --list     # show staged candidates
+npm run pending                            # show staged candidates
 node scripts/make-covers.mjs               # generate missing SVG covers
 node scripts/build.mjs                     # rebuild index.html + README
 node scripts/build.mjs --check             # CI guard: fail if generated files are stale

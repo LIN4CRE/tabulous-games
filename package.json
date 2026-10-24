@@ -1,0 +1,20 @@
+{
+  "name": "tabulous-games",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Curated browser game catalogue with an automated discovery pipeline",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check && node scripts/make-covers.mjs --check",
+    "covers": "node scripts/make-covers.mjs",
+    "discover": "node scripts/discover-games.mjs",
+    "discover:fixtures": "node scripts/discover-games.mjs --fixtures",
+    "pending": "node scripts/finalise-games.mjs --list",
+    "start": "python3 -m http.server 8000"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

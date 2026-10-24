@@ -1,0 +1,118 @@
+name: Discover new browser games
+
+# Runs once every 24 hours and keeps the catalogue current without anyone
+# touching it: scan → verify → auto-publish strong finds → retire dead links
+# → refresh data/status.json → commit. GitHub Pages redeploys from main.
+on:
+  schedule:
+    # Daily at 06:17 UTC (a few minutes past the hour to avoid the cron rush).
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+    inputs:
+      max_publish:
+        description: "How many verified finds to auto-publish this run"
+        type: string
+        default: "3"
+      auto_publish:
+        description: "Auto-publish qualifying finds"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: discover-games
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out the catalogue
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Scan sources and re-check every catalogue link
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/discover-games.mjs
+
+      - name: Auto-publish verified finds and retire dead links
+        if: ${{ github.event_name == 'schedule' || inputs.auto_publish }}
+        run: >
+          node scripts/auto-publish.mjs
+          --max=${{ inputs.max_publish || '3' }}
+
+      - name: Refresh the site heartbeat
+        run: node scripts/write-status.mjs
+
+      - name: Confirm generated files are consistent
+        run: node scripts/build.mjs --check
+
+      - name: Commit the results
+        id: commit
+        run: |
+          if git diff --quiet; then
+            echo "Nothing changed."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "tabulous-discover-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore(bot): daily scan — catalogue + status refresh [skip ci]"
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Check whether anything needs a human
+        id: triage
+        run: |
+          node -e '
+            const r = require("./data/discoveries.json");
+            const n = (r.candidates || []).length + (r.deadLinks || []).length + (r.corrections || []).length;
+            console.log(`${n} item(s) flagged`);
+            require("fs").appendFileSync(process.env.GITHUB_OUTPUT, `needs=${n > 0}\n`);
+          '
+
+      - name: Open or refresh the review issue
+        if: steps.triage.outputs.needs == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create discovery --color 00f0ff --description "Automated browser-game discovery" --force >/dev/null 2>&1 || true
+          {
+            echo "Automated scan finished. Site heartbeat: \`data/status.json\`."
+            echo
+            cat data/discoveries.md
+            echo
+            echo "---"
+            echo "The bot already published verified finds and retired dead links. Stage anything else with \`node scripts/finalise-games.mjs --id <id>\`."
+          } > /tmp/findings.md
+          number=$(gh issue list --label discovery --state open --limit 1 --json number --jq '.[0].number')
+          if [ -n "$number" ]; then
+            gh issue edit "$number" --body-file /tmp/findings.md
+            echo "Updated issue #$number"
+          else
+            gh issue create --title "🎮 Daily discovery report" --label discovery --body-file /tmp/findings.md
+          fi
+
+      - name: Keep the report for inspection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: discovery-report
+          path: |
+            data/discoveries.json
+            data/discoveries.md
+            data/status.json
+          if-no-files-found: ignore

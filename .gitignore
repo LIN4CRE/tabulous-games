@@ -1,0 +1,8 @@
+# Discovery scratch output (the live report itself is committed)
+data/discoveries.fixture.json
+data/discoveries.fixture.md
+data/pending-games.json
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db

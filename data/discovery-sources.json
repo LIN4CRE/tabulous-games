@@ -1,0 +1,120 @@
+{
+  "userAgent": "TabulousGamesDiscovery/1.0 (+https://github.com/LIN4CRE/tabulous-games)",
+  "limits": {
+    "portedgamesDetails": 24,
+    "concurrency": 4,
+    "timeoutMs": 20000,
+    "minSpawnPlays": 25,
+    "revisitDays": 7
+  },
+  "sources": {
+    "portedgames": [
+      {
+        "id": "portedgames-new",
+        "enabled": true,
+        "url": "https://portedgames.com/new/",
+        "note": "Daily-checked changelog of newly added fan ports."
+      },
+      {
+        "id": "portedgames-browser",
+        "enabled": true,
+        "url": "https://portedgames.com/browser/",
+        "note": "Every browser port the directory tracks."
+      }
+    ],
+    "spawn": [
+      {
+        "id": "spawn-hot",
+        "enabled": true,
+        "url": "https://www.spawn.co/api/feed?sort=hot",
+        "genres": [
+          "survivors",
+          "survival",
+          "roguelite",
+          "roguelike",
+          "action"
+        ],
+        "note": "Public Spawn feed; Spawn games run in a tab with no install."
+      },
+      {
+        "id": "spawn-new",
+        "enabled": true,
+        "url": "https://www.spawn.co/api/feed?sort=new",
+        "genres": [
+          "survivors",
+          "survival",
+          "roguelite",
+          "roguelike"
+        ],
+        "note": "Freshest Spawn worlds, filtered to the survivor/roguelite lane."
+      }
+    ],
+    "curated": [
+      {
+        "title": "Poke World Survivors",
+        "url": "https://poke-survivors.vercel.app/",
+        "genres": [
+          "survivors",
+          "pokemon"
+        ],
+        "note": "Gen 1 starter survivor fan game seen on r/pokemon."
+      },
+      {
+        "title": "PokeBonk (Touchzada)",
+        "url": "https://pokebonk.solais.cloud/",
+        "genres": [
+          "survivors",
+          "pokemon"
+        ],
+        "note": "Separate 8-player PokeBonk, not Charcher's game."
+      },
+      {
+        "title": "Hege Mania",
+        "url": "https://hegemania.com/",
+        "genres": [
+          "survivors"
+        ],
+        "note": "Browser survivor game posted to r/indiegames."
+      },
+      {
+        "title": "Redshift Survivor",
+        "url": "https://redshift-survivor.vercel.app/",
+        "genres": [
+          "survivors",
+          "space"
+        ],
+        "note": "Three.js survivor-like; desktop only."
+      },
+      {
+        "title": "Porkoss",
+        "url": "https://itch.io/search?q=porkoss",
+        "genres": [
+          "survivors",
+          "pork"
+        ],
+        "note": "Pig survivor game listed on itch.io \u2014 watchlist query, needs a direct play link."
+      }
+    ],
+    "github": {
+      "enabled": false,
+      "queries": [
+        "survivors browser game in:name,description",
+        "vampire survivors clone webgl in:description"
+      ],
+      "note": "Enable for a broader sweep; unauthenticated search is rate-limited, GITHUB_TOKEN lifts it."
+    }
+  },
+  "watchKeywords": [
+    "survivor",
+    "roguelite",
+    "bullet heaven",
+    "horde",
+    "vampire survivors",
+    "megabonk",
+    "pokemon",
+    "diablo",
+    "warcraft",
+    "pork",
+    "bacon"
+  ]
+}

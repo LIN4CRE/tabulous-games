@@ -1,0 +1,19 @@
+{
+  "generatedAt": null,
+  "mode": "not-run",
+  "stats": {
+    "sources": 0,
+    "fetched": 0,
+    "errors": 0,
+    "skippedKnown": 0,
+    "candidates": 0,
+    "dead": 0
+  },
+  "warnings": [
+    "No live scan has run yet. Run `node scripts/discover-games.mjs` or trigger the Discover new browser games workflow."
+  ],
+  "candidates": [],
+  "deadLinks": [],
+  "catalogueChecked": 0,
+  "portedSlugs": []
+}

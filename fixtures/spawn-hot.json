@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "games": [
+    {
+      "id": "1", "play_count": 4210, "mobile_playable": true,
+      "genre_tags": ["survivors", "action"],
+      "box_copy": { "blurb": "Pick a hero, survive the horde." },
+      "games": { "name": "Diablo Survivors", "adventure_name": "diablo-survivors" },
+      "profiles": { "username": "izkimar" }
+    },
+    {
+      "id": "2", "play_count": 12226,
+      "genre_tags": ["strategy", "mmo"],
+      "box_copy": { "blurb": "Command your domain." },
+      "games": { "name": "Medieval Fate", "adventure_name": "medieval-fate" },
+      "profiles": { "username": "poisoncode" }
+    },
+    {
+      "id": "3", "play_count": 3,
+      "genre_tags": ["survivors"],
+      "box_copy": { "blurb": "Too new to judge." },
+      "games": { "name": "Quiet Prototype", "adventure_name": "quiet-prototype" },
+      "profiles": { "username": "tester" }
+    },
+    {
+      "id": "4", "play_count": 980, "mobile_playable": true,
+      "genre_tags": ["roguelite", "action"],
+      "box_copy": { "blurb": "A new bullet heaven." },
+      "games": { "name": "Swarm Lantern", "adventure_name": "swarm-lantern" },
+      "profiles": { "username": "moth" }
+    }
+  ]
+}

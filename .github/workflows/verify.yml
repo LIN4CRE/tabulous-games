@@ -1,0 +1,38 @@
+name: Verify catalogue
+
+on:
+  push:
+    branches: [main, "arena/**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generated HTML and README match games.json
+        run: node scripts/build.mjs --check
+
+      - name: Every game has cover art
+        run: node scripts/make-covers.mjs --check
+
+      - name: Discovery parsers pass their offline fixtures
+        run: |
+          node scripts/discover-games.mjs --fixtures
+          node scripts/finalise-games.mjs --fixtures --list
+
+      - name: Auto-publish stays conservative in a dry run
+        run: node scripts/auto-publish.mjs --fixtures --dry-run --no-repair
+
+      - name: Report fixture output
+        if: always()
+        run: cat data/discoveries.fixture.md

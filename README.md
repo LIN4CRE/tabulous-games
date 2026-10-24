@@ -115,7 +115,7 @@ The catalogue now looks after itself. A GitHub Action runs **once every 24 hours
 
 1. **Scans** [PortedGames](https://portedgames.com/) (its daily-checked changelog and every browser port it tracks), the public [Spawn](https://www.spawn.co/) feed filtered to survivors/roguelite, and a curated watchlist in `data/discovery-sources.json`.
 2. **Verifies** every new link and re-checks all existing catalogue links, spotting 404/410s, timeouts and domains that now redirect somewhere unrelated.
-3. **Publishes and repairs**: `scripts/auto-publish.mjs` adds up to three strong, fully verified finds per run (marked `AUTO-DISCOVERED` and honest about being machine-found), and retires entries whose host has definitively gone — moving them to the audit list with a reason. Timeouts, 5xx and bot-checks never trigger a removal.
+3. **Publishes and repairs safely**: `scripts/auto-publish.mjs` adds up to three strong, fully verified finds per run (marked `AUTO-DISCOVERED` and honest about being machine-found), and retires entries whose host has definitively gone — moving them to the audit list with a reason. Timeouts, 5xx and bot-checks never trigger a removal, and if more than 15% of links fail in one run the bot assumes the scanner lost network access and changes nothing.
 4. **Reports**: rewrites `data/status.json` (the site's heartbeat), `data/discoveries.json` / `.md`, commits everything, and opens or refreshes a `discovery` issue when something needs a human.
 
 GitHub Pages redeploys from `main` on that commit, so the live site updates itself.

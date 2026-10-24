@@ -545,8 +545,21 @@ async function main() {
   });
   stats.dead = deadLinks.length;
 
+  // A run where most links fail usually means the scanner lost network access,
+  // not that the games died. Flag it so auto-publish refuses to act on it.
+  const failureRate = checked.length ? deadLinks.length / checked.length : 0;
+  const degraded = failureRate > 0.3;
+  if (degraded) {
+    warnings.push(
+      `degraded run: ${deadLinks.length}/${checked.length} catalogue links failed (${Math.round(
+        failureRate * 100
+      )}%) — treated as a scanner/network problem, automatic removals disabled`
+    );
+  }
+
   const report = {
     generatedAt: new Date().toISOString(),
+    degraded,
     mode: FIXTURES ? 'fixtures' : ONLY_LINKS ? 'links-only' : 'live',
     stats,
     warnings,

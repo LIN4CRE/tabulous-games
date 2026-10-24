@@ -64,44 +64,40 @@ function validate() {
   }
 }
 
+const STATUS_ICON = { instant: 'i-bolt', multiplayer: 'i-globe', files: 'i-folder' };
+
+function icon(name, cls = 'ico ico--sm') {
+  return `<svg class="${cls}" aria-hidden="true"><use href="#${name}"></use></svg>`;
+}
+
 function card(g) {
   const status = STATUS_META[g.status];
   const tagText = lower(
     uniq([...g.tags, g.dev, g.engine, g.categoryLabel, ...(g.alsoKnownAs || [])]).join(' ')
   );
-  const searchTitle = lower(g.title);
-  const chip = (t) => `<span class="tag-chip">#${esc(t)}</span>`;
-  const newBadge = g.isNew ? `<span class="badge-new">NEW</span>` : '';
 
-  return `        <article class="game-card" 
+  return `        <article class="game-card"
           data-id="${esc(g.id)}"
           data-category="${esc(g.category)}"
           data-status="${esc(g.status)}"
-          data-title="${esc(searchTitle)}"
+          data-title="${esc(lower(g.title))}"
           data-year="${g.year}"
           data-tags="${esc(tagText)}">
-          
-          <a href="${esc(g.url)}" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch ${esc(g.title)} in a new tab">
-            <img src="${esc(g.cover)}" alt="${esc(g.title)} Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+
+          <a href="${esc(g.url)}" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Play ${esc(g.title)} in a new tab">
+            <img src="${esc(g.cover)}" alt="${esc(g.title)} cover art" class="cover-img" loading="lazy" decoding="async" width="640" height="360" onerror="this.src='assets/brand/banner.svg'">
             <div class="floating-badges">
-              <span class="badge-status" style="background: ${status.color}22; color: ${status.color}; border: 1px solid ${status.color}66;">
+              <span class="badge-status is-${esc(g.status)}">
+                ${icon(STATUS_ICON[g.status] || 'i-bolt', 'ico ico--sm')}
                 ${esc(status.label)}
               </span>
               <span class="floating-right">
-                ${newBadge}
+                ${g.isNew ? '<span class="badge-new">NEW</span>' : ''}
                 <span class="badge-year">${g.year}</span>
               </span>
             </div>
-            <div class="cover-overlay">
-              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
-                ${esc(g.badge)}
-              </span>
-            </div>
             <div class="play-hover-badge">
-              <div class="play-pill">
-                <span>PLAY IN TAB</span>
-                <span>↗</span>
-              </div>
+              <span class="play-pill">${icon('i-play', 'ico ico--sm')} Play in tab</span>
             </div>
           </a>
 
@@ -110,42 +106,75 @@ function card(g) {
               <h2 class="game-title">
                 <a href="${esc(g.url)}" target="_blank" rel="noopener noreferrer">${esc(g.title)}</a>
               </h2>
-              <div class="game-meta-subtitle">
+              <p class="game-meta-subtitle">
                 <span>${esc(g.dev)}</span>
-                <span>•</span>
-                <span style="color: var(--text-dim);">${esc(g.engine)}</span>
-              </div>
+                <span aria-hidden="true">·</span>
+                <span>${esc(g.engine)}</span>
+              </p>
             </div>
 
             <p class="game-desc">${esc(g.desc)}</p>
 
             <div class="info-box">
-              <div class="info-label">💡 Good to Know</div>
+              <div class="info-label">${icon('i-shield', 'ico ico--sm')} Good to know</div>
               <div class="info-text">${esc(g.goodToKnow)}</div>
-              <div class="controls-snippet">🎮 ${esc(g.controls)}</div>
+              <div class="controls-snippet">${icon('i-terminal', 'ico ico--sm')} ${esc(g.controls)}</div>
             </div>
 
             <div class="tags-row">
-              ${g.tags.map(chip).join('')}
+              ${g.tags.map((t) => `<span class="tag-chip">#${esc(t)}</span>`).join('')}
             </div>
 
             <a href="${esc(g.url)}" target="_blank" rel="noopener noreferrer" class="btn-launch">
               <span>Launch ${esc(g.shortTitle)}</span>
-              <span>↗</span>
+              ${icon('i-external')}
             </a>
           </div>
 
         </article>`;
 }
 
+function featuredSection() {
+  const feat = games.find((g) => g.id === db.featured) || games[0];
+  if (!feat) return '';
+  const status = STATUS_META[feat.status];
+  return `      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">Editor's pick</div>
+          <h2 class="section-title">The one to start with</h2>
+        </div>
+        <a class="section-link" href="#library">See all ${games.length} ${icon('i-arrow-right')}</a>
+      </div>
+
+      <article class="featured reveal">
+        <a class="featured-media" href="${esc(feat.url)}" target="_blank" rel="noopener noreferrer" aria-label="Play ${esc(feat.title)}">
+          <span class="featured-badge">${icon('i-play', 'ico ico--sm')} Featured</span>
+          <img src="${esc(feat.cover)}" alt="${esc(feat.title)} cover art" loading="lazy" decoding="async">
+        </a>
+        <div class="featured-body">
+          <h3 class="featured-title"><a href="${esc(feat.url)}" target="_blank" rel="noopener noreferrer">${esc(feat.title)}</a></h3>
+          <p class="featured-meta">${esc(feat.categoryLabel)} · ${esc(feat.dev)} · ${feat.year} · ${esc(status.label)}</p>
+          <p class="featured-desc">${esc(feat.desc)}</p>
+          <div class="featured-facts">
+            <div>${icon('i-shield')}<span>${esc(feat.goodToKnow)}</span></div>
+            <div>${icon('i-terminal')}<span>${esc(feat.controls)}</span></div>
+          </div>
+          <div class="featured-actions">
+            <a class="btn btn--primary" href="${esc(feat.url)}" target="_blank" rel="noopener noreferrer">${icon('i-play')} Play ${esc(feat.shortTitle)}</a>
+            <a class="btn btn--secondary" href="#library">${icon('i-layers')} Browse the vault</a>
+          </div>
+        </div>
+      </article>`;
+}
+
 function categoryPills() {
   const rows = [
-    `        <button class="pill-btn active" data-category="all">All Games (${games.length})</button>`,
+    `          <button class="pill-btn active" data-category="all">All games <span style="opacity:.55">${games.length}</span></button>`,
     ...categories
       .filter((c) => countByCategory(c.id) > 0)
       .map(
         (c) =>
-          `        <button class="pill-btn" data-category="${c.id}">${c.emoji} ${esc(c.label)} (${countByCategory(c.id)})</button>`
+          `          <button class="pill-btn" data-category="${c.id}">${esc(c.label)} <span style="opacity:.55">${countByCategory(c.id)}</span></button>`
       ),
   ];
   return rows.join('\n');
@@ -153,10 +182,10 @@ function categoryPills() {
 
 function statusPills() {
   return [
-    `        <button class="pill-btn active" data-status="all">All Statuses</button>`,
-    `        <button class="pill-btn" data-status="instant">⚡ Instant Play (${countByStatus('instant')})</button>`,
-    `        <button class="pill-btn" data-status="multiplayer">🌐 Multiplayer (${countByStatus('multiplayer')})</button>`,
-    `        <button class="pill-btn" data-status="files">📁 Custom Files / Addons (${countByStatus('files')})</button>`,
+    `          <button class="pill-btn active" data-status="all">All statuses</button>`,
+    `          <button class="pill-btn" data-status="instant">Instant play <span style="opacity:.55">${countByStatus('instant')}</span></button>`,
+    `          <button class="pill-btn" data-status="multiplayer">Multiplayer <span style="opacity:.55">${countByStatus('multiplayer')}</span></button>`,
+    `          <button class="pill-btn" data-status="files">Custom files <span style="opacity:.55">${countByStatus('files')}</span></button>`,
   ].join('\n');
 }
 
@@ -166,33 +195,30 @@ function auditSection() {
     .map(
       (e) => `          <div class="audit-item">
             <div class="audit-item-title">
-              <span>✕</span>
+              ${icon('i-x')}
               <span>${esc(e.name)}</span>
             </div>
             <div class="audit-item-reason">
-              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #cbd5e1; margin-bottom: 4px; word-break: break-all;">${esc(e.url)}</div>
+              <div class="audit-url">${esc(e.url)}</div>
               <div>${esc(e.reason)}</div>
             </div>
           </div>`
     )
-    .join('\n        \n');
+    .join('\n');
 
-  return `    <section class="audit-section" id="audit-section">
-      <div class="audit-header">
-        <h3 class="audit-title">
-          <span>🔍 Transparency Audit: Excluded, Offline or Unverified</span>
-        </h3>
-        <span style="font-size: 0.85rem; color: var(--text-dim);">${items.length} links tested &amp; filtered out</span>
-      </div>
-      <p style="color: var(--text-muted); font-size: 0.9rem;">
-        Every entry below was independently checked and kept out of the live grid — dead hosts, takedowns, storefronts with no game, or titles that could not be verified. The catalogue shows only links that resolved.
-      </p>
-      <div class="audit-grid">
-        
+  return `      <div class="audit-section" id="audit-section">
+        <div class="audit-header">
+          <h2 class="audit-title">${icon('i-shield')} Transparency log</h2>
+          <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--dim);">${items.length} links tested &amp; excluded</span>
+        </div>
+        <p>
+          Nothing is removed silently. Each entry below was checked and kept out of the live grid — dead hosts,
+          takedowns, storefronts with no game, or titles that could not be verified. The bot also writes removals here automatically.
+        </p>
+        <div class="audit-grid">
 ${cards}
-        
-      </div>
-    </section>`;
+        </div>
+      </div>`;
 }
 
 function readmeTable() {
@@ -244,6 +270,7 @@ function renderIndex(html) {
   out = replaceBlock(out, 'GAMES', games.map(card).join('\n\n'));
   out = replaceBlock(out, 'CATEGORY-PILLS', categoryPills());
   out = replaceBlock(out, 'STATUS-PILLS', statusPills());
+  out = replaceBlock(out, 'FEATURED', featuredSection());
   out = replaceBlock(out, 'AUDIT', auditSection());
   out = out.replaceAll('{{SCAN_FALLBACK}}', scanFallback());
   return tokens(out);
@@ -266,6 +293,19 @@ const after = {
   'index.html': renderIndex(before['index.html']),
   'README.md': renderReadme(before['README.md']),
 };
+
+/** Every local asset the rendered page points at must exist on disk. */
+function checkAssets(html) {
+  const refs = new Set(
+    [...html.matchAll(/(?:src|href)="((?!https?:|mailto:|javascript:|data:|#)[^"]+)"/g)].map((m) => m[1])
+  );
+  const missing = [...refs].filter((ref) => !fs.existsSync(path.join(ROOT, ref.split('?')[0])));
+  if (missing.length) {
+    for (const ref of missing) console.error(`missing local asset: ${ref}`);
+    if (CHECK) process.exitCode = 1;
+  }
+}
+checkAssets(after['index.html']);
 
 let stale = 0;
 for (const [file, content] of Object.entries(after)) {

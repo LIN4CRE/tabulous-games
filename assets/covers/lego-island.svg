@@ -1,47 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-label="LEGO Island cover art">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0c0618"/>
-      <stop offset="55%" stop-color="#2e1065"/>
-      <stop offset="100%" stop-color="#0c0618"/>
+      <stop offset="0%" stop-color="#120618"/>
+      <stop offset="58%" stop-color="#3b0764"/>
+      <stop offset="100%" stop-color="#120618"/>
     </linearGradient>
-    <radialGradient id="glow" cx="78%" cy="18%" r="62%">
-      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.55"/>
-      <stop offset="60%" stop-color="#a855f7" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    <radialGradient id="glow" cx="18%" cy="12%" r="70%">
+      <stop offset="0%" stop-color="#d946ef" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#d946ef" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#d946ef" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="45%" stop-color="#000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000" stop-opacity="0.65"/>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d946ef" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#d946ef" stop-opacity="0"/>
     </linearGradient>
-    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
-      <path d="M0 0H48M0 0V48" stroke="#e9d5ff" stroke-opacity="0.07" stroke-width="1"/>
+    <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="52%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.55"/>
+    </linearGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse" patternTransform="rotate(14)">
+      <path d="M0 0H64M0 0V64" stroke="#f5d0fe" stroke-opacity="0.055" stroke-width="1"/>
     </pattern>
   </defs>
+
   <rect width="1280" height="720" fill="url(#bg)"/>
   <rect width="1280" height="720" fill="url(#grid)"/>
   <rect width="1280" height="720" fill="url(#glow)"/>
-  <g opacity="0.85">
-    <circle cx="1010" cy="205" r="168" fill="none" stroke="#a855f7" stroke-opacity="0.42" stroke-width="2"/>
-    <circle cx="1010" cy="205" r="122" fill="none" stroke="#e9d5ff" stroke-opacity="0.22" stroke-width="1.5" stroke-dasharray="7 11"/>
-    <circle cx="1010" cy="205" r="78" fill="#a855f7" fill-opacity="0.15"/>
-    <circle cx="1101" cy="134" r="7" fill="#e9d5ff" fill-opacity="0.9"/>
-    <circle cx="880" cy="298" r="5" fill="#e9d5ff" fill-opacity="0.65"/>
-    <path d="M815 470 L1180 470" stroke="#a855f7" stroke-opacity="0.35" stroke-width="2"/>
-    <path d="M815 486 L1040 486" stroke="#e9d5ff" stroke-opacity="0.18" stroke-width="2"/>
+
+  <g>
+    <path d="M-130 -80 L420 680" stroke="#d946ef" stroke-opacity="0.34" stroke-width="56" stroke-linecap="round"/>
+    <path d="M-260 -80 L290 680" stroke="#d946ef" stroke-opacity="0.16" stroke-width="2"/>
+    <path d="M10 -80 L560 680" stroke="#f5d0fe" stroke-opacity="0.12" stroke-width="2"/>
+    <circle cx="240" cy="120" r="7" fill="#f5d0fe" fill-opacity="0.7"/>
+    <rect x="-50" y="512" width="250" height="2" fill="#d946ef" fill-opacity="0.5"/>
   </g>
-  <rect width="1280" height="720" fill="url(#fade)"/>
-  <g transform="translate(80 92)">
-    <rect x="0" y="0" width="329" height="42" rx="21" fill="#a855f7" fill-opacity="0.16" stroke="#a855f7" stroke-opacity="0.6"/>
-    <text x="22" y="28" fill="#e9d5ff" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="3">OPEN WORLD &amp; ACTION</text>
+
+  <text x="1268" y="640" text-anchor="end" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-weight="900"
+        font-size="600" fill="#d946ef" fill-opacity="0.07" letter-spacing="-20">L</text>
+
+  <rect width="1280" height="720" fill="url(#shade)"/>
+
+  <g font-family="Segoe UI, Arial Black, Helvetica, Arial, sans-serif" font-weight="900" font-size="118" letter-spacing="-1">
+    <text x="84" y="433" fill="#ffffff" fill-opacity="0.97">LEGO ISLAND</text>
   </g>
-  <g font-family="Segoe UI, Arial Black, Helvetica, Arial, sans-serif" font-weight="900" font-size="112" letter-spacing="1">
-    <text x="78" y="330" fill="#ffffff" stroke="#000" stroke-opacity="0.35" stroke-width="1">LEGO ISLAND</text>
-  </g>
-  <text x="80" y="392" fill="#e9d5ff" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="26" font-weight="600" opacity="0.9">isledecomp / The LEGO Group</text>
-  <g transform="translate(80 610)">
-    <rect x="0" y="0" width="238" height="52" rx="26" fill="#ffffff" fill-opacity="0.1" stroke="#ffffff" stroke-opacity="0.22"/>
-    <text x="26" y="33" fill="#ffffff" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="3">PLAY IN TAB ↗</text>
-    <text x="272" y="34" fill="#e9d5ff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" opacity="0.85">1997 · WebAssembly / Decompilation</text>
-  </g>
+
+  <rect x="86" y="477" width="132" height="7" rx="3.5" fill="url(#rule)"/>
 </svg>

@@ -8,6 +8,7 @@
     "build": "node scripts/build.mjs",
     "check": "node scripts/build.mjs --check && node scripts/make-covers.mjs --check",
     "covers": "node scripts/make-covers.mjs",
+    "brand": "node scripts/make-brand.mjs",
     "discover": "node scripts/discover-games.mjs",
     "discover:fixtures": "node scripts/discover-games.mjs --fixtures",
     "pending": "node scripts/finalise-games.mjs --list",

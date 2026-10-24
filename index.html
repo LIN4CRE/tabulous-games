@@ -482,6 +482,23 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
+    .floating-right {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-new {
+      background: linear-gradient(120deg, #fbbf24, #f97316);
+      color: #1a0b02;
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      padding: 5px 9px;
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
+    }
+
     /* Card Body */
     .card-body {
       padding: 20px;
@@ -778,7 +795,7 @@
   <div class="top-bar">
     <div class="container top-bar-content">
       <div class="top-badge-group">
-        <span><span class="status-dot"></span> <strong>23 Verified Working Games</strong> Live &amp; Tested</span>
+        <span><span class="status-dot"></span> <strong>41 Verified Working Games</strong> Live &amp; Tested</span>
         <span>•</span>
         <span>⚡ Pure WebAssembly &amp; WebGL Acceleration</span>
       </div>
@@ -826,7 +843,7 @@
       <div class="search-row">
         <div class="search-box">
           <span class="search-icon">🔍</span>
-          <input type="text" id="searchInput" class="search-input" placeholder="Search by game title, genre, year, Treyarch, id Software, WASM... (Press / to focus)">
+          <input type="text" id="searchInput" class="search-input" placeholder="Search by title, franchise, genre or alias — try "survivors", "Diablo", "Pork", "Treyarch", "WASM"... (Press / to focus)">
         </div>
         <div class="sort-box">
           <select id="sortSelect" class="select-dropdown">
@@ -842,39 +859,1389 @@
       <!-- Category Filter Pills -->
       <div class="filter-pills-row">
         <span class="filter-label">Categories:</span>
-        <button class="pill-btn active" data-category="all">All Games (23)</button>
-        <button class="pill-btn" data-category="zombies">🧟 Zombies &amp; Co-op (4)</button>
-        <button class="pill-btn" data-category="shooters">🎯 Shooters &amp; FPS (6)</button>
-        <button class="pill-btn" data-category="classic-pc">⚡ Classic Id / Retro PC (6)</button>
-        <button class="pill-btn" data-category="openworld">🚗 Open World &amp; Action (5)</button>
-        <button class="pill-btn" data-category="sports">🛹 Sports &amp; Arcade (2)</button>
+        <!-- CATEGORY-PILLS:START -->
+        <button class="pill-btn active" data-category="all">All Games (42)</button>
+        <button class="pill-btn" data-category="survivors">⚔️ Survivors &amp; Roguelite (9)</button>
+        <button class="pill-btn" data-category="zombies">🧟 Zombies &amp; Co-op (3)</button>
+        <button class="pill-btn" data-category="shooters">🎯 Shooters &amp; FPS (5)</button>
+        <button class="pill-btn" data-category="classic-pc">⚡ Classic PC &amp; Retro Ports (9)</button>
+        <button class="pill-btn" data-category="openworld">🚗 Open World &amp; Action (7)</button>
+        <button class="pill-btn" data-category="strategy">🧠 Strategy &amp; Sim (3)</button>
+        <button class="pill-btn" data-category="sports">🛹 Sports &amp; Arcade (6)</button>
+<!-- CATEGORY-PILLS:END -->
       </div>
 
       <!-- Status Filter Pills -->
       <div class="filter-pills-row">
         <span class="filter-label">Status:</span>
+        <!-- STATUS-PILLS:START -->
         <button class="pill-btn active" data-status="all">All Statuses</button>
-        <button class="pill-btn" data-status="instant">⚡ Instant Play (16)</button>
+        <button class="pill-btn" data-status="instant">⚡ Instant Play (33)</button>
         <button class="pill-btn" data-status="multiplayer">🌐 Multiplayer (5)</button>
-        <button class="pill-btn" data-status="files">📁 Custom Files / Addons (2)</button>
+        <button class="pill-btn" data-status="files">📁 Custom Files / Addons (4)</button>
+<!-- STATUS-PILLS:END -->
       </div>
 
       <div class="results-count-bar">
-        <span id="resultsCount">Showing <strong>23</strong> of 23 games</span>
+        <span id="resultsCount">Showing <strong>41</strong> of 41 games</span>
         <a href="javascript:void(0)" id="openHelpBtn" style="color: var(--cyan); font-weight: 600;">⌨️ Browser Controls &amp; Tips Guide</a>
       </div>
     </div>
 
     <!-- Games Grid -->
     <main class="games-grid" id="gamesGrid">
-      
+      <!-- GAMES:START -->
+        <article class="game-card" 
+          data-id="pokebonk-touchzada"
+          data-category="survivors"
+          data-status="instant"
+          data-title="pokebonk (touchzada, 8-player)"
+          data-year="2026"
+          data-tags="survivors pokémon online co-op mega evolution fan project touchzada (luciano gomes) html5 canvas / online rooms survivors &amp; roguelite pokebonk by touchzada">
+          
+          <a href="https://pokebonk.solais.cloud/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch PokeBonk (Touchzada, 8-Player) in a new tab">
+            <img src="assets/covers/pokebonk-touchzada.svg" alt="PokeBonk (Touchzada, 8-Player) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">2026</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                8-PLAYER HORDE
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://pokebonk.solais.cloud/" target="_blank" rel="noopener noreferrer">PokeBonk (Touchzada, 8-Player)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Touchzada (Luciano Gomes)</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">HTML5 Canvas / Online Rooms</span>
+              </div>
+            </div>
+
+            <p class="game-desc">A separate fan-made PokeBonk by Touchzada: pick a Pokémon, survive the horde, stack absurd combos and Mega Evolve. Casual, Classic and Challenge presets, missions and a shop, plus online runs for up to eight players.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Guest mode needs no account; logging in keeps missions, BP currency, shop unlocks and leaderboard runs. Not the same project as Charcher's pokebonk.com — this one is built around online play for up to eight.</div>
+              <div class="controls-snippet">🎮 WASD or arrow keys to move • Attacks fire automatically • Mouse for menus and the shop • F2 for the balance panel • Esc to go back</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Survivors</span><span class="tag-chip">#Pokémon</span><span class="tag-chip">#Online Co-op</span><span class="tag-chip">#Mega Evolution</span><span class="tag-chip">#Fan Project</span>
+            </div>
+
+            <a href="https://pokebonk.solais.cloud/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch PokeBonk Online</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="azeroth-survivors"
+          data-category="survivors"
+          data-status="instant"
+          data-title="azeroth survivors (world of warcraft survivors)"
+          data-year="2026"
+          data-tags="survivors world of warcraft roguelite webgpu fan project aethus (fan project) webgpu / rust + bevy wasm survivors &amp; roguelite world of warcraft survivors wow survivors">
+          
+          <a href="https://wow.aethus.pl/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Azeroth Survivors (World of Warcraft Survivors) in a new tab">
+            <img src="assets/covers/azeroth-survivors.svg" alt="Azeroth Survivors (World of Warcraft Survivors) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">2026</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                WOW SURVIVORS
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://wow.aethus.pl/" target="_blank" rel="noopener noreferrer">Azeroth Survivors (World of Warcraft Survivors)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Aethus (fan project)</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebGPU / Rust + Bevy WASM</span>
+              </div>
+            </div>
+
+            <p class="game-desc">A free fan-made survivors roguelike set in vanilla World of Warcraft 1.12.1. Pick a race, class and zone, then steer through hordes of that zone's real creatures while your spells cast themselves and every level offers three upgrade cards.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Needs WebGPU: Chrome or Edge 113+, Safari 26+, or Firefox with dom.webgpu.enabled. The first visit streams roughly 140 MB of world data, then the browser caches it. If the host says &quot;Too many people are playing&quot;, wait a few minutes and reload. Unofficial fan project, not affiliated with Blizzard.</div>
+              <div class="controls-snippet">🎮 WASD to move • Mouse to aim and steer • 1 / 2 / 3 to pick level-up cards • R to reroll • Space to jump • F for your class movement spell • C to lock the camera • Wheel to zoom • Enter to start • Esc to pause</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Survivors</span><span class="tag-chip">#World of Warcraft</span><span class="tag-chip">#Roguelite</span><span class="tag-chip">#WebGPU</span><span class="tag-chip">#Fan Project</span>
+            </div>
+
+            <a href="https://wow.aethus.pl/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Azeroth Survivors</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="diablo-survivors-spawn"
+          data-category="survivors"
+          data-status="instant"
+          data-title="diablo survivors (3d multiplayer)"
+          data-year="2026"
+          data-tags="survivors diablo action rpg 3d multiplayer izkimar / spawn webgl / spawn engine survivors &amp; roguelite diablo survivors v1699">
+          
+          <a href="https://www.spawn.co/@izkimar/diablo-survivors" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Diablo Survivors (3D Multiplayer) in a new tab">
+            <img src="assets/covers/diablo-survivors-spawn.svg" alt="Diablo Survivors (3D Multiplayer) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">2026</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                3D SURVIVORS
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://www.spawn.co/@izkimar/diablo-survivors" target="_blank" rel="noopener noreferrer">Diablo Survivors (3D Multiplayer)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>izkimar / Spawn</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebGL / Spawn Engine</span>
+              </div>
+            </div>
+
+            <p class="game-desc">Pick a hero at the camp fire, step through the portal and survive the horde in this 3D third-person Diablo survivors-like. Chests deal reward cards, Horadric runs drop runes and gear, and friends can drop into the same world.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Opens straight in the browser with no sign-in and no download; multiplayer sessions are hosted on Spawn. Chests, runes and difficulty unlocks persist between runs. Unofficial fan project set in Diablo's world.</div>
+              <div class="controls-snippet">🎮 WASD to move • Mouse to aim and look • Left Click to attack • Skill keys to cast • E to interact • P for Heroes Online • Esc for the menu</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Survivors</span><span class="tag-chip">#Diablo</span><span class="tag-chip">#Action RPG</span><span class="tag-chip">#3D</span><span class="tag-chip">#Multiplayer</span>
+            </div>
+
+            <a href="https://www.spawn.co/@izkimar/diablo-survivors" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Diablo Survivors</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="d2-survivors"
+          data-category="survivors"
+          data-status="files"
+          data-title="d2 survivors (diablo ii survivors)"
+          data-year="2026"
+          data-tags="survivors diablo ii action rpg own files fan project framara (fan project) webassembly / own d2 files survivors &amp; roguelite diablo ii survivors">
+          
+          <a href="https://d2survivors.lol/play/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch D2 Survivors (Diablo II Survivors) in a new tab">
+            <img src="assets/covers/d2-survivors.svg" alt="D2 Survivors (Diablo II Survivors) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #a855f722; color: #a855f7; border: 1px solid #a855f766;">
+                Custom Files
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">2026</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                OWN FILES
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://d2survivors.lol/play/" target="_blank" rel="noopener noreferrer">D2 Survivors (Diablo II Survivors)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>framara (fan project)</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebAssembly / Own D2 Files</span>
+              </div>
+            </div>
+
+            <p class="game-desc">Diablo II's world turned into a survivors-like: all seven heroes and their skill trees, D2's own loot from the first drop to a gold-named unique, five acts, then Nightmare and Hell. Your skills cast themselves as you walk.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">You must own Diablo II (1.14 with Lord of Destruction) or Diablo II: Resurrected. The browser client reads the .MPQ files from your install once and keeps them in browser storage — nothing is uploaded. Free desktop builds are also offered.</div>
+              <div class="controls-snippet">🎮 WASD to walk • Mouse to aim • Skills cast automatically • 1 / 2 / 3 to choose level-up cards • I for inventory • Esc for menu</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Survivors</span><span class="tag-chip">#Diablo II</span><span class="tag-chip">#Action RPG</span><span class="tag-chip">#Own Files</span><span class="tag-chip">#Fan Project</span>
+            </div>
+
+            <a href="https://d2survivors.lol/play/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch D2 Survivors</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="pokebonk"
+          data-category="survivors"
+          data-status="instant"
+          data-title="pokébonk (3d pokémon survivors)"
+          data-year="2026"
+          data-tags="survivors pokémon 3d roguelite fan project charcher webgl / 3d megabonk-style survivors &amp; roguelite">
+          
+          <a href="https://pokebonk.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch PokéBonk (3D Pokémon Survivors) in a new tab">
+            <img src="assets/covers/pokebonk.svg" alt="PokéBonk (3D Pokémon Survivors) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">2026</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                KANTO HORDE
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://pokebonk.com/" target="_blank" rel="noopener noreferrer">PokéBonk (3D Pokémon Survivors)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Charcher</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebGL / 3D Megabonk-style</span>
+              </div>
+            </div>
+
+            <p class="game-desc">A free 3D Pokémon survivor game in the style of Megabonk. Pick Bulbasaur, Charmander or Squirtle, dodge wild hordes, evolve mid-run and fire your Ultimate across classic zones, guardians and an endless Survival mode.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Play only at the official pokebonk.com — the look-alike .app, .io, .online and .site domains are not the author's. Play as a guest, or make an account to keep progress, clans and leaderboard entries. Made with AI-assisted assets, as the site's legal page states.</div>
+              <div class="controls-snippet">🎮 WASD to move • Mouse to orbit the camera • Space to jump (hold to glide) • Shift to slide • E to interact • R for Ultimate • Right Click to lock on • Q for auto/manual aim • P or Esc to pause</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Survivors</span><span class="tag-chip">#Pokémon</span><span class="tag-chip">#3D</span><span class="tag-chip">#Roguelite</span><span class="tag-chip">#Fan Project</span>
+            </div>
+
+            <a href="https://pokebonk.com/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch PokéBonk</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="pokesurvivor"
+          data-category="survivors"
+          data-status="instant"
+          data-title="pokésurvivor (966 pokémon)"
+          data-year="2026"
+          data-tags="survivors pokémon 2d co-op fan project jpter78 html5 canvas / webgl survivors &amp; roguelite">
+          
+          <a href="https://pokesurvivor.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch PokéSurvivor (966 Pokémon) in a new tab">
+            <img src="assets/covers/pokesurvivor.svg" alt="PokéSurvivor (966 Pokémon) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">2026</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                966 POKÉMON
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://pokesurvivor.com/" target="_blank" rel="noopener noreferrer">PokéSurvivor (966 Pokémon)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>JPTER78</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">HTML5 Canvas / WebGL</span>
+              </div>
+            </div>
+
+            <p class="game-desc">A 2D bullet-heaven Pokémon fan game with 966 Pokémon across all nine regions. Pick a partner, clear Mystery Dungeon-style runs, hunt shinies and rift legendaries, and play co-op with up to four friends.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Play as a guest or link an account or Google login to keep progress across devices; guest progress stays in that browser. Free, with no ads and no purchases. The game is played in landscape, including on phones.</div>
+              <div class="controls-snippet">🎮 WASD or arrow keys to move • Tap or click menus • Attacks fire automatically • Pick an upgrade on every level • Esc for menu</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Survivors</span><span class="tag-chip">#Pokémon</span><span class="tag-chip">#2D</span><span class="tag-chip">#Co-op</span><span class="tag-chip">#Fan Project</span>
+            </div>
+
+            <a href="https://pokesurvivor.com/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch PokéSurvivor</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="pokemon-survivors"
+          data-category="survivors"
+          data-status="instant"
+          data-title="pokémon survivors (bullet heaven)"
+          data-year="2026"
+          data-tags="survivors pokémon roguelite mega evolution fan project pokémon survivors team html5 / canvas survivors &amp; roguelite">
+          
+          <a href="https://www.pokemonsurvivors.com/en/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Pokémon Survivors (Bullet Heaven) in a new tab">
+            <img src="assets/covers/pokemon-survivors.svg" alt="Pokémon Survivors (Bullet Heaven) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">2026</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                15 MINUTE RUNS
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://www.pokemonsurvivors.com/en/" target="_blank" rel="noopener noreferrer">Pokémon Survivors (Bullet Heaven)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Pokémon Survivors team</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">HTML5 / Canvas</span>
+              </div>
+            </div>
+
+            <p class="game-desc">A full Vampire Survivors-style Pokémon roguelite: 27 starters, mid-run evolutions, 207 moves, 91 abilities, legendary boss fights, rifts and Mega Evolution. Survive 15 minutes, beat Mewtwo, then face endless Arceus.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">No download and no sign-up; progress, eggs and caught legendaries save in your browser. A Halloween 2026 Darkrai event runs from 24 October to 2 November. Unofficial fan game.</div>
+              <div class="controls-snippet">🎮 WASD to walk, or tap and drag on mobile • Attacks are automatic • 1 / 2 / 3 to choose upgrades • E to talk • Esc to go back</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Survivors</span><span class="tag-chip">#Pokémon</span><span class="tag-chip">#Roguelite</span><span class="tag-chip">#Mega Evolution</span><span class="tag-chip">#Fan Project</span>
+            </div>
+
+            <a href="https://www.pokemonsurvivors.com/en/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Pokémon Survivors</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="bacon-survivor"
+          data-category="survivors"
+          data-status="instant"
+          data-title="bacon survivor (pork survivors-like)"
+          data-year="2025"
+          data-tags="survivors pig pork bullet heaven arcade snoutup games html5 / canvas survivors &amp; roguelite pork survivors">
+          
+          <a href="https://poki.com/en/g/bacon-survivor" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Bacon Survivor (Pork Survivors-like) in a new tab">
+            <img src="assets/covers/bacon-survivor.svg" alt="Bacon Survivor (Pork Survivors-like) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">2025</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                PIG VS HORDE
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://poki.com/en/g/bacon-survivor" target="_blank" rel="noopener noreferrer">Bacon Survivor (Pork Survivors-like)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>SnoutUp Games</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">HTML5 / Canvas</span>
+              </div>
+            </div>
+
+            <p class="game-desc">The closest thing we could verify to a &quot;Pork Survivors&quot; game: SnoutUp's bacon-flavoured bullet-heaven, where a brave pig fights endless waves with guns, abilities and unlockable weapons in a monster-infested kitchen.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Official SnoutUp release hosted on Poki, also on Android and iOS. Free and no account needed. We could not find any game literally titled &quot;Pork Survivors&quot; — this is the verified pig-themed survivor game.</div>
+              <div class="controls-snippet">🎮 WASD or arrow keys to move • Weapons fire on their own • Gamepad supported • On-screen joystick on phones</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Survivors</span><span class="tag-chip">#Pig</span><span class="tag-chip">#Pork</span><span class="tag-chip">#Bullet Heaven</span><span class="tag-chip">#Arcade</span>
+            </div>
+
+            <a href="https://poki.com/en/g/bacon-survivor" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Bacon Survivor</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="browsing-of-isaac"
+          data-category="survivors"
+          data-status="instant"
+          data-title="the binding of isaac: repentance+ (the browsing of isaac)"
+          data-year="2011"
+          data-tags="roguelite isaac webassembly fan port bullet heaven chiikabu / nicalis webassembly / static recompilation survivors &amp; roguelite the binding of isaac in the browser">
+          
+          <a href="https://tboi.online/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch The Binding of Isaac: Repentance+ (The Browsing of Isaac) in a new tab">
+            <img src="assets/covers/browsing-of-isaac.svg" alt="The Binding of Isaac: Repentance+ (The Browsing of Isaac) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">2011</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                ROGUELITE CLASSIC
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://tboi.online/" target="_blank" rel="noopener noreferrer">The Binding of Isaac: Repentance+ (The Browsing of Isaac)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>chiikabu / Nicalis</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebAssembly / Static Recompilation</span>
+              </div>
+            </div>
+
+            <p class="game-desc">chiikabu's WebAssembly recompile of The Binding of Isaac: Repentance+ running in a tab. Every item, synergy and bug from the PC game, with tboi.online streaming the whole data payload so there are no files to import.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">The first load streams about 740 MB of game data, so give it time and free disk space. Saves stay in browser storage and can be exported. Chromium browsers are recommended. Unofficial fan recompile — own the game to play fair.</div>
+              <div class="controls-snippet">🎮 WASD to move • Arrow keys to shoot • Space for the active item • Q for card or pill • E for bomb • Ctrl to swap items (hold to drop) • Tab for map • Esc to pause • F for fullscreen</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Roguelite</span><span class="tag-chip">#Isaac</span><span class="tag-chip">#WebAssembly</span><span class="tag-chip">#Fan Port</span><span class="tag-chip">#Bullet Heaven</span>
+            </div>
+
+            <a href="https://tboi.online/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch The Browsing of Isaac</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="wasm-doom"
+          data-category="classic-pc"
+          data-status="instant"
+          data-title="doom (wasm doom)"
+          data-year="1993"
+          data-tags="doom id software fps wasm multiplayer cloudflare / id software chocolate doom wasm / websockets classic pc &amp; retro ports doom in the browser">
+          
+          <a href="https://silentspacemarine.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Doom (Wasm Doom) in a new tab">
+            <img src="assets/covers/wasm-doom.svg" alt="Doom (Wasm Doom) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">1993</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                SHAREWARE EP.1
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://silentspacemarine.com/" target="_blank" rel="noopener noreferrer">Doom (Wasm Doom)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Cloudflare / id Software</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">Chocolate Doom WASM / WebSockets</span>
+              </div>
+            </div>
+
+            <p class="game-desc">Cloudflare's Chocolate Doom compiled to WebAssembly: the free shareware episode Knee-Deep in the Dead, played solo or in online deathmatch over WebSockets. The original look and feel, not a remaster.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Only the free shareware episode is included; Doom II and the paid episodes are not. Click the canvas first so the keyboard goes to the game. Choose Start Multiplayer to get a link you can share for deathmatch.</div>
+              <div class="controls-snippet">🎮 Arrow keys to move and turn • Ctrl to fire • Space to open doors and use switches • Shift to run • Alt + Left/Right to strafe • 1–7 for weapons • Tab for map • Esc for menu</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Doom</span><span class="tag-chip">#id Software</span><span class="tag-chip">#FPS</span><span class="tag-chip">#WASM</span><span class="tag-chip">#Multiplayer</span>
+            </div>
+
+            <a href="https://silentspacemarine.com/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Doom Web</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="crash-bash-online"
+          data-category="sports"
+          data-status="multiplayer"
+          data-title="crash bash online"
+          data-year="2000"
+          data-tags="crash bandicoot party multiplayer ps1 fan port paolo furlan (fan port) webgl / server-side game logic sports &amp; arcade">
+          
+          <a href="https://crashbash.app/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Crash Bash Online in a new tab">
+            <img src="assets/covers/crash-bash-online.svg" alt="Crash Bash Online Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #ff007722; color: #ff0077; border: 1px solid #ff007766;">
+                Multiplayer
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">2000</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                4-PLAYER PARTY
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://crashbash.app/" target="_blank" rel="noopener noreferrer">Crash Bash Online</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Paolo Furlan (fan port)</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebGL / Server-side Game Logic</span>
+              </div>
+            </div>
+
+            <p class="game-desc">An unofficial browser port of the PS1 party classic Crash Bash, with all 28 battle arenas, the full Adventure mode and 2–4 player online rooms. Empty seats are filled by CPU players.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Battle and Tournament need no account; Adventure mode saves to a free account. Rooms are hosted in Europe first, so distant players may see lag. Click the speaker icon once to enable sound.</div>
+              <div class="controls-snippet">🎮 Arrow keys or WASD to move • Space to jump • X to attack • Z to pick up or throw • C to taunt • Gamepad and on-screen touch pad supported</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Crash Bandicoot</span><span class="tag-chip">#Party</span><span class="tag-chip">#Multiplayer</span><span class="tag-chip">#PS1</span><span class="tag-chip">#Fan Port</span>
+            </div>
+
+            <a href="https://crashbash.app/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Crash Bash</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="openlara"
+          data-category="classic-pc"
+          data-status="instant"
+          data-title="tomb raider (openlara)"
+          data-year="1996"
+          data-tags="tomb raider adventure webgl open source retro xproger / core design webgl / webassembly engine rewrite classic pc &amp; retro ports">
+          
+          <a href="http://xproger.info/projects/OpenLara/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Tomb Raider (OpenLara) in a new tab">
+            <img src="assets/covers/openlara.svg" alt="Tomb Raider (OpenLara) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">1996</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                1996 CLASSIC
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="http://xproger.info/projects/OpenLara/" target="_blank" rel="noopener noreferrer">Tomb Raider (OpenLara)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>XProger / Core Design</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebGL / WebAssembly Engine Rewrite</span>
+              </div>
+            </div>
+
+            <p class="game-desc">OpenLara, XProger's open-source re-implementation of the original Tomb Raider engine, running in WebGL. The web build streams classic level data, so you can start raiding without importing your own files.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">The author's server is slow on first load — wait, or reload if it stalls. The web build offers the Caves and City of Vilcabamba demo levels, and can load your own .PHD, .PSX or .TR level files.</div>
+              <div class="controls-snippet">🎮 Arrow keys to move and turn • D to jump • Ctrl to grab, use and shoot • Space to draw weapons • Shift to walk • A to roll • C to look • Tab for inventory</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Tomb Raider</span><span class="tag-chip">#Adventure</span><span class="tag-chip">#WebGL</span><span class="tag-chip">#Open Source</span><span class="tag-chip">#Retro</span>
+            </div>
+
+            <a href="http://xproger.info/projects/OpenLara/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch OpenLara</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="openttd-online"
+          data-category="strategy"
+          data-status="instant"
+          data-title="openttd online (transport tycoon)"
+          data-year="1995"
+          data-tags="transport tycoon strategy simulation open source wasm openttd / owen gerke webassembly / opengfx strategy &amp; sim">
+          
+          <a href="https://openttdonline.com/play/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch OpenTTD Online (Transport Tycoon) in a new tab">
+            <img src="assets/covers/openttd-online.svg" alt="OpenTTD Online (Transport Tycoon) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">1995</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                TYCOON IN A TAB
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://openttdonline.com/play/" target="_blank" rel="noopener noreferrer">OpenTTD Online (Transport Tycoon)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>OpenTTD / Owen Gerke</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebAssembly / OpenGFX</span>
+              </div>
+            </div>
+
+            <p class="game-desc">A WebAssembly build of OpenTTD 15.3, the open-source Transport Tycoon Deluxe. Build rail, road, sea and air networks across random maps and scenarios, with the full company, finance and vehicle windows.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">First start downloads about 11 MB of free OpenGFX graphics — keep the tab open while it counts up. If text shows as empty boxes, set Game Options → Language to English. Saves live in browser storage, so export anything important.</div>
+              <div class="controls-snippet">🎮 Mouse to build and drag the map • Right-drag to scroll • Wheel to zoom • Use the toolbar to pause • Full manual at the OpenTTD wiki</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Transport Tycoon</span><span class="tag-chip">#Strategy</span><span class="tag-chip">#Simulation</span><span class="tag-chip">#Open Source</span><span class="tag-chip">#WASM</span>
+            </div>
+
+            <a href="https://openttdonline.com/play/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch OpenTTD Online</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="chrono-divide"
+          data-category="strategy"
+          data-status="files"
+          data-title="chrono divide (red alert 2)"
+          data-year="2000"
+          data-tags="red alert 2 rts strategy own files fan project chrono divide team webgl / javascript engine rewrite strategy &amp; sim command &amp; conquer: red alert 2 in the browser">
+          
+          <a href="https://game.chronodivide.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Chrono Divide (Red Alert 2) in a new tab">
+            <img src="assets/covers/chrono-divide.svg" alt="Chrono Divide (Red Alert 2) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #a855f722; color: #a855f7; border: 1px solid #a855f766;">
+                Custom Files
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">2000</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                RTS IN A TAB
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://game.chronodivide.com/" target="_blank" rel="noopener noreferrer">Chrono Divide (Red Alert 2)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Chrono Divide team</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebGL / JavaScript Engine Rewrite</span>
+              </div>
+            </div>
+
+            <p class="game-desc">A fan-made rewrite of the Red Alert 2 engine in JavaScript and WebGL, with online multiplayer, quick match, skirmish against bots, replays and mod support. The single-player campaigns are not in yet.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Needs Red Alert 2 data files (ra2.mix, language.mix and multi.mix from v1.006) imported once; the client keeps them in browser storage and uploads nothing. 64-bit Chrome, Edge or Safari recommended.</div>
+              <div class="controls-snippet">🎮 Left and right click to select and command (classic or modern scheme) • Drag to box-select • Pan with the arrow keys, WASD or screen edge • RA2 hotkeys</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Red Alert 2</span><span class="tag-chip">#RTS</span><span class="tag-chip">#Strategy</span><span class="tag-chip">#Own Files</span><span class="tag-chip">#Fan Project</span>
+            </div>
+
+            <a href="https://game.chronodivide.com/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Chrono Divide</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="road-rash"
+          data-category="sports"
+          data-status="instant"
+          data-title="road rash (three.js port)"
+          data-year="1996"
+          data-tags="road rash racing three.js retro fan port olucurious / electronic arts three.js / webgl sports &amp; arcade">
+          
+          <a href="https://roadrash.pages.dev/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Road Rash (Three.js Port) in a new tab">
+            <img src="assets/covers/road-rash.svg" alt="Road Rash (Three.js Port) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">1996</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                GRUNGE RACING
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://roadrash.pages.dev/" target="_blank" rel="noopener noreferrer">Road Rash (Three.js Port)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>olucurious / Electronic Arts</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">Three.js / WebGL</span>
+              </div>
+            </div>
+
+            <p class="game-desc">A Three.js remake of the 1996 Windows Road Rash with the original courses, bike stats, rider sprites, cutscenes and grunge soundtrack. Race, punch and kick your way through five California courses.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Click the page once to enable sound. Touch controls and tilt steering work on phones, and Mano-a-Mano has relayed online rooms. Unofficial fan project — EA is not involved.</div>
+              <div class="controls-snippet">🎮 Arrow keys or WASD to steer, accelerate and brake • Z / X (or Space / Ctrl) to punch left and right • C / K to kick • N for nitro • V to change view • Esc to pause</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Road Rash</span><span class="tag-chip">#Racing</span><span class="tag-chip">#Three.js</span><span class="tag-chip">#Retro</span><span class="tag-chip">#Fan Port</span>
+            </div>
+
+            <a href="https://roadrash.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Road Rash</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="wipeout"
+          data-category="sports"
+          data-status="instant"
+          data-title="wipeout (wipeout-rewrite)"
+          data-year="1995"
+          data-tags="wipeout racing playstation webassembly retro dominic szablewski / psygnosis webassembly / webgl sports &amp; arcade">
+          
+          <a href="https://phoboslab.org/wipegame/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch WipEout (wipeout-rewrite) in a new tab">
+            <img src="assets/covers/wipeout.svg" alt="WipEout (wipeout-rewrite) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">1995</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                ANTI-GRAV RACER
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://phoboslab.org/wipegame/" target="_blank" rel="noopener noreferrer">WipEout (wipeout-rewrite)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Dominic Szablewski / Psygnosis</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebAssembly / WebGL</span>
+              </div>
+            </div>
+
+            <p class="game-desc">A near-complete C rewrite of the 1995 PlayStation anti-gravity racer, running in WebAssembly. Choose the full build with music and intro, or the 11 MB minimal build for a quick race.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Pick FULL (about 144 MB) or MINIMAL (about 11 MB) on the start screen — the full version streams before play. Click the canvas so the keys reach the game. Unofficial fan rewrite, not endorsed by Sony.</div>
+              <div class="controls-snippet">🎮 Arrow keys to steer • X to thrust • Z to fire • C and V for air brakes • A to change view</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#WipEout</span><span class="tag-chip">#Racing</span><span class="tag-chip">#PlayStation</span><span class="tag-chip">#WebAssembly</span><span class="tag-chip">#Retro</span>
+            </div>
+
+            <a href="https://phoboslab.org/wipegame/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch WipEout</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="lego-island"
+          data-category="openworld"
+          data-status="instant"
+          data-title="lego island (isle.pizza)"
+          data-year="1997"
+          data-tags="lego adventure open world decompilation retro isledecomp / the lego group webassembly / decompilation open world &amp; action">
+          
+          <a href="https://isle.pizza/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch LEGO Island (isle.pizza) in a new tab">
+            <img src="assets/covers/lego-island.svg" alt="LEGO Island (isle.pizza) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">1997</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                BUILD &amp; EXPLORE
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://isle.pizza/" target="_blank" rel="noopener noreferrer">LEGO Island (isle.pizza)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>isledecomp / The LEGO Group</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebAssembly / Decompilation</span>
+              </div>
+            </div>
+
+            <p class="game-desc">The full 1997 LEGO Island running in a tab from the community decompilation. Explore the island, build vehicles, deliver pizzas as Pepper Roni and stop the Brickster across all three acts.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Needs a modern browser with WebAssembly threads: Chrome or Edge 95+, Firefox 92+, Safari 15.4+. Game data streams as you play, and an optional offline install of about 550 MB is offered.</div>
+              <div class="controls-snippet">🎮 Arrow keys or WASD to move • Mouse to interact • Gamepad and touch supported • Configure controls on the site's Configure page</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#LEGO</span><span class="tag-chip">#Adventure</span><span class="tag-chip">#Open World</span><span class="tag-chip">#Decompilation</span><span class="tag-chip">#Retro</span>
+            </div>
+
+            <a href="https://isle.pizza/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch LEGO Island</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="lugaru-web"
+          data-category="openworld"
+          data-status="instant"
+          data-title="lugaru (lugaru-web)"
+          data-year="2005"
+          data-tags="lugaru action open source webassembly indie wolfire / loganwalkerdev webassembly / oss lugaru open world &amp; action">
+          
+          <a href="https://loganwalkerdev.github.io/lugaru-web/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Lugaru (Lugaru-Web) in a new tab">
+            <img src="assets/covers/lugaru-web.svg" alt="Lugaru (Lugaru-Web) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">2005</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                RABBIT KUNG-FU
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://loganwalkerdev.github.io/lugaru-web/" target="_blank" rel="noopener noreferrer">Lugaru (Lugaru-Web)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Wolfire / loganwalkerdev</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebAssembly / OSS Lugaru</span>
+              </div>
+            </div>
+
+            <p class="game-desc">Wolfire's open-source 3D rabbit brawler compiled to WebAssembly with the open game data included. Play Turner through the campaign with close combat, counters, swords and stealth.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Create a player name with a keyboard before starting; progress saves in the browser. This runs the real Lugaru 1.3 engine from the OSS release, not a remake.</div>
+              <div class="controls-snippet">🎮 WASD to move • Mouse to look • Left Click to attack • Space to jump • Shift to sneak or run • Number keys to draw weapons • Gamepad supported</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Lugaru</span><span class="tag-chip">#Action</span><span class="tag-chip">#Open Source</span><span class="tag-chip">#WebAssembly</span><span class="tag-chip">#Indie</span>
+            </div>
+
+            <a href="https://loganwalkerdev.github.io/lugaru-web/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Lugaru</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="alley-cat"
+          data-category="classic-pc"
+          data-status="instant"
+          data-title="alley cat (alleycat.exe)"
+          data-year="1984"
+          data-tags="alley cat dos retro recompilation 1984 bill williams / petarov static recompilation / wasm classic pc &amp; retro ports">
+          
+          <a href="https://petarov.github.io/alleycat.exe/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Alley Cat (alleycat.exe) in a new tab">
+            <img src="assets/covers/alley-cat.svg" alt="Alley Cat (alleycat.exe) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">1984</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                1984 DOS CLASSIC
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://petarov.github.io/alleycat.exe/" target="_blank" rel="noopener noreferrer">Alley Cat (alleycat.exe)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Bill Williams / petarov</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">Static Recompilation / WASM</span>
+              </div>
+            </div>
+
+            <p class="game-desc">The 1984 IBM PC classic Alley Cat, recompiled from its DOS executable into a browser build. Leap through windows as a stray cat chasing mice, fish bowls, milk and the lady cat.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Press a key or click first so the browser allows sound. The author states that about 99% of the recompiler's code was AI-generated and only lightly reviewed — play at your own comfort level.</div>
+              <div class="controls-snippet">🎮 Cursor keys to move and jump • Alt (Option on Mac) for the room's special action • K / H / T / A pick difficulty • Ctrl+S toggles sound • Ctrl+R returns to the title screen</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Alley Cat</span><span class="tag-chip">#DOS</span><span class="tag-chip">#Retro</span><span class="tag-chip">#Recompilation</span><span class="tag-chip">#1984</span>
+            </div>
+
+            <a href="https://petarov.github.io/alleycat.exe/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Alley Cat</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="simcity-classic"
+          data-category="strategy"
+          data-status="instant"
+          data-title="simcity classic (micropolisjs)"
+          data-year="1989"
+          data-tags="simcity city builder strategy open source retro will wright / graeme mccutcheon javascript / html5 canvas strategy &amp; sim">
+          
+          <a href="https://www.graememcc.co.uk/micropolisJS/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch SimCity Classic (micropolisJS) in a new tab">
+            <img src="assets/covers/simcity-classic.svg" alt="SimCity Classic (micropolisJS) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">1989</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                CITY BUILDER
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://www.graememcc.co.uk/micropolisJS/" target="_blank" rel="noopener noreferrer">SimCity Classic (micropolisJS)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Will Wright / Graeme McCutcheon</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">JavaScript / HTML5 Canvas</span>
+              </div>
+            </div>
+
+            <p class="game-desc">micropolisJS is a hand-written JavaScript port of Micropolis, the GPL release of the original 1989 SimCity. Zone land, power it, wire roads and balance the budget through fires, floods and monster attacks.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">Free and legal under the GPL, though the SimCity trademark is not licensed. There is one save slot in browser storage. Zones need power before they will grow.</div>
+              <div class="controls-snippet">🎮 Mouse to pick tools and place tiles • Settings for game speed • Budget, Evaluation and Disasters panels on the left • Generate another to reroll the map</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#SimCity</span><span class="tag-chip">#City Builder</span><span class="tag-chip">#Strategy</span><span class="tag-chip">#Open Source</span><span class="tag-chip">#Retro</span>
+            </div>
+
+            <a href="https://www.graememcc.co.uk/micropolisJS/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch SimCity Classic</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
+        <article class="game-card" 
+          data-id="cricket-07"
+          data-category="sports"
+          data-status="instant"
+          data-title="cricket 07 (browser recompilation)"
+          data-year="2006"
+          data-tags="cricket sports ea sports webgpu recompilation dhaiwat pandya / ea sports webassembly / webgpu recompilation sports &amp; arcade">
+          
+          <a href="https://cricket07.dhaiwat.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Cricket 07 (Browser Recompilation) in a new tab">
+            <img src="assets/covers/cricket-07.svg" alt="Cricket 07 (Browser Recompilation) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+            <div class="floating-badges">
+              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
+                Instant Play
+              </span>
+              <span class="floating-right">
+                <span class="badge-new">NEW</span>
+                <span class="badge-year">2006</span>
+              </span>
+            </div>
+            <div class="cover-overlay">
+              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                CRICKET IN A TAB
+              </span>
+            </div>
+            <div class="play-hover-badge">
+              <div class="play-pill">
+                <span>PLAY IN TAB</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="card-header-row">
+              <h2 class="game-title">
+                <a href="https://cricket07.dhaiwat.com/" target="_blank" rel="noopener noreferrer">Cricket 07 (Browser Recompilation)</a>
+              </h2>
+              <div class="game-meta-subtitle">
+                <span>Dhaiwat Pandya / EA Sports</span>
+                <span>•</span>
+                <span style="color: var(--text-dim);">WebAssembly / WebGPU Recompilation</span>
+              </div>
+            </div>
+
+            <p class="game-desc">EA Sports Cricket 07 statically recompiled to WebAssembly and playable in a desktop tab. Full matches against the CPU, local multiplayer with controllers and online 1v1 room-code games.</p>
+
+            <div class="info-box">
+              <div class="info-label">💡 Good to Know</div>
+              <div class="info-text">The first visit downloads about 740 MB (Lite is about 440 MB); the full game needs roughly 1.2 GB of free space and WebGPU, so use Chrome or Edge on a desktop. Saves live in browser storage and have no export yet.</div>
+              <div class="controls-snippet">🎮 Arrow keys to move, aim a shot and place the ball • S to select, play a normal shot or bowl a stock delivery • W to go back • Hold Shift for lofted shots • D to advance or take a run • A to cancel • Esc to pause • Alt+Enter for fullscreen</div>
+            </div>
+
+            <div class="tags-row">
+              <span class="tag-chip">#Cricket</span><span class="tag-chip">#Sports</span><span class="tag-chip">#EA Sports</span><span class="tag-chip">#WebGPU</span><span class="tag-chip">#Recompilation</span>
+            </div>
+
+            <a href="https://cricket07.dhaiwat.com/" target="_blank" rel="noopener noreferrer" class="btn-launch">
+              <span>Launch Cricket 07</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </article>
+
         <article class="game-card" 
           data-id="bo1-zombies"
           data-category="zombies"
           data-status="instant"
           data-title="call of duty: black ops — zombies"
           data-year="2010"
-          data-tags="fps zombies survival treyarch cult classic treyarch / activision webgl / webassembly canvas">
+          data-tags="fps zombies survival treyarch cult classic treyarch / activision webgl / webassembly canvas zombies &amp; co-op">
           
           <a href="http://vel.gg/bo1z" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Call of Duty: Black Ops — Zombies in a new tab">
             <img src="assets/covers/bo1.jpg" alt="Call of Duty: Black Ops — Zombies Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
@@ -882,7 +2249,10 @@
               <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
                 Instant Play
               </span>
-              <span class="badge-year">2010</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2010</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -928,14 +2298,14 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="moon-zombies"
           data-category="zombies"
           data-status="instant"
           data-title="call of duty: black ops — moon"
           data-year="2011"
-          data-tags="zombies space low gravity dlc classic fps treyarch / rezurrection dlc webgl / cloudflare pages">
+          data-tags="zombies space low gravity dlc classic fps treyarch / rezurrection dlc webgl / cloudflare pages zombies &amp; co-op">
           
           <a href="https://moon-zombies.pages.dev/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Call of Duty: Black Ops — Moon in a new tab">
             <img src="assets/covers/moon.svg" alt="Call of Duty: Black Ops — Moon Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
@@ -943,7 +2313,10 @@
               <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
                 Instant Play
               </span>
-              <span class="badge-year">2011</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2011</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -989,14 +2362,14 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="kino-der-toten"
           data-category="zombies"
           data-status="instant"
           data-title="call of duty: black ops — kino der toten"
           data-year="2010"
-          data-tags="zombies theater pack-a-punch barricades masterpiece treyarch webgl / cloudflare pages">
+          data-tags="zombies theater pack-a-punch barricades masterpiece treyarch webgl / cloudflare pages zombies &amp; co-op">
           
           <a href="https://kino-der-toten.pages.dev/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Call of Duty: Black Ops — Kino der Toten in a new tab">
             <img src="assets/covers/kino.svg" alt="Call of Duty: Black Ops — Kino der Toten Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
@@ -1004,7 +2377,10 @@
               <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
                 Instant Play
               </span>
-              <span class="badge-year">2010</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2010</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -1050,136 +2426,14 @@
           </div>
 
         </article>
-      
-        <article class="game-card" 
-          data-id="cheese-cube"
-          data-category="zombies"
-          data-status="instant"
-          data-title="call of duty: black ops iii — cheese cube unlimited"
-          data-year="2015"
-          data-tags="custom map challenge verticality zombies bo3 treyarch / community challenge webgl / cloudflare pages">
-          
-          <a href="https://cheese-cube.pages.dev/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Call of Duty: Black Ops III — Cheese Cube Unlimited in a new tab">
-            <img src="assets/covers/cheesecube.svg" alt="Call of Duty: Black Ops III — Cheese Cube Unlimited Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
-            <div class="floating-badges">
-              <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
-                Instant Play
-              </span>
-              <span class="badge-year">2015</span>
-            </div>
-            <div class="cover-overlay">
-              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
-                CHALLENGE MAP
-              </span>
-            </div>
-            <div class="play-hover-badge">
-              <div class="play-pill">
-                <span>PLAY IN TAB</span>
-                <span>↗</span>
-              </div>
-            </div>
-          </a>
 
-          <div class="card-body">
-            <div class="card-header-row">
-              <h2 class="game-title">
-                <a href="https://cheese-cube.pages.dev/" target="_blank" rel="noopener noreferrer">Call of Duty: Black Ops III — Cheese Cube Unlimited</a>
-              </h2>
-              <div class="game-meta-subtitle">
-                <span>Treyarch / Community Challenge</span>
-                <span>•</span>
-                <span style="color: var(--text-dim);">WebGL / Cloudflare Pages</span>
-              </div>
-            </div>
-
-            <p class="game-desc">The most famous custom challenge map ever built for Call of Duty Zombies. Scale an absurd multi-tiered cheese monolith, buying weapons and dodging tight corner ambushes.</p>
-
-            <div class="info-box">
-              <div class="info-label">💡 Good to Know</div>
-              <div class="info-text">Higher floors get increasingly narrow and dangerous. Initial asset decompression takes a few seconds on first launch.</div>
-              <div class="controls-snippet">🎮 WASD to move • Mouse to look • Space to jump • Shift to sprint • F to open barricades and buy wall weapons</div>
-            </div>
-
-            <div class="tags-row">
-              <span class="tag-chip">#Custom Map</span><span class="tag-chip">#Challenge</span><span class="tag-chip">#Verticality</span><span class="tag-chip">#Zombies</span><span class="tag-chip">#BO3</span>
-            </div>
-
-            <a href="https://cheese-cube.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn-launch">
-              <span>Launch Cheese Cube Unlimited</span>
-              <span>↗</span>
-            </a>
-          </div>
-
-        </article>
-      
-        <article class="game-card" 
-          data-id="bo2-multiplayer"
-          data-category="shooters"
-          data-status="multiplayer"
-          data-title="call of duty: black ops ii (vibe slops ii)"
-          data-year="2012"
-          data-tags="multiplayer fps black ops ii pvp loadouts treyarch / luckeysystems webgl / websockets netcode">
-          
-          <a href="https://vibeslops.luckeysystems.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Call of Duty: Black Ops II (Vibe Slops II) in a new tab">
-            <img src="assets/covers/bo2.jpg" alt="Call of Duty: Black Ops II (Vibe Slops II) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
-            <div class="floating-badges">
-              <span class="badge-status" style="background: #ff007722; color: #ff0077; border: 1px solid #ff007766;">
-                Multiplayer
-              </span>
-              <span class="badge-year">2012</span>
-            </div>
-            <div class="cover-overlay">
-              <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
-                ONLINE ARENA
-              </span>
-            </div>
-            <div class="play-hover-badge">
-              <div class="play-pill">
-                <span>PLAY IN TAB</span>
-                <span>↗</span>
-              </div>
-            </div>
-          </a>
-
-          <div class="card-body">
-            <div class="card-header-row">
-              <h2 class="game-title">
-                <a href="https://vibeslops.luckeysystems.com/" target="_blank" rel="noopener noreferrer">Call of Duty: Black Ops II (Vibe Slops II)</a>
-              </h2>
-              <div class="game-meta-subtitle">
-                <span>Treyarch / LuckeySystems</span>
-                <span>•</span>
-                <span style="color: var(--text-dim);">WebGL / WebSockets Netcode</span>
-              </div>
-            </div>
-
-            <p class="game-desc">A full browser-based multiplayer build of Call of Duty: Black Ops II. Pick your loadout, hop into live lobbies, and dominate classic maps with authentic gunplay and movement.</p>
-
-            <div class="info-box">
-              <div class="info-label">💡 Good to Know</div>
-              <div class="info-text">Features multiplayer networking. Pick a username and join an active server lobby or host your own.</div>
-              <div class="controls-snippet">🎮 WASD to move • Mouse to look & shoot • Right Click to ADS • C to crouch • Space to jump • Tab for scoreboard</div>
-            </div>
-
-            <div class="tags-row">
-              <span class="tag-chip">#Multiplayer</span><span class="tag-chip">#FPS</span><span class="tag-chip">#Black Ops II</span><span class="tag-chip">#PVP</span><span class="tag-chip">#Loadouts</span>
-            </div>
-
-            <a href="https://vibeslops.luckeysystems.com/" target="_blank" rel="noopener noreferrer" class="btn-launch">
-              <span>Launch Black Ops II Web</span>
-              <span>↗</span>
-            </a>
-          </div>
-
-        </article>
-      
         <article class="game-card" 
           data-id="cs-surf"
           data-category="shooters"
           data-status="instant"
           data-title="counter-strike surf (surfd.net)"
           data-year="2004"
-          data-tags="surfing source engine speedrun skill smooth 60fps valve / surfd community webgl / source physics engine">
+          data-tags="surfing source engine speedrun skill smooth 60fps valve / surfd community webgl / source physics engine shooters &amp; fps">
           
           <a href="https://surfd.net/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Counter-Strike Surf (Surfd.net) in a new tab">
             <img src="assets/covers/cssurf.jpg" alt="Counter-Strike Surf (Surfd.net) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
@@ -1187,7 +2441,10 @@
               <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
                 Instant Play
               </span>
-              <span class="badge-year">2004</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2004</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -1219,7 +2476,7 @@
             <div class="info-box">
               <div class="info-label">💡 Good to Know</div>
               <div class="info-text">Never hold W while surfing! Hold A when on the right side of a ramp, and D when on the left side. Steer gently with mouse.</div>
-              <div class="controls-snippet">🎮 WASD & Strafe (A & D) • Smooth Mouse Sweeps • Space to jump • R to restart ramp • Tab for timer leaderboard</div>
+              <div class="controls-snippet">🎮 WASD &amp; Strafe (A &amp; D) • Smooth Mouse Sweeps • Space to jump • R to restart ramp • Tab for timer leaderboard</div>
             </div>
 
             <div class="tags-row">
@@ -1233,14 +2490,14 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="halo-ce-web"
           data-category="shooters"
           data-status="instant"
           data-title="halo: combat evolved (web port)"
           data-year="2001"
-          data-tags="master chief halo bungie campaign legendary bungie / mitchell hynes webgl / webassembly engine">
+          data-tags="master chief halo bungie campaign legendary bungie / mitchell hynes webgl / webassembly engine shooters &amp; fps">
           
           <a href="https://mitchellhynes.com/halo/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Halo: Combat Evolved (Web Port) in a new tab">
             <img src="assets/covers/haloce.jpg" alt="Halo: Combat Evolved (Web Port) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
@@ -1248,7 +2505,10 @@
               <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
                 Instant Play
               </span>
-              <span class="badge-year">2001</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2001</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -1294,22 +2554,25 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="halo-ce-mobile"
           data-category="shooters"
           data-status="files"
           data-title="halo: combat evolved mobile / web (hcemobile)"
           data-year="2001"
-          data-tags="halo gamepad support custom maps mobile ready bungie / hcemobile team webassembly / webgl / gamepad api">
+          data-tags="halo gamepad support custom maps mobile ready bungie / hcemobile team webassembly / webgl / gamepad api shooters &amp; fps">
           
           <a href="https://hcemobile.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Halo: Combat Evolved Mobile / Web (HCEMobile) in a new tab">
             <img src="assets/covers/halomcc.jpg" alt="Halo: Combat Evolved Mobile / Web (HCEMobile) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
             <div class="floating-badges">
               <span class="badge-status" style="background: #a855f722; color: #a855f7; border: 1px solid #a855f766;">
-                Load Files / Web
+                Custom Files
               </span>
-              <span class="badge-year">2001</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2001</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -1341,7 +2604,7 @@
             <div class="info-box">
               <div class="info-label">💡 Good to Know</div>
               <div class="info-text">Supports loading your own custom CE map files (.map) or campaign assets for complete standalone offline playback.</div>
-              <div class="controls-snippet">🎮 Keyboard & Mouse OR Bluetooth/USB Gamepad (Xbox/PlayStation controller fully supported natively)</div>
+              <div class="controls-snippet">🎮 Keyboard &amp; Mouse OR Bluetooth/USB Gamepad (Xbox/PlayStation controller fully supported natively)</div>
             </div>
 
             <div class="tags-row">
@@ -1355,14 +2618,14 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="skate-3"
           data-category="sports"
           data-status="instant"
           data-title="skate 3 (web fan project)"
           data-year="2010"
-          data-tags="skating ea physics sandbox bails ea black box / community webgl / canvas physics">
+          data-tags="skating ea physics sandbox bails ea black box / community webgl / canvas physics sports &amp; arcade">
           
           <a href="https://skate.aaddpp.lol/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Skate 3 (Web Fan Project) in a new tab">
             <img src="assets/covers/skate3.jpg" alt="Skate 3 (Web Fan Project) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
@@ -1370,7 +2633,10 @@
               <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
                 Instant Play
               </span>
-              <span class="badge-year">2010</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2010</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -1402,7 +2668,7 @@
             <div class="info-box">
               <div class="info-label">💡 Good to Know</div>
               <div class="info-text">Plug in an Xbox or PlayStation controller for the authentic dual-stick flick-it trick experience.</div>
-              <div class="controls-snippet">🎮 Gamepad Analog Sticks Recommended • Keyboard: Arrow Keys / WASD for board manipulation & Ollies</div>
+              <div class="controls-snippet">🎮 Gamepad Analog Sticks Recommended • Keyboard: Arrow Keys / WASD for board manipulation &amp; Ollies</div>
             </div>
 
             <div class="tags-row">
@@ -1416,14 +2682,14 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="pes-6"
           data-category="sports"
           data-status="instant"
           data-title="pro evolution soccer 6 (pes 6 web)"
           data-year="2006"
-          data-tags="soccer konami adriano ppsspp multiplayer konami / ppsspp web ppsspp webassembly emulation">
+          data-tags="soccer konami adriano ppsspp multiplayer konami / ppsspp web ppsspp webassembly emulation sports &amp; arcade">
           
           <a href="https://pes6.optijuegos.net/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Pro Evolution Soccer 6 (PES 6 Web) in a new tab">
             <img src="assets/covers/pes6.jpg" alt="Pro Evolution Soccer 6 (PES 6 Web) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
@@ -1431,7 +2697,10 @@
               <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
                 Instant Play
               </span>
-              <span class="badge-year">2006</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2006</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -1477,14 +2746,14 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="gta-vice-city"
           data-category="openworld"
           data-status="instant"
           data-title="grand theft auto: vice city (revc wasm)"
           data-year="2002"
-          data-tags="rockstar vice city revc 80s open world rockstar north / revc team revc webassembly / webgl">
+          data-tags="rockstar vice city revc 80s open world rockstar north / revc team revc webassembly / webgl open world &amp; action">
           
           <a href="https://joncodeofficial.github.io/gta-vice-city-wasm/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Grand Theft Auto: Vice City (reVC WASM) in a new tab">
             <img src="assets/covers/gtavc.webp" alt="Grand Theft Auto: Vice City (reVC WASM) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
@@ -1492,7 +2761,10 @@
               <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
                 Instant Play
               </span>
-              <span class="badge-year">2002</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2002</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -1538,14 +2810,14 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="gta-3"
           data-category="openworld"
           data-status="instant"
           data-title="grand theft auto iii (re3 wasm)"
           data-year="2001"
-          data-tags="gta liberty city rockstar 3d classic crime rockstar north / wasm arcade re3 webassembly / webgl">
+          data-tags="gta liberty city rockstar 3d classic crime rockstar north / wasm arcade re3 webassembly / webgl open world &amp; action">
           
           <a href="https://wasmarcade.com/gta3" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Grand Theft Auto III (re3 WASM) in a new tab">
             <img src="assets/covers/gta3.webp" alt="Grand Theft Auto III (re3 WASM) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
@@ -1553,7 +2825,10 @@
               <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
                 Instant Play
               </span>
-              <span class="badge-year">2001</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2001</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -1599,22 +2874,25 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="simpsons-hit-and-run"
           data-category="openworld"
           data-status="instant"
-          data-title="the simpsons: hit & run (shar wasm)"
+          data-title="the simpsons: hit &amp; run (shar wasm)"
           data-year="2003"
-          data-tags="simpsons springfield driving humor open world radical entertainment / vivendi webassembly / cloudflare workers">
+          data-tags="simpsons springfield driving humor open world radical entertainment / vivendi webassembly / cloudflare workers open world &amp; action">
           
-          <a href="http://shar-wasm.cjoseph.workers.dev/?skipmovie" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch The Simpsons: Hit & Run (SHAR WASM) in a new tab">
-            <img src="assets/covers/simpsons.webp" alt="The Simpsons: Hit & Run (SHAR WASM) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+          <a href="http://shar-wasm.cjoseph.workers.dev/?skipmovie" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch The Simpsons: Hit &amp; Run (SHAR WASM) in a new tab">
+            <img src="assets/covers/simpsons.webp" alt="The Simpsons: Hit &amp; Run (SHAR WASM) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
             <div class="floating-badges">
               <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
                 Instant Play
               </span>
-              <span class="badge-year">2003</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2003</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -1632,7 +2910,7 @@
           <div class="card-body">
             <div class="card-header-row">
               <h2 class="game-title">
-                <a href="http://shar-wasm.cjoseph.workers.dev/?skipmovie" target="_blank" rel="noopener noreferrer">The Simpsons: Hit & Run (SHAR WASM)</a>
+                <a href="http://shar-wasm.cjoseph.workers.dev/?skipmovie" target="_blank" rel="noopener noreferrer">The Simpsons: Hit &amp; Run (SHAR WASM)</a>
               </h2>
               <div class="game-meta-subtitle">
                 <span>Radical Entertainment / Vivendi</span>
@@ -1654,28 +2932,31 @@
             </div>
 
             <a href="http://shar-wasm.cjoseph.workers.dev/?skipmovie" target="_blank" rel="noopener noreferrer" class="btn-launch">
-              <span>Launch Simpsons Hit & Run</span>
+              <span>Launch Simpsons Hit &amp; Run</span>
               <span>↗</span>
             </a>
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="simpsons-wasmarcade"
           data-category="openworld"
           data-status="instant"
-          data-title="the simpsons: hit & run (wasm arcade mirror)"
+          data-title="the simpsons: hit &amp; run (wasm arcade mirror)"
           data-year="2003"
-          data-tags="simpsons mirror fast cdn wasm arcade radical entertainment wasm arcade pipeline">
+          data-tags="simpsons mirror fast cdn wasm arcade radical entertainment wasm arcade pipeline open world &amp; action">
           
-          <a href="https://wasmarcade.com/simpsons" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch The Simpsons: Hit & Run (WASM Arcade Mirror) in a new tab">
-            <img src="assets/covers/simpsons.webp" alt="The Simpsons: Hit & Run (WASM Arcade Mirror) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+          <a href="https://wasmarcade.com/simpsons" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch The Simpsons: Hit &amp; Run (WASM Arcade Mirror) in a new tab">
+            <img src="assets/covers/simpsons.webp" alt="The Simpsons: Hit &amp; Run (WASM Arcade Mirror) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
             <div class="floating-badges">
               <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
                 Instant Play
               </span>
-              <span class="badge-year">2003</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2003</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -1693,7 +2974,7 @@
           <div class="card-body">
             <div class="card-header-row">
               <h2 class="game-title">
-                <a href="https://wasmarcade.com/simpsons" target="_blank" rel="noopener noreferrer">The Simpsons: Hit & Run (WASM Arcade Mirror)</a>
+                <a href="https://wasmarcade.com/simpsons" target="_blank" rel="noopener noreferrer">The Simpsons: Hit &amp; Run (WASM Arcade Mirror)</a>
               </h2>
               <div class="game-meta-subtitle">
                 <span>Radical Entertainment</span>
@@ -1702,12 +2983,12 @@
               </div>
             </div>
 
-            <p class="game-desc">High-availability mirror of The Simpsons: Hit & Run on WASM Arcade with zero downloads, pre-cached textures, and native audio support.</p>
+            <p class="game-desc">High-availability mirror of The Simpsons: Hit &amp; Run on WASM Arcade with zero downloads, pre-cached textures, and native audio support.</p>
 
             <div class="info-box">
               <div class="info-label">💡 Good to Know</div>
               <div class="info-text">Alternative high-speed server if the worker endpoint is busy.</div>
-              <div class="controls-snippet">🎮 Keyboard & Gamepad supported • Standard WASD drive controls</div>
+              <div class="controls-snippet">🎮 Keyboard &amp; Gamepad supported • Standard WASD drive controls</div>
             </div>
 
             <div class="tags-row">
@@ -1721,14 +3002,14 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="minecraft-wasm"
           data-category="openworld"
           data-status="instant"
           data-title="minecraft java 1.8.8 (eaglercraft wasm)"
           data-year="2011"
-          data-tags="minecraft eaglercraft building survival multiplayer mojang / eaglercraft team teavm / webassembly java">
+          data-tags="minecraft eaglercraft building survival multiplayer mojang / eaglercraft team teavm / webassembly java open world &amp; action">
           
           <a href="https://wasmarcade.com/minecraft" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Minecraft Java 1.8.8 (Eaglercraft WASM) in a new tab">
             <img src="assets/covers/minecraft.webp" alt="Minecraft Java 1.8.8 (Eaglercraft WASM) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
@@ -1736,7 +3017,10 @@
               <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
                 Instant Play
               </span>
-              <span class="badge-year">2011</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2011</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -1782,22 +3066,25 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="quake-1"
           data-category="classic-pc"
           data-status="multiplayer"
           data-title="quake (quakeworld online)"
           data-year="1996"
-          data-tags="id software john carmack rocket jump deathmatch pioneer id software / pieter webquake / webgl / websockets">
+          data-tags="id software john carmack rocket jump deathmatch pioneer id software / pieter webquake / webgl / websockets classic pc &amp; retro ports">
           
           <a href="https://q1.pieter.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Quake (QuakeWorld Online) in a new tab">
             <img src="assets/covers/q1.jpg" alt="Quake (QuakeWorld Online) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
             <div class="floating-badges">
-              <span class="badge-status" style="background: #22c55e22; color: #22c55e; border: 1px solid #22c55e66;">
-                Instant & Online
+              <span class="badge-status" style="background: #ff007722; color: #ff0077; border: 1px solid #ff007766;">
+                Multiplayer
               </span>
-              <span class="badge-year">1996</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">1996</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -1829,7 +3116,7 @@
             <div class="info-box">
               <div class="info-label">💡 Good to Know</div>
               <div class="info-text">Live server browser included in the menu! You can join public deathmatch matches immediately.</div>
-              <div class="controls-snippet">🎮 WASD to move • Mouse to look & fire • Space to jump (and rocket jump) • 1-8 to switch weapons • Tab for scoreboard</div>
+              <div class="controls-snippet">🎮 WASD to move • Mouse to look &amp; fire • Space to jump (and rocket jump) • 1-8 to switch weapons • Tab for scoreboard</div>
             </div>
 
             <div class="tags-row">
@@ -1843,22 +3130,25 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="quake-2"
           data-category="classic-pc"
           data-status="multiplayer"
           data-title="quake ii (jsquake ii)"
           data-year="1997"
-          data-tags="id software railgun strogg multiplayer fast fps id software webgl / webassembly netcode">
+          data-tags="id software railgun strogg multiplayer fast fps webgl / webassembly netcode classic pc &amp; retro ports">
           
           <a href="https://q2.pieter.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Quake II (JSQuake II) in a new tab">
             <img src="assets/covers/q2.jpg" alt="Quake II (JSQuake II) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
             <div class="floating-badges">
-              <span class="badge-status" style="background: #22c55e22; color: #22c55e; border: 1px solid #22c55e66;">
-                Instant & Online
+              <span class="badge-status" style="background: #ff007722; color: #ff0077; border: 1px solid #ff007766;">
+                Multiplayer
               </span>
-              <span class="badge-year">1997</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">1997</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -1890,7 +3180,7 @@
             <div class="info-box">
               <div class="info-label">💡 Good to Know</div>
               <div class="info-text">Full multiplayer support with active dedicated servers and bot support.</div>
-              <div class="controls-snippet">🎮 WASD to strafe/move • Mouse aim & fire • Wheel or numbers to swap weapons • Space to jump • C to crouch</div>
+              <div class="controls-snippet">🎮 WASD to strafe/move • Mouse aim &amp; fire • Wheel or numbers to swap weapons • Space to jump • C to crouch</div>
             </div>
 
             <div class="tags-row">
@@ -1904,22 +3194,25 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="quake-3-arena"
           data-category="classic-pc"
           data-status="multiplayer"
           data-title="quake iii arena (ioquake3 web)"
           data-year="1999"
-          data-tags="arena fps competitive fast-paced railgun masterpiece id software ioquake3 webassembly / webgl">
+          data-tags="arena fps competitive fast-paced railgun masterpiece id software ioquake3 webassembly / webgl classic pc &amp; retro ports">
           
           <a href="https://q3.pieter.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Quake III Arena (ioquake3 Web) in a new tab">
             <img src="assets/covers/q3.jpg" alt="Quake III Arena (ioquake3 Web) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
             <div class="floating-badges">
-              <span class="badge-status" style="background: #22c55e22; color: #22c55e; border: 1px solid #22c55e66;">
-                Instant & Online
+              <span class="badge-status" style="background: #ff007722; color: #ff0077; border: 1px solid #ff007766;">
+                Multiplayer
               </span>
-              <span class="badge-year">1999</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">1999</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -1965,22 +3258,25 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="rtcw"
           data-category="classic-pc"
           data-status="multiplayer"
           data-title="return to castle wolfenstein (iortcw web)"
           data-year="2001"
-          data-tags="wolfenstein wwii multiplayer classes occult gray matter / id software iortcw webassembly / webgl">
+          data-tags="wolfenstein wwii multiplayer classes occult gray matter / id software iortcw webassembly / webgl classic pc &amp; retro ports">
           
           <a href="https://rtcw.pieter.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Return to Castle Wolfenstein (iortcw Web) in a new tab">
             <img src="assets/covers/rtcw.jpg" alt="Return to Castle Wolfenstein (iortcw Web) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
             <div class="floating-badges">
-              <span class="badge-status" style="background: #22c55e22; color: #22c55e; border: 1px solid #22c55e66;">
-                Instant & Online
+              <span class="badge-status" style="background: #ff007722; color: #ff0077; border: 1px solid #ff007766;">
+                Multiplayer
               </span>
-              <span class="badge-year">2001</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2001</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -2026,14 +3322,14 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="urban-terror"
           data-category="shooters"
           data-status="instant"
           data-title="urban terror (ut.pieter.com)"
           data-year="2007"
-          data-tags="urban terror parkour tactical team survivor quake engine frozensand ioquake3 webassembly">
+          data-tags="urban terror parkour tactical team survivor quake engine frozensand ioquake3 webassembly shooters &amp; fps">
           
           <a href="https://ut.pieter.com/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Urban Terror (ut.pieter.com) in a new tab">
             <img src="assets/covers/urbanterror.svg" alt="Urban Terror (ut.pieter.com) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
@@ -2041,7 +3337,10 @@
               <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
                 Instant Play
               </span>
-              <span class="badge-year">2007</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2007</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -2068,7 +3367,7 @@
               </div>
             </div>
 
-            <p class="game-desc">"Fun over realism!" A tactical first-person shooter combining realistic weapon ballistics with acrobatic parkour: wall jumps, power slides, stamina meters, and bandaging mechanics.</p>
+            <p class="game-desc">&quot;Fun over realism!&quot; A tactical first-person shooter combining realistic weapon ballistics with acrobatic parkour: wall jumps, power slides, stamina meters, and bandaging mechanics.</p>
 
             <div class="info-box">
               <div class="info-label">💡 Good to Know</div>
@@ -2087,14 +3386,14 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="half-life-1"
           data-category="classic-pc"
           data-status="instant"
           data-title="half-life (pixelsuft webxash)"
           data-year="1998"
-          data-tags="valve gordon freeman black mesa crowbar goty 1998 valve / pixelsuft xash3d fwgs webassembly">
+          data-tags="valve gordon freeman black mesa crowbar goty 1998 valve / pixelsuft xash3d fwgs webassembly classic pc &amp; retro ports">
           
           <a href="https://pixelsuft.github.io/hl/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Half-Life (Pixelsuft WebXash) in a new tab">
             <img src="assets/covers/hl1.jpg" alt="Half-Life (Pixelsuft WebXash) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
@@ -2102,7 +3401,10 @@
               <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
                 Instant Play
               </span>
-              <span class="badge-year">1998</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">1998</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -2134,7 +3436,7 @@
             <div class="info-box">
               <div class="info-label">💡 Good to Know</div>
               <div class="info-text">Pre-loaded with the official demo/hazard course! You can also drag-and-drop your own Half-Life steam assets to play the full campaign.</div>
-              <div class="controls-snippet">🎮 WASD to walk • Mouse look & fire • E to use/open doors • Space to jump • Ctrl to crouch • F for flashlight</div>
+              <div class="controls-snippet">🎮 WASD to walk • Mouse look &amp; fire • E to use/open doors • Space to jump • Ctrl to crouch • F for flashlight</div>
             </div>
 
             <div class="tags-row">
@@ -2148,22 +3450,25 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="cs-16-webxash"
           data-category="shooters"
           data-status="files"
-          data-title="counter-strike 1.6 & half-life (webxash)"
+          data-title="counter-strike 1.6 &amp; half-life (webxash)"
           data-year="2000"
-          data-tags="counter-strike de_dust2 goldsrc valve tactical valve / x8bitrain xash3d webassembly framework">
+          data-tags="counter-strike de_dust2 goldsrc valve tactical valve / x8bitrain xash3d webassembly framework shooters &amp; fps">
           
-          <a href="https://x8bitrain.github.io/webXash/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Counter-Strike 1.6 & Half-Life (webXash) in a new tab">
-            <img src="assets/covers/cs16.jpg" alt="Counter-Strike 1.6 & Half-Life (webXash) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
+          <a href="https://x8bitrain.github.io/webXash/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Counter-Strike 1.6 &amp; Half-Life (webXash) in a new tab">
+            <img src="assets/covers/cs16.jpg" alt="Counter-Strike 1.6 &amp; Half-Life (webXash) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
             <div class="floating-badges">
               <span class="badge-status" style="background: #a855f722; color: #a855f7; border: 1px solid #a855f766;">
-                Shareware / Custom
+                Custom Files
               </span>
-              <span class="badge-year">2000</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">2000</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -2181,7 +3486,7 @@
           <div class="card-body">
             <div class="card-header-row">
               <h2 class="game-title">
-                <a href="https://x8bitrain.github.io/webXash/" target="_blank" rel="noopener noreferrer">Counter-Strike 1.6 & Half-Life (webXash)</a>
+                <a href="https://x8bitrain.github.io/webXash/" target="_blank" rel="noopener noreferrer">Counter-Strike 1.6 &amp; Half-Life (webXash)</a>
               </h2>
               <div class="game-meta-subtitle">
                 <span>Valve / x8bitrain</span>
@@ -2209,14 +3514,14 @@
           </div>
 
         </article>
-      
+
         <article class="game-card" 
           data-id="diablo-1"
           data-category="classic-pc"
           data-status="instant"
           data-title="diablo 1 (diabloweb / devilutionx)"
           data-year="1996"
-          data-tags="blizzard tristram loot dungeon crawler arpg legend blizzard north / devilutionx team devilutionx webassembly">
+          data-tags="blizzard tristram loot dungeon crawler arpg legend blizzard north / devilutionx team devilutionx webassembly classic pc &amp; retro ports">
           
           <a href="https://johnimril.github.io/diablo_web/" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Launch Diablo 1 (DiabloWeb / DevilutionX) in a new tab">
             <img src="assets/covers/diablo.png" alt="Diablo 1 (DiabloWeb / DevilutionX) Artwork" class="cover-img" loading="lazy" onerror="this.src='assets/banner.svg'">
@@ -2224,7 +3529,10 @@
               <span class="badge-status" style="background: #00f0ff22; color: #00f0ff; border: 1px solid #00f0ff66;">
                 Instant Play
               </span>
-              <span class="badge-year">1996</span>
+              <span class="floating-right">
+                
+                <span class="badge-year">1996</span>
+              </span>
             </div>
             <div class="cover-overlay">
               <span style="font-size: 0.75rem; font-weight: 800; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
@@ -2256,7 +3564,7 @@
             <div class="info-box">
               <div class="info-label">💡 Good to Know</div>
               <div class="info-text">Pre-loaded with the shareware demo! If you have the original game, simply drop your DIABDAT.MPQ into the window to play the full game with saving!</div>
-              <div class="controls-snippet">🎮 Left Click to move & attack • Right Click to cast spell • Shift + Click to attack in place • I for inventory • C for stats</div>
+              <div class="controls-snippet">🎮 Left Click to move &amp; attack • Right Click to cast spell • Shift + Click to attack in place • I for inventory • C for stats</div>
             </div>
 
             <div class="tags-row">
@@ -2270,19 +3578,20 @@
           </div>
 
         </article>
-      
+<!-- GAMES:END -->
     </main>
 
     <!-- Excluded and Audited Section -->
+    <!-- AUDIT:START -->
     <section class="audit-section" id="audit-section">
       <div class="audit-header">
         <h3 class="audit-title">
-          <span>🔍 Transparency Audit: Excluded or Inactive Links</span>
+          <span>🔍 Transparency Audit: Excluded, Offline or Unverified</span>
         </h3>
-        <span style="font-size: 0.85rem; color: var(--text-dim);">4 links tested &amp; filtered out</span>
+        <span style="font-size: 0.85rem; color: var(--text-dim);">7 links tested &amp; filtered out</span>
       </div>
       <p style="color: var(--text-muted); font-size: 0.9rem;">
-        Every link provided in the original request was independently verified against live servers. To ensure a professional, 100% working experience without dead ends, broken hosts, or misleading storefronts, the following 4 entries were excluded from the live cards:
+        Every entry below was independently checked and kept out of the live grid — dead hosts, takedowns, storefronts with no game, or titles that could not be verified. The catalogue shows only links that resolved.
       </p>
       <div class="audit-grid">
         
@@ -2293,7 +3602,7 @@
             </div>
             <div class="audit-item-reason">
               <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #cbd5e1; margin-bottom: 4px; word-break: break-all;">http://ovz-game-production.up.railway.app/</div>
-              <div>Server responds with HTTP 429 / Cloudflare automated bot-check ("Checking your browser"). Unreachable directly for interactive play.</div>
+              <div>Server responds with HTTP 429 / Cloudflare automated bot-check (&quot;Checking your browser&quot;). Unreachable directly for interactive play.</div>
             </div>
           </div>
         
@@ -2304,7 +3613,7 @@
             </div>
             <div class="audit-item-reason">
               <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #cbd5e1; margin-bottom: 4px; word-break: break-all;">http://global-terror.net/</div>
-              <div>Commercial streetwear store & horror lore merchandise website. Does not host a playable game client.</div>
+              <div>Commercial streetwear store &amp; horror lore merchandise website. Does not host a playable game client.</div>
             </div>
           </div>
         
@@ -2330,8 +3639,42 @@
             </div>
           </div>
         
+          <div class="audit-item">
+            <div class="audit-item-title">
+              <span>✕</span>
+              <span>Call of Duty: Black Ops III — Cheese Cube Unlimited</span>
+            </div>
+            <div class="audit-item-reason">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #cbd5e1; margin-bottom: 4px; word-break: break-all;">https://cheese-cube.pages.dev/</div>
+              <div>Taken down and the domain now redirects to an unrelated casino site. Removed from the catalogue on 2026-10-24.</div>
+            </div>
+          </div>
+        
+          <div class="audit-item">
+            <div class="audit-item-title">
+              <span>✕</span>
+              <span>Poke World Survivors</span>
+            </div>
+            <div class="audit-item-reason">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #cbd5e1; margin-bottom: 4px; word-break: break-all;">https://poke-survivors.vercel.app/</div>
+              <div>Host returns HTTP 500 (server error) as of 2026-10-24, so the game could not be verified. Kept on the watchlist in data/discovery-sources.json for a later re-check.</div>
+            </div>
+          </div>
+        
+          <div class="audit-item">
+            <div class="audit-item-title">
+              <span>✕</span>
+              <span>Call of Duty: Black Ops II (Vibe Slops II)</span>
+            </div>
+            <div class="audit-item-reason">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #cbd5e1; margin-bottom: 4px; word-break: break-all;">https://vibeslops.luckeysystems.com/</div>
+              <div>Offline: the author reports a DMCA takedown from Activision and every game on the site is down. Removed from the catalogue on 2026-10-24.</div>
+            </div>
+          </div>
+        
       </div>
     </section>
+<!-- AUDIT:END -->
 
   </div>
 
@@ -2385,6 +3728,9 @@
         <a href="https://github.com/LIN4CRE/retro-arcade-vault" target="_blank" rel="noopener noreferrer">Retro Arcade Vault (Sister Project)</a>
         <a href="#audit-section">Link Audit Report</a>
       </div>
+      <p style="margin-top: 6px; font-size: 0.82rem;">
+        🤖 New titles are discovered automatically by <a href="https://github.com/LIN4CRE/tabulous-games/blob/main/scripts/discover-games.mjs" target="_blank" rel="noopener noreferrer" style="color: var(--cyan);">scripts/discover-games.mjs</a> and reviewed before they join the grid. Last verified: <strong>2026-10-24</strong>.
+      </p>
       <p>Tabulous Games is an open-source educational curation of browser-based WebAssembly and WebGL video game ports.</p>
       <p style="margin-top: 6px; font-size: 0.78rem;">All trademarks, box arts, and assets belong to their respective copyright holders (Activision, id Software, Valve, Rockstar Games, Blizzard, EA, Konami).</p>
     </div>

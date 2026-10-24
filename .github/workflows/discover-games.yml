@@ -1,0 +1,106 @@
+name: Discover new browser games
+
+on:
+  schedule:
+    # Mondays at 06:17 UTC — a little off the hour so we do not queue behind
+    # every other cron job on GitHub's runners.
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      fail_on_dead:
+        description: "Fail the run when a catalogue link is dead"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: discover-games
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the catalogue
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Scan sources and re-check catalogue links
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "${{ inputs.fail_on_dead }}" = "true" ]; then
+            node scripts/discover-games.mjs --fail-on-dead
+          else
+            node scripts/discover-games.mjs
+          fi
+
+      - name: Check generated site files are current
+        run: node scripts/build.mjs --check
+
+      - name: Commit the discovery report
+        run: |
+          if git diff --quiet -- data/discoveries.json data/discoveries.md; then
+            echo "Report unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/discoveries.json data/discoveries.md
+          git commit -m "chore(discovery): weekly browser-game scan"
+          git push
+
+      - name: Decide whether anything needs attention
+        id: gate
+        run: |
+          node -e '
+            const r = require("./data/discoveries.json");
+            const n = (r.candidates || []).length + (r.deadLinks || []).length;
+            require("fs").appendFileSync(process.env.GITHUB_OUTPUT, `needed=${n > 0}\n`);
+            console.log(`${n} item(s) need review`);
+          '
+
+      - name: Open or refresh the discovery issue
+        if: steps.gate.outputs.needed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create discovery \
+            --color 00f0ff \
+            --description "Automated browser-game discovery" \
+            --force >/dev/null 2>&1 || true
+          {
+            echo "The weekly scan found something worth a look. Full report: [data/discoveries.md](../blob/${{ github.ref_name }}/data/discoveries.md)."
+            echo
+            cat data/discoveries.md
+            echo
+            echo "---"
+            echo "Publish flow: \`node scripts/finalise-games.mjs --id <candidate-id>\` → fill in the copy → \`--apply\` → \`node scripts/make-covers.mjs && node scripts/build.mjs\`."
+          } > /tmp/findings.md
+          number=$(gh issue list --label discovery --state open --limit 1 --json number --jq '.[0].number')
+          if [ -n "$number" ]; then
+            gh issue edit "$number" --body-file /tmp/findings.md
+            echo "Updated issue #$number"
+          else
+            gh issue create \
+              --title "🎮 Weekly browser-game discovery report" \
+              --label discovery \
+              --body-file /tmp/findings.md
+          fi
+
+      - name: Keep the report for inspection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: discovery-report
+          path: |
+            data/discoveries.json
+            data/discoveries.md
+          if-no-files-found: ignore

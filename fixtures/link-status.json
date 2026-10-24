@@ -1,0 +1,16 @@
+{
+  "https://moon-zombies.pages.dev/": {
+    "status": 200,
+    "finalUrl": "https://casino.example/"
+  },
+  "https://hegemania.com/": {
+    "status": 200
+  },
+  "https://www.spawn.co/@moth/swarm-lantern": {
+    "status": 200
+  },
+  "https://dead.example/game": {
+    "status": 404,
+    "note": "fixture: dead"
+  }
+}

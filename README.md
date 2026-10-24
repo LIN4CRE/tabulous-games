@@ -109,31 +109,38 @@ Legend: ⚡ instant play · 🌐 online multiplayer · 📁 needs your own game 
 
 ---
 
-## 🤖 Automatic discovery for new tab games
+## 🤖 The 24-hour discovery bot
 
-New browser ports appear almost weekly, so the catalogue is no longer maintained by hand:
+The catalogue now looks after itself. A GitHub Action runs **once every 24 hours** (06:17 UTC) and does four things without any input:
 
-*   **`scripts/discover-games.mjs`** scans a configurable set of sources for browser-playable games, de-duplicates them against `games.json` and the audit list, checks that each URL actually responds, and writes `data/discoveries.json` plus a readable `data/discoveries.md`.
-*   **Sources** live in `data/discovery-sources.json` and currently include:
-    *   the [PortedGames](https://portedgames.com/) daily-checked browser-port directory (new + all browser ports),
-    *   the public [Spawn](https://www.spawn.co/) game feed, filtered for survivor/roguelite/action genres,
-    *   a curated watchlist of known survivors-likes and fan ports,
-    *   a liveness re-check of every URL already in `games.json`.
-*   **`scripts/finalise-games.mjs`** turns selected discoveries into draft `games.json` entries (metadata pre-filled, marked `isNew`), so adding a game becomes review-and-run rather than copy-paste.
-*   **`.github/workflows/discover-games.yml`** runs the scan every Monday (and on demand), commits the report, and opens or updates a GitHub issue whenever new candidates or dead links are found.
-*   **`scripts/make-covers.mjs`** draws the vector cover art for any entry that has no raster cover, and **`scripts/build.mjs`** regenerates the cards, filters, counts and this README from `games.json`.
+1. **Scans** [PortedGames](https://portedgames.com/) (its daily-checked changelog and every browser port it tracks), the public [Spawn](https://www.spawn.co/) feed filtered to survivors/roguelite, and a curated watchlist in `data/discovery-sources.json`.
+2. **Verifies** every new link and re-checks all existing catalogue links, spotting 404/410s, timeouts and domains that now redirect somewhere unrelated.
+3. **Publishes and repairs**: `scripts/auto-publish.mjs` adds up to three strong, fully verified finds per run (marked `AUTO-DISCOVERED` and honest about being machine-found), and retires entries whose host has definitively gone — moving them to the audit list with a reason. Timeouts, 5xx and bot-checks never trigger a removal.
+4. **Reports**: rewrites `data/status.json` (the site's heartbeat), `data/discoveries.json` / `.md`, commits everything, and opens or refreshes a `discovery` issue when something needs a human.
+
+GitHub Pages redeploys from `main` on that commit, so the live site updates itself.
+
+### "When was this last scanned?"
+
+Every visitor sees it: a status panel above the filters reads `data/status.json` and shows the last scan time (UTC), how long ago it was, when the next one is due, new finds awaiting review, links re-checked and how many entries were auto-added. The dot is green under 30 hours, amber to 72, red beyond that — so a stalled bot is obvious at a glance. If you open `index.html` from disk (no server), it falls back to the copy baked in at build time.
+
+### Running it by hand
 
 ```bash
-npm run check                              # build --check + cover check (same as CI)
-npm run discover                           # scan the web, write data/discoveries.*
-node scripts/discover-games.mjs --fixtures # offline self-test of the parsers
-npm run pending                            # show staged candidates
-node scripts/make-covers.mjs               # generate missing SVG covers
-node scripts/build.mjs                     # rebuild index.html + README
-node scripts/build.mjs --check             # CI guard: fail if generated files are stale
+npm run check        # build --check + cover check (what CI runs)
+npm run discover     # scan the web now, write data/discoveries.*
+npm run auto         # publish verified finds + retire dead links
+npm run status       # refresh data/status.json
+npm run build        # regenerate index.html + README
+npm run covers       # generate any missing SVG covers
+npm run pending      # list staged candidates
+npm run daily        # the whole daily cycle in one command
+npm start            # serve the site on :8000
 ```
 
-The workflow never publishes a discovery blindly: findings land in a report and an issue, and a human (or an agent) approves the metadata before it reaches the grid.
+Or trigger the workflow yourself: **Actions → Discover new browser games → Run workflow**.
+
+> **Note:** GitHub currently refuses to start Actions jobs on this account ("The job was not started because your account is locked due to a billing issue"). The workflows are valid and will run on schedule as soon as billing is resolved; until then `npm run discover && npm run auto && npm run status && npm run build` reproduces the entire daily cycle locally.
 
 ---
 
@@ -158,13 +165,16 @@ tabulous-games/
 ├── LICENSE                          # MIT Open Source License
 ├── games.json                       # Single source of truth: games, categories, audit list
 ├── data/
-│   ├── discovery-sources.json       # Where the auto-discovery scanner looks
-│   ├── discoveries.json             # Latest scan output (committed by the weekly workflow)
-│   └── discoveries.md               # Human-readable scan report
+│   ├── discovery-sources.json       # Where the daily scanner looks
+│   ├── discoveries.json             # Latest scan output (committed by the bot)
+│   ├── discoveries.md               # Human-readable scan report
+│   └── status.json                  # Heartbeat shown in the site's status panel
 ├── fixtures/                        # Offline samples used to test the discovery parsers
 ├── scripts/
 │   ├── discover-games.mjs           # Automated search + link verification
+│   ├── auto-publish.mjs             # Publish verified finds, retire dead links
 │   ├── finalise-games.mjs           # Turn staged discoveries into games.json drafts
+│   ├── write-status.mjs             # Refresh data/status.json after each scan
 │   ├── make-covers.mjs              # Vector cover generator
 │   ├── build.mjs                    # Regenerates index.html + README from games.json
 │   └── add-2026-10-games.py         # Migration record for the October 2026 batch
@@ -181,7 +191,7 @@ tabulous-games/
 1.  A link only enters the grid if it resolves to a playable client in a desktop browser.
 2.  Games that need the original data files are labelled **📁 Custom Files** and say which files are required.
 3.  WebGPU-only games and very large first loads are labelled in **Good to Know**.
-4.  Links are re-checked weekly by the discovery workflow; games that stop serving a client are moved to the audit list with a reason.
+4.  Links are re-checked daily by the discovery workflow; games that stop serving a client are moved to the audit list with a reason.
 5.  Unofficial fan projects are credited as such — trademarks and game data belong to their owners.
 
 ---
@@ -195,6 +205,12 @@ Double-click `index.html` in File Explorer. Because all cover art and vector ass
 1. Push this folder to a GitHub repository (e.g. `LIN4CRE/tabulous-games`).
 2. Go to **Settings** > **Pages** and set the source branch to `main`.
 3. Your site will be live instantly.
+
+---
+
+## 💚 Support the project
+
+If the catalogue has saved you a download or two, you can **Buy Me a Smoke** — the button in the header and footer links to [paypal.me/dlinacre16](https://paypal.me/dlinacre16). Entirely optional; every game stays free.
 
 ---
 

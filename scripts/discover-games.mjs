@@ -70,7 +70,14 @@ for (const e of db.excluded || []) {
   if (n) KNOWN.add(n);
 }
 const PREVIOUS_BY_URL = new Map((PREVIOUS.candidates || []).map((c) => [normaliseUrl(c.url), c]));
-const SCANNED_SLUGS = new Set(FIXTURES ? [] : PREVIOUS.portedSlugs || []);
+// slug -> ISO date of the last detailed scan, so the bot can revisit pages
+// instead of treating "seen once" as "checked forever".
+const SLUG_SCANS = new Map(
+  FIXTURES ? [] : Object.entries(PREVIOUS.portedSlugScans || {})
+);
+for (const slug of FIXTURES ? [] : PREVIOUS.portedSlugs || []) {
+  if (!SLUG_SCANS.has(slug)) SLUG_SCANS.set(slug, PREVIOUS.generatedAt || new Date(0).toISOString());
+}
 
 function decodeEntities(text = '') {
   return text
@@ -249,11 +256,24 @@ async function scanPortedGames(source) {
   log(`  ${source.id}: ${links.length} port pages listed`);
 
   const budget = LIMITS.portedgamesDetails || 20;
-  const todo = links.filter((a) => !SCANNED_SLUGS.has(a.slug)).slice(0, budget);
+  const revisitMs = (LIMITS.revisitDays ?? 7) * 86400000;
+  const now = Date.now();
+  const todo = links
+    .filter((a) => {
+      const last = SLUG_SCANS.get(a.slug);
+      return !last || now - new Date(last).getTime() > revisitMs;
+    })
+    .sort((a, b) => {
+      const la = SLUG_SCANS.get(a.slug) || '';
+      const lb = SLUG_SCANS.get(b.slug) || '';
+      return la.localeCompare(lb); // never-scanned first, then oldest
+    })
+    .slice(0, budget);
+  if (!todo.length) log(`  ${source.id}: nothing due for a re-check (revisit window ${revisitMs / 86400000}d)`);
   const found = [];
 
   await pool(todo, 4, async (link) => {
-    SCANNED_SLUGS.add(link.slug);
+    SLUG_SCANS.set(link.slug, new Date().toISOString());
     try {
       const detailUrl = `https://portedgames.com/${link.slug}/`;
       const detail = await fetchText(detailUrl, { fixturesFile: `${source.id}-${link.slug}.html` });
@@ -533,7 +553,8 @@ async function main() {
     candidates: usable.sort((a, b) => a.title.localeCompare(b.title)),
     deadLinks: deadLinks.sort((a, b) => a.title.localeCompare(b.title)),
     catalogueChecked: checked.length,
-    portedSlugs: [...SCANNED_SLUGS].sort(),
+    portedSlugs: [...SLUG_SCANS.keys()].sort(),
+    portedSlugScans: Object.fromEntries([...SLUG_SCANS.entries()].sort()),
   };
 
   fs.mkdirSync(path.join(ROOT, 'data'), { recursive: true });

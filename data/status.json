@@ -1,0 +1,20 @@
+{
+  "lastScan": "2026-10-24T11:38:23.685Z",
+  "nextScan": "2026-10-25T11:38:23.685Z",
+  "schedule": "daily",
+  "scheduleCron": "17 6 * * *",
+  "workflow": ".github/workflows/discover-games.yml",
+  "mode": "not-run",
+  "runUrl": null,
+  "stats": {
+    "candidates": 0,
+    "linksChecked": 0,
+    "deadLinks": 0,
+    "corrections": 0,
+    "games": 42,
+    "excluded": 7
+  },
+  "autoAddedTotal": 0,
+  "autoAdded": [],
+  "lastUpdated": "2026-10-24"
+}

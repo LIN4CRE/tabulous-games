@@ -11,7 +11,10 @@
     "discover": "node scripts/discover-games.mjs",
     "discover:fixtures": "node scripts/discover-games.mjs --fixtures",
     "pending": "node scripts/finalise-games.mjs --list",
-    "start": "python3 -m http.server 8000"
+    "start": "python3 -m http.server 8000",
+    "auto": "node scripts/auto-publish.mjs",
+    "status": "node scripts/write-status.mjs",
+    "daily": "node scripts/discover-games.mjs && node scripts/auto-publish.mjs && node scripts/write-status.mjs && node scripts/build.mjs"
   },
   "engines": {
     "node": ">=20"

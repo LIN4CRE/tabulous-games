@@ -230,12 +230,22 @@ function tokens(text) {
     .replaceAll('{{LAST_UPDATED}}', db.lastUpdated || '');
 }
 
+function scanFallback() {
+  const file = path.join(ROOT, 'data/status.json');
+  const status = fs.existsSync(file)
+    ? JSON.parse(fs.readFileSync(file, 'utf8'))
+    : { lastScan: null, mode: 'not-run', stats: {} };
+  // Keep the payload safe to embed inside a <script type="application/json"> block.
+  return JSON.stringify(status).replace(/</g, '\\u003c');
+}
+
 function renderIndex(html) {
   let out = html;
   out = replaceBlock(out, 'GAMES', games.map(card).join('\n\n'));
   out = replaceBlock(out, 'CATEGORY-PILLS', categoryPills());
   out = replaceBlock(out, 'STATUS-PILLS', statusPills());
   out = replaceBlock(out, 'AUDIT', auditSection());
+  out = out.replaceAll('{{SCAN_FALLBACK}}', scanFallback());
   return tokens(out);
 }
 

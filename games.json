@@ -1237,5 +1237,6 @@
     "script": "scripts/discover-games.mjs",
     "workflow": ".github/workflows/discover-games.yml",
     "report": "data/discoveries.md"
-  }
+  },
+  "featured": "gta-vice-city"
 }

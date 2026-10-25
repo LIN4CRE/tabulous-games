@@ -265,6 +265,17 @@ function scanFallback() {
   return JSON.stringify(status).replace(/</g, '\\u003c');
 }
 
+function patchIndexCounts(html) {
+  const total = String(games.length);
+  const instant = String(countByStatus('instant'));
+  return html
+    .replace(/(data-count-games>)[0-9]+/g, `$1${total}`)
+    .replace(/(data-count-instant>)[0-9]+/g, `$1${instant}`)
+    .replace(/(<span class="stat-value" data-count=")[0-9]+("><span data-count-games>)/, `$1${total}$2`)
+    .replace(/(<span class="stat-value" data-count=")[0-9]+("><span data-count-instant>)/, `$1${instant}$2`)
+    .replace(/Showing <strong>[0-9]+<\/strong> of [0-9]+ games/g, `Showing <strong>${total}</strong> of ${total} games`);
+}
+
 function renderIndex(html) {
   let out = html;
   out = replaceBlock(out, 'GAMES', games.map(card).join('\n\n'));
@@ -272,12 +283,22 @@ function renderIndex(html) {
   out = replaceBlock(out, 'STATUS-PILLS', statusPills());
   out = replaceBlock(out, 'FEATURED', featuredSection());
   out = replaceBlock(out, 'AUDIT', auditSection());
-  out = out.replaceAll('{{SCAN_FALLBACK}}', scanFallback());
-  return tokens(out);
+  const fallback = scanFallback();
+  out = out.replace(
+    /(<script type="application\/json" id="scanFallback">)[\s\S]*?(<\/script>)/,
+    `$1${fallback}$2`
+  );
+  out = out.replaceAll('{{SCAN_FALLBACK}}', fallback);
+  return patchIndexCounts(tokens(out));
 }
 
 function renderReadme(md) {
   let out = replaceBlock(md, 'GAMES-TABLE', readmeTable());
+  out = out.replace(/Verified%20Games-[0-9]+%20Playable/g, `Verified%20Games-${games.length}%20Playable`);
+  out = out.replace(
+    /(## 🚀 The Curated Library \()[0-9]+ entries, [0-9]+ instant-play(\))/,
+    `$1${games.length} entries, ${countByStatus('instant')} instant-play$2`
+  );
   return tokens(out);
 }
 

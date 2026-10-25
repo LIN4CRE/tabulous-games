@@ -1,6 +1,357 @@
 {
   "games": [
     {
+      "id": "nfs-most-wanted-web",
+      "title": "Need for Speed: Most Wanted — Web Port",
+      "shortTitle": "NFS Most Wanted",
+      "url": "https://dezm0n.itch.io/nfs-most-wanted-web-port",
+      "cover": "assets/covers/nfs-most-wanted-web.svg",
+      "category": "sports",
+      "categoryLabel": "Sports & Arcade",
+      "year": 2005,
+      "dev": "EA Black Box / dezm0n",
+      "engine": "PC Recompilation / WebAssembly / WebGPU",
+      "status": "instant",
+      "statusLabel": "Instant Play",
+      "statusColor": "#00f0ff",
+      "badge": "EXPERIMENTAL PC PORT",
+      "desc": "An experimental browser port of EA Black Box's 2005 PC street racer: chase the Blacklist through Rockport and outrun the police, rendered with WebAssembly and WebGPU.",
+      "controls": "Keyboard or controller; remap in Options → Controls • Enter / Esc navigate menus • Press a controller button after connecting it.",
+      "goodToKnow": "Requires a current desktop Chrome or Edge with WebGPU and hardware acceleration. Game data streams on demand and is cached in this browser. The port is experimental: online/LAN is unsupported, and full-career driving plus race-end autosaves still need testing.",
+      "tags": [
+        "Need for Speed",
+        "Racing",
+        "Most Wanted",
+        "WebGPU",
+        "WebAssembly",
+        "EA Black Box",
+        "Fan Port"
+      ],
+      "alsoKnownAs": [
+        "NFS Most Wanted (2005)",
+        "Need for Speed: Most Wanted 2005"
+      ],
+      "added": "2026-10-25",
+      "isNew": true
+    },
+    {
+      "id": "nfs-underground-2-web",
+      "title": "Need for Speed: Underground 2 (Web)",
+      "shortTitle": "NFS Underground 2",
+      "url": "https://nfsu2.xyz/",
+      "cover": "assets/covers/nfs-underground-2-web.svg",
+      "category": "sports",
+      "categoryLabel": "Sports & Arcade",
+      "year": 2004,
+      "dev": "EA Black Box / Underground 2 Revived",
+      "engine": "PC Recompilation / WebGPU",
+      "status": "multiplayer",
+      "statusLabel": "Multiplayer",
+      "statusColor": "#ff0077",
+      "badge": "BAYVIEW FREE ROAM",
+      "desc": "Underground 2 Revived brings the 2004 PC street racer to a browser, with Bayview free roam, career progression, car tuning and a community-hosted online mode.",
+      "controls": "Keyboard: arrows or WASD to drive • Space handbrake • Alt nitrous • USB/Bluetooth gamepad supported; bindings can be changed.",
+      "goodToKnow": "Needs a recent desktop browser with WebGPU and hardware acceleration. Game data streams from the host and is cached; an optional preload is about 1.7 GB. The online service is community-run, not an EA service.",
+      "tags": [
+        "Need for Speed",
+        "NFSU2",
+        "Racing",
+        "Street Racing",
+        "Open World",
+        "WebGPU",
+        "Multiplayer"
+      ],
+      "alsoKnownAs": [
+        "NFSU2",
+        "NFS Underground 2",
+        "Underground 2 Revived"
+      ],
+      "added": "2026-10-25",
+      "isNew": true
+    },
+    {
+      "id": "burnout-3-web",
+      "title": "Burnout 3: Takedown (Web Preview)",
+      "shortTitle": "Burnout 3 Web",
+      "url": "https://burnout3.online/",
+      "cover": "assets/covers/burnout-3-web.svg",
+      "category": "sports",
+      "categoryLabel": "Sports & Arcade",
+      "year": 2004,
+      "dev": "Criterion Games / Slayoner",
+      "engine": "PS2 Web Recomp / WebAssembly / WebGPU",
+      "status": "multiplayer",
+      "statusLabel": "Preview Multiplayer",
+      "statusColor": "#ff0077",
+      "badge": "TAKEDOWN PREVIEW",
+      "desc": "A browser preview of Criterion's 2004 crash-focused arcade racer, running the PS2 release with World Tour events and experimental private online rooms.",
+      "controls": "Keyboard (rebindable) or USB/Bluetooth controller • Click the game view to capture input • On-page Controls panel shows the mapping.",
+      "goodToKnow": "Requires an up-to-date desktop Chrome or Edge with WebGPU and hardware acceleration. The preview cannot save profiles reliably (answer No to the save prompt); the first race has an unskippable training section of about three minutes. Online is experimental and may desync.",
+      "tags": [
+        "Burnout",
+        "Racing",
+        "Criterion",
+        "WebGPU",
+        "WebAssembly",
+        "Multiplayer",
+        "Preview"
+      ],
+      "alsoKnownAs": [
+        "Burnout 3 Web",
+        "Burnout 3: Takedown"
+      ],
+      "added": "2026-10-25",
+      "isNew": true
+    },
+    {
+      "id": "midnight-club-3-web",
+      "title": "Midnight Club 3: DUB Edition (Web)",
+      "shortTitle": "Midnight Club 3",
+      "url": "https://midnighhtclub3.online/",
+      "cover": "assets/covers/midnight-club-3-web.svg",
+      "category": "sports",
+      "categoryLabel": "Sports & Arcade",
+      "year": 2005,
+      "dev": "Rockstar San Diego / Fan Port",
+      "engine": "PSP Web Recomp / WebAssembly / WebGL",
+      "status": "multiplayer",
+      "statusLabel": "Multiplayer",
+      "statusColor": "#ff0077",
+      "badge": "DUB EDITION",
+      "desc": "Play the PSP edition of Rockstar's 2005 open-world street racer in a browser, with city driving, car customisation, races and host-provided private rooms.",
+      "controls": "Keyboard or gamepad • Click the game view to focus controls • Use the on-page Controls panel for the current key map.",
+      "goodToKnow": "This is the PSP release, not the PS2 DUB Edition Remix. It loads automatically in a modern browser; saves stay in browser storage. The host offers experimental private Ad Hoc rooms, so use solo play if multiplayer is unavailable. Unofficial fan project, not affiliated with Rockstar Games.",
+      "tags": [
+        "Midnight Club",
+        "Racing",
+        "Rockstar",
+        "PSP",
+        "WebAssembly",
+        "WebGL",
+        "Multiplayer"
+      ],
+      "alsoKnownAs": [
+        "MC3 DUB Edition",
+        "Midnight Club 3",
+        "Midnight Club 3 DUB Edition"
+      ],
+      "added": "2026-10-25",
+      "isNew": true
+    },
+    {
+      "id": "resident-evil-outbreak-web",
+      "title": "Resident Evil Outbreak & File #2 (Web)",
+      "shortTitle": "RE Outbreak Web",
+      "url": "https://outbreakweb.com/",
+      "cover": "assets/covers/resident-evil-outbreak-web.svg",
+      "category": "zombies",
+      "categoryLabel": "Zombies & Co-op",
+      "year": 2003,
+      "dev": "Capcom / Independent Web Project",
+      "engine": "WebAssembly / WebGPU Browser Client",
+      "status": "multiplayer",
+      "statusLabel": "Solo & Online",
+      "statusColor": "#ff0077",
+      "badge": "RACCOON CITY CO-OP",
+      "desc": "Choose the original Resident Evil Outbreak or File #2, then play the PS2 survival-horror scenarios solo or in online co-op through a browser client.",
+      "controls": "Keyboard and mouse or gamepad • Click the game view to focus input • Each File has its own control layout.",
+      "goodToKnow": "The host loads game resources automatically; no local game files are requested. Unofficial and unaffiliated with Capcom; the project has not published source or authorization details, so availability may change. The host checks modern WebAssembly features (WebGPU is recommended; software fallback may be slow). Lobbies can lag, and memory-card saves remain in this browser—export a backup.",
+      "tags": [
+        "Resident Evil",
+        "Outbreak",
+        "Survival Horror",
+        "Zombies",
+        "Co-op",
+        "WebAssembly",
+        "WebGPU"
+      ],
+      "alsoKnownAs": [
+        "Resident Evil Outbreak File #1",
+        "Resident Evil Outbreak File #2",
+        "OutbreakWeb"
+      ],
+      "added": "2026-10-25",
+      "isNew": true
+    },
+    {
+      "id": "fallout-1-2-web",
+      "title": "Fallout 1 & 2 (Rerun Reactor)",
+      "shortTitle": "Fallout CE Web",
+      "url": "https://www.rerunreactor.com/",
+      "cover": "assets/covers/fallout-1-2-web.svg",
+      "category": "classic-pc",
+      "categoryLabel": "Classic PC & Retro Ports",
+      "year": 1997,
+      "dev": "Interplay / Black Isle / Rerun Reactor",
+      "engine": "Fallout Community Edition / WebAssembly",
+      "status": "files",
+      "statusLabel": "Custom Files",
+      "statusColor": "#a855f7",
+      "badge": "VAULT-DWELLING RPG",
+      "desc": "Run either classic isometric RPG in a browser on the Fallout Community Edition engines, importing the game data from your own copy; the site also offers browser-local save tools.",
+      "controls": "Mouse to point, select and interact • Keyboard shortcuts for inventory, map, dialogue and combat.",
+      "goodToKnow": "Bring your own legally purchased Fallout 1 and/or Fallout 2 install folder, ZIP or disc image; no game content is included. Imported files and saves stay in this browser and are not uploaded. Export backups before clearing site data. Requires a modern browser with WebAssembly.",
+      "tags": [
+        "Fallout",
+        "Fallout 2",
+        "RPG",
+        "Interplay",
+        "WebAssembly",
+        "Own Files",
+        "Classic PC"
+      ],
+      "alsoKnownAs": [
+        "Fallout",
+        "Fallout 2",
+        "Fallout Community Edition",
+        "Rerun Reactor"
+      ],
+      "added": "2026-10-25",
+      "isNew": true
+    },
+    {
+      "id": "starcraft-brood-war-web",
+      "title": "StarCraft: Brood War (OpenBW Web)",
+      "shortTitle": "StarCraft: Brood War",
+      "url": "https://playscbw.com/",
+      "cover": "assets/covers/starcraft-brood-war-web.svg",
+      "category": "strategy",
+      "categoryLabel": "Strategy & Sim",
+      "year": 1998,
+      "dev": "Blizzard Entertainment / OpenBW",
+      "engine": "OpenBW / WebAssembly",
+      "status": "multiplayer",
+      "statusLabel": "AI & Online",
+      "statusColor": "#ff0077",
+      "badge": "REAL-TIME STRATEGY",
+      "desc": "The OpenBW engine runs the real Brood War simulation in a browser, with computer opponents, friend rooms and online matches.",
+      "controls": "Mouse to select, move and command • Keyboard for classic RTS hotkeys • Choose a race, map and opponent before starting.",
+      "goodToKnow": "No local install or account is required. First play fetches about 90 MB of original game data from Internet Archive and caches it. Free non-commercial fan project, unaffiliated with Blizzard.",
+      "tags": [
+        "StarCraft",
+        "StarCraft 1",
+        "Brood War",
+        "RTS",
+        "Blizzard",
+        "OpenBW",
+        "WebAssembly",
+        "Online"
+      ],
+      "alsoKnownAs": [
+        "StarCraft 1",
+        "StarCraft BW",
+        "Brood War",
+        "OpenBW"
+      ],
+      "added": "2026-10-25",
+      "isNew": true
+    },
+    {
+      "id": "command-conquer-generals-zh",
+      "title": "Command & Conquer: Generals — Zero Hour (GeneralsX Web)",
+      "shortTitle": "Generals: Zero Hour",
+      "url": "https://generals.wasm.ltd/",
+      "cover": "assets/covers/command-conquer-generals-zh.svg",
+      "category": "strategy",
+      "categoryLabel": "Strategy & Sim",
+      "year": 2003,
+      "dev": "EA Pacific / GeneralsX",
+      "engine": "GeneralsX / WebAssembly Decompilation",
+      "status": "files",
+      "statusLabel": "Custom Files",
+      "statusColor": "#a855f7",
+      "badge": "ZERO HOUR RTS",
+      "desc": "GeneralsX brings the Zero Hour RTS runtime into a browser for skirmishes against the CPU, using a fan-made WebAssembly decompilation.",
+      "controls": "Mouse to select and issue orders • Keyboard hotkeys for commands • Click the game canvas to capture input.",
+      "goodToKnow": "Requires your own Command & Conquer: Generals and Zero Hour game files. Select the installed folder or a ZIP/ISO/BIN-CUE; files stay on your machine. A current desktop browser with WebGPU and hardware acceleration is recommended. Not an EA service.",
+      "tags": [
+        "Command & Conquer",
+        "Generals",
+        "Zero Hour",
+        "RTS",
+        "WebAssembly",
+        "Own Files",
+        "EA Pacific"
+      ],
+      "alsoKnownAs": [
+        "Generals Zero Hour",
+        "Command & Conquer: Zero Hour",
+        "GeneralsX"
+      ],
+      "added": "2026-10-25",
+      "isNew": true
+    },
+    {
+      "id": "warcraft-3-warsmash",
+      "title": "Warcraft III (Warsmash Web)",
+      "shortTitle": "Warcraft III Web",
+      "url": "https://warsmash.pages.dev/",
+      "cover": "assets/covers/warcraft-3-warsmash.svg",
+      "category": "strategy",
+      "categoryLabel": "Strategy & Sim",
+      "year": 2002,
+      "dev": "Blizzard Entertainment / Warsmash",
+      "engine": "Warsmash Browser Client / WebGL",
+      "status": "files",
+      "statusLabel": "Custom Files",
+      "statusColor": "#a855f7",
+      "badge": "LORD OF CHAOS",
+      "desc": "Warsmash's browser client can boot to Warcraft III's main menu for single-player/campaign or multiplayer, including peer-to-peer lobbies.",
+      "controls": "Mouse to select and command • Standard Warcraft III hotkeys • Click the canvas to focus keyboard input.",
+      "goodToKnow": "You must stage your own Warcraft III install using the browser asset manager; game data is kept in private browser storage (OPFS). This is an unofficial, in-progress client, not a Blizzard web release.",
+      "tags": [
+        "Warcraft III",
+        "Warcraft 3",
+        "RTS",
+        "Blizzard",
+        "Warsmash",
+        "WebGL",
+        "Own Files"
+      ],
+      "alsoKnownAs": [
+        "Warcraft III",
+        "Warcraft 3",
+        "Warsmash"
+      ],
+      "added": "2026-10-25",
+      "isNew": true
+    },
+    {
+      "id": "stalker-call-of-pripyat-zonevm",
+      "title": "S.T.A.L.K.E.R.: Call of Pripyat (ZoneVM)",
+      "shortTitle": "STALKER: ZoneVM",
+      "url": "https://zonevm.btr.pm/",
+      "cover": "assets/covers/stalker-call-of-pripyat-zonevm.svg",
+      "category": "shooters",
+      "categoryLabel": "Shooters & FPS",
+      "year": 2009,
+      "dev": "GSC Game World / OpenXRay",
+      "engine": "OpenXRay / WebAssembly",
+      "status": "files",
+      "statusLabel": "Custom Files",
+      "statusColor": "#a855f7",
+      "badge": "THE ZONE, IN A TAB",
+      "desc": "ZoneVM brings OpenXRay to the browser for Call of Pripyat and Call of Chernobyl; select your game folder and launch the original FPS/RPG.",
+      "controls": "Original PC keyboard/mouse controls • Esc is rebound to Right Shift for in-game pause/menu • Click the game view to focus input.",
+      "goodToKnow": "Requires your own Call of Pripyat or Call of Chernobyl game folder; the client keeps a copy in browser-private storage and writes saves/screenshots back to that folder. The project is very WIP and not thoroughly tested—expect bugs and crashes. Use fullscreen: Ctrl+W can close the tab, and Right Shift replaces Esc for in-game menus.",
+      "tags": [
+        "S.T.A.L.K.E.R.",
+        "Call of Pripyat",
+        "Call of Chernobyl",
+        "FPS",
+        "OpenXRay",
+        "WebAssembly",
+        "Own Files"
+      ],
+      "alsoKnownAs": [
+        "S.T.A.L.K.E.R.: Call of Chernobyl",
+        "Call of Pripyat",
+        "ZoneVM"
+      ],
+      "added": "2026-10-25",
+      "isNew": true
+    },
+    {
       "id": "pokebonk-touchzada",
       "title": "PokeBonk (Touchzada, 8-Player)",
       "shortTitle": "PokeBonk Online",
@@ -1193,6 +1544,31 @@
       "name": "Call of Duty: Black Ops II (Vibe Slops II)",
       "url": "https://vibeslops.luckeysystems.com/",
       "reason": "Offline: the author reports a DMCA takedown from Activision and every game on the site is down. Removed from the catalogue on 2026-10-24."
+    },
+    {
+      "name": "Portal (yikes.pw browser port)",
+      "url": "https://yikes.pw/portal",
+      "reason": "The HTTPS page redirects to an HTTP :8080 endpoint that returned Cloudflare 521; no playable session could be verified."
+    },
+    {
+      "name": "Half-Life 2 (slqnt browser port)",
+      "url": "https://hl2.slqnt.dev/",
+      "reason": "The public host currently returns a deployment-not-found 404, so a working browser client could not be verified."
+    },
+    {
+      "name": "Grand Theft Auto: Chinatown Wars (browser port)",
+      "url": "https://gta-chinatown-wars.pages.dev/",
+      "reason": "The page showed “Try again”, 0 FPS, and only 4.0 MB of an 862.3 MB download; no playable game session was verified."
+    },
+    {
+      "name": "The Elder Scrolls III: Morrowind (OpenMW-Web)",
+      "url": "https://morrowind.virtastic.app/",
+      "reason": "The public host is invite-only and says the player app has not been installed; the separate morrowind.app page remained a loading shell. No public playable build was verified."
+    },
+    {
+      "name": "Doom 3 Demo (d3wasm)",
+      "url": "https://wasm.continuation-labs.com/d3demo/",
+      "reason": "The page advertises the WebAssembly demo, but the direct check exposed a runtime exception. Held out until a reliable browser boot can be confirmed."
     }
   ],
   "categories": [
@@ -1232,7 +1608,7 @@
       "emoji": "🛹"
     }
   ],
-  "lastUpdated": "2026-10-24",
+  "lastUpdated": "2026-10-25",
   "autoDiscovery": {
     "script": "scripts/discover-games.mjs",
     "workflow": ".github/workflows/discover-games.yml",

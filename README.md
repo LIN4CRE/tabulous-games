@@ -3,12 +3,12 @@
 <img src="assets/brand/emblem.svg" alt="Tabulous Games emblem" width="72" align="right">
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-lin4cre.github.io-8fd6ff?style=for-the-badge&logo=githubpages)](https://lin4cre.github.io/tabulous-games/)
-[![Live Games](https://img.shields.io/badge/Verified%20Games-42%20Playable-00f0ff?style=for-the-badge&logo=gamepad)](index.html)
+[![Live Games](https://img.shields.io/badge/Verified%20Games-52%20Playable-00f0ff?style=for-the-badge&logo=gamepad)](index.html)
 [![Sister Project](https://img.shields.io/badge/Sister%20Repo-Retro%20Arcade%20Vault-a855f7?style=for-the-badge&logo=github)](https://github.com/LIN4CRE/retro-arcade-vault)
 [![Tech Stack](https://img.shields.io/badge/Engine-WebAssembly%20%7C%20WebGL-ff0077?style=for-the-badge)](https://webassembly.org/)
 [![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
 
-> **Classic PC masterpieces, iconic shooters, zombies co-op, survivors-likes, and 3D open-world adventures running natively inside your browser tab.** Zero launchers, zero installs, pure WebAssembly, WebGL & WebGPU acceleration.
+> **Classic PC masterpieces, iconic shooters, zombies co-op, survivors-likes, and 3D open-world adventures in your browser tab.** No separate game client or launcher; some ports still need your own original files or a substantial first download.
 
 <p align="center">
   <img src="assets/brand/banner.svg" alt="Tabulous Games — browser game vault, verified daily" width="100%">
@@ -62,13 +62,44 @@ This update was driven by a broad search for **survivors-likes playable in a bro
 
 ---
 
-## 🚀 The Curated Library (42 entries, 33 instant-play)
+## 🏎️ October 2026 AAA browser-port sweep — 10 additions
+
+A separate manual sweep checked for missing, recognizable PC and console blockbusters that now have browser builds. Requirements and caveats are intentionally explicit; these are unofficial projects unless stated otherwise.
+
+| Game / build | Requirements and caveats |
+| :--- | :--- |
+| **Need for Speed: Most Wanted (2005 PC)** — [itch.io web port](https://dezm0n.itch.io/nfs-most-wanted-web-port) | Desktop Chrome/Edge with WebGPU and hardware acceleration; streams and caches game data. Experimental; online/LAN is unsupported, and full-career play plus race-end autosaves still need testing. |
+| **Need for Speed: Underground 2** — [Underground 2 Revived](https://nfsu2.xyz/) | WebGPU desktop browser; data streams on demand, with an optional ~1.7 GB preload. Online/free roam uses the project's own community service. |
+| **Burnout 3: Takedown** — [browser preview](https://burnout3.online/) | PS2 web recompilation; current Chrome/Edge with WebGPU recommended. Profile saving is broken (answer No to the save prompt), the first race has ~3 minutes of unskippable training, and online is experimental. |
+| **Midnight Club 3: DUB Edition** — [PSP browser port](https://midnighhtclub3.online/) | This is the PSP release, not the PS2 Remix. Browser storage keeps saves; the host advertises private Ad Hoc rooms, but treat online play as experimental. |
+| **Resident Evil Outbreak + File #2** — [OutbreakWeb](https://outbreakweb.com/) | Host loads the game automatically; modern WebAssembly features are required and WebGPU is recommended. Unofficial, not affiliated with Capcom; the host publishes no source/authorization details, and service stability and availability are uncertain. Browser memory-card saves should be exported. |
+| **Fallout 1 + 2** — [Rerun Reactor](https://www.rerunreactor.com/) | Bring your own legally purchased game folder, ZIP or disc image. No game content is bundled; imports and saves stay local in browser storage. |
+| **StarCraft: Brood War** — [OpenBW Web](https://playscbw.com/) | First play downloads about 90 MB of original data from Internet Archive and caches it. Browser RTS with AI, friend rooms and online matches; non-commercial fan project. |
+| **Command & Conquer: Generals — Zero Hour** — [GeneralsX Web](https://generals.wasm.ltd/) | Requires your own Generals and Zero Hour files, selected from an install folder or archive; files remain on your machine. WebGPU-capable desktop browser recommended. |
+| **Warcraft III** — [Warsmash](https://warsmash.pages.dev/) | Stage your own Warcraft III install through the asset manager; files stay in private browser storage. Unofficial, in-progress client. |
+| **S.T.A.L.K.E.R.: Call of Pripyat / Call of Chernobyl** — [ZoneVM](https://zonevm.btr.pm/) | Requires your own game folder; the client uses browser-private storage and copies saves back. Very WIP, with expected bugs/crashes; Right Shift replaces Esc for in-game menus, and Ctrl+W can close the tab. |
+
+**Not added after checks:** Portal's host returned Cloudflare 521; Half-Life 2 returned 404; Chinatown Wars stalled at 4 MB of 862 MB with 0 FPS; the public Morrowind host was invite-only with its player app missing; and Doom 3's demo raised a runtime exception. They remain in the transparency log rather than being presented as playable.
+
+---
+
+## 🚀 The Curated Library (52 entries, 34 instant-play)
 
 Every card links to the project's own site. Large downloads, WebGPU requirements and "bring your own game files" cases are called out in each card's **Good to Know** box rather than hidden:
 
 <!-- GAMES-TABLE:START -->
 | Game Title | Platform / Tech | Genre | Status |
 | :--- | :--- | :--- | :--- |
+| **Need for Speed: Most Wanted — Web Port** 🆕 | PC Recompilation / WebAssembly / WebGPU | Sports &amp; Arcade | ⚡ Instant Play |
+| **Need for Speed: Underground 2 (Web)** 🆕 | PC Recompilation / WebGPU | Sports &amp; Arcade | 🌐 Multiplayer |
+| **Burnout 3: Takedown (Web Preview)** 🆕 | PS2 Web Recomp / WebAssembly / WebGPU | Sports &amp; Arcade | 🌐 Multiplayer |
+| **Midnight Club 3: DUB Edition (Web)** 🆕 | PSP Web Recomp / WebAssembly / WebGL | Sports &amp; Arcade | 🌐 Multiplayer |
+| **Resident Evil Outbreak &amp; File #2 (Web)** 🆕 | WebAssembly / WebGPU Browser Client | Zombies &amp; Co-op | 🌐 Multiplayer |
+| **Fallout 1 &amp; 2 (Rerun Reactor)** 🆕 | Fallout Community Edition / WebAssembly | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **StarCraft: Brood War (OpenBW Web)** 🆕 | OpenBW / WebAssembly | Strategy &amp; Sim | 🌐 Multiplayer |
+| **Command &amp; Conquer: Generals — Zero Hour (GeneralsX Web)** 🆕 | GeneralsX / WebAssembly Decompilation | Strategy &amp; Sim | 📁 Custom Files |
+| **Warcraft III (Warsmash Web)** 🆕 | Warsmash Browser Client / WebGL | Strategy &amp; Sim | 📁 Custom Files |
+| **S.T.A.L.K.E.R.: Call of Pripyat (ZoneVM)** 🆕 | OpenXRay / WebAssembly | Shooters &amp; FPS | 📁 Custom Files |
 | **PokeBonk (Touchzada, 8-Player)** 🆕 | HTML5 Canvas / Online Rooms | Survivors &amp; Roguelite | ⚡ Instant Play |
 | **Azeroth Survivors (World of Warcraft Survivors)** 🆕 | WebGPU / Rust + Bevy WASM | Survivors &amp; Roguelite | ⚡ Instant Play |
 | **Diablo Survivors (3D Multiplayer)** 🆕 | WebGL / Spawn Engine | Survivors &amp; Roguelite | ⚡ Instant Play |
@@ -154,13 +185,19 @@ Or trigger the workflow yourself: **Actions → Discover new browser games → R
 
 ## 🔍 Transparency audit
 
-The full, generated list of excluded links is rendered at the bottom of the site and stored in the `excluded` array of `games.json`. It currently covers **6** entries:
+The full, generated list of excluded links is rendered at the bottom of the site and stored in the `excluded` array of `games.json`. It currently covers **12** entries:
 
-*   **Call of Duty: Black Ops III — Cheese Cube** — taken down; the old `cheese-cube.pages.dev` domain now redirects to an unrelated casino site.
-*   **Call of Duty: Black Ops II (Vibe Slops II)** — offline; the author reports a DMCA takedown from Activision and all games on that host are down.
-*   The original four audit entries (Modern Warfare 2 railway host, Skate Rust storefront, truncated GTA 5 Wayback link and the broken Hedgewars host) remain excluded.
+*   **Portal (yikes.pw)** — redirected to an HTTP `:8080` endpoint that returned Cloudflare 521.
+*   **Half-Life 2 (slqnt)** — the public host returned a deployment-not-found 404.
+*   **GTA: Chinatown Wars** — stalled at 4 MB of 862 MB with 0 FPS; a playable session could not be verified.
+*   **The Elder Scrolls III: Morrowind** — the advertised host is invite-only and says its player app is not installed.
+*   **Doom 3 Demo (d3wasm)** — the demo page exposed a runtime exception during the direct check.
+*   **Call of Duty: Black Ops III — Cheese Cube** — taken down; the old domain now redirects to an unrelated casino site.
+*   **Call of Duty: Black Ops II (Vibe Slops II)** — offline after the author reported an Activision DMCA takedown.
+*   **Poke World Survivors** — host returned HTTP 500 on the last check.
+*   The original four entries (Modern Warfare 2 railway host, Skate Rust storefront, truncated GTA 5 Wayback link and broken Hedgewars host) remain excluded.
 
-Removals are never silent: they are moved to `excluded` with a reason and a date.
+Removals and unverified leads are never silent: each stays in `excluded` with its URL and reason.
 
 ---
 

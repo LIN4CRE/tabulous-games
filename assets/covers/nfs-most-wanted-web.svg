@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-label="NFS Most Wanted cover art">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#140614"/>
+      <stop offset="58%" stop-color="#4a044e"/>
+      <stop offset="100%" stop-color="#140614"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="82%" cy="12%" r="70%">
+      <stop offset="0%" stop-color="#f472b6" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f472b6" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f472b6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="52%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.55"/>
+    </linearGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse" patternTransform="rotate(14)">
+      <path d="M0 0H64M0 0V64" stroke="#fbcfe8" stroke-opacity="0.055" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#grid)"/>
+  <rect width="1280" height="720" fill="url(#glow)"/>
+
+  <g fill="none" stroke="#f472b6">
+    <circle cx="1070" cy="192" r="188" stroke-opacity="0.5" stroke-width="1.5"/>
+    <circle cx="1070" cy="192" r="118" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="4 12"/>
+    <circle cx="1070" cy="192" r="196" stroke-opacity="0.16" stroke-width="26"/>
+    <path d="M1070 8 V120 M1070 264 V376 M886 192 H974 M1166 192 H1254" stroke-opacity="0.35" stroke-width="1.5"/>
+    <circle cx="1202" cy="70" r="5" fill="#fbcfe8" fill-opacity="0.7"/>
+  </g>
+
+  <text x="1268" y="640" text-anchor="end" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-weight="900"
+        font-size="600" fill="#f472b6" fill-opacity="0.07" letter-spacing="-20">N</text>
+
+  <rect width="1280" height="720" fill="url(#shade)"/>
+
+  <g font-family="Segoe UI, Arial Black, Helvetica, Arial, sans-serif" font-weight="900" font-size="96" letter-spacing="-1">
+    <text x="84" y="378" fill="#ffffff" fill-opacity="0.97">NFS MOST</text>
+    <text x="84" y="476" fill="#ffffff" fill-opacity="0.97">WANTED</text>
+  </g>
+
+  <rect x="86" y="520" width="132" height="7" rx="3.5" fill="url(#rule)"/>
+</svg>

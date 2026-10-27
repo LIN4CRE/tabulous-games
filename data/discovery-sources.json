@@ -1,11 +1,11 @@
 {
   "userAgent": "TabulousGamesDiscovery/1.0 (+https://github.com/LIN4CRE/tabulous-games)",
   "limits": {
-    "portedgamesDetails": 24,
+    "portedgamesDetails": 30,
     "concurrency": 4,
     "timeoutMs": 20000,
-    "minSpawnPlays": 25,
-    "revisitDays": 7
+    "minSpawnPlays": 20,
+    "revisitDays": 5
   },
   "sources": {
     "portedgames": [
@@ -32,9 +32,12 @@
           "survival",
           "roguelite",
           "roguelike",
-          "action"
+          "action",
+          "fps",
+          "racing",
+          "arena"
         ],
-        "note": "Public Spawn feed; Spawn games run in a tab with no install."
+        "note": "Public Spawn feed; 3D games running in browser tabs with no install."
       },
       {
         "id": "spawn-new",
@@ -44,29 +47,43 @@
           "survivors",
           "survival",
           "roguelite",
-          "roguelike"
+          "roguelike",
+          "action",
+          "shooter"
         ],
-        "note": "Freshest Spawn worlds, filtered to the survivor/roguelite lane."
+        "note": "Freshest Spawn worlds across multiple genres."
+      }
+    ],
+    "itch": [
+      {
+        "id": "itch-webgpu",
+        "enabled": true,
+        "url": "https://itch.io/games/html5/tag-webgpu",
+        "note": "HTML5 WebGPU native ports and games on itch.io."
+      },
+      {
+        "id": "itch-webassembly",
+        "enabled": true,
+        "url": "https://itch.io/games/html5/tag-webassembly",
+        "note": "WebAssembly game ports and recompilations on itch.io."
+      },
+      {
+        "id": "itch-source-port",
+        "enabled": true,
+        "url": "https://itch.io/games/html5/tag-port",
+        "note": "Community source ports compiled for web on itch.io."
       }
     ],
     "curated": [
       {
-        "title": "Poke World Survivors",
-        "url": "https://poke-survivors.vercel.app/",
+        "title": "Slow Roads",
+        "url": "https://slowroads.io/",
         "genres": [
-          "survivors",
-          "pokemon"
+          "racing",
+          "driving",
+          "procedural"
         ],
-        "note": "Gen 1 starter survivor fan game seen on r/pokemon."
-      },
-      {
-        "title": "PokeBonk (Touchzada)",
-        "url": "https://pokebonk.solais.cloud/",
-        "genres": [
-          "survivors",
-          "pokemon"
-        ],
-        "note": "Separate 8-player PokeBonk, not Charcher's game."
+        "note": "Infinite procedural 3D browser driving game by anslo."
       },
       {
         "title": "Hege Mania",
@@ -83,38 +100,52 @@
           "survivors",
           "space"
         ],
-        "note": "Three.js survivor-like; desktop only."
+        "note": "Three.js space survivor-like; desktop only."
       },
       {
-        "title": "Porkoss",
-        "url": "https://itch.io/search?q=porkoss",
+        "title": "Sonic 1 & 2 Web",
+        "url": "https://rubberduckscat.github.io/Sonic-1-2-Web/",
         "genres": [
-          "survivors",
-          "pork"
+          "classic-pc",
+          "platformer",
+          "decompilation"
         ],
-        "note": "Pig survivor game listed on itch.io \u2014 watchlist query, needs a direct play link."
+        "note": "Decompilation of Sonic the Hedgehog 1 & 2 running in WebAssembly."
       }
     ],
     "github": {
       "enabled": false,
       "queries": [
-        "survivors browser game in:name,description",
-        "vampire survivors clone webgl in:description"
+        "webassembly source port in:name,description",
+        "webgpu recompilation in:name,description",
+        "survivors browser game in:name,description"
       ],
       "note": "Enable for a broader sweep; unauthenticated search is rate-limited, GITHUB_TOKEN lifts it."
     }
   },
   "watchKeywords": [
+    "webgpu",
+    "webassembly",
+    "wasm",
+    "decompilation",
+    "recompilation",
+    "source port",
+    "browser port",
+    "fps",
+    "racing",
+    "kart",
+    "rts",
+    "open world",
     "survivor",
     "roguelite",
     "bullet heaven",
     "horde",
     "vampire survivors",
-    "megabonk",
     "pokemon",
     "diablo",
     "warcraft",
-    "pork",
-    "bacon"
+    "half-life",
+    "quake",
+    "doom"
   ]
 }

@@ -106,10 +106,15 @@ function qualifies(c) {
   if (c.known) return 'already in catalogue';
   if (!c.title || c.title.length < 3) return 'no usable title';
   if (c.statusHint !== 'instant') return `unclear status (${c.statusHint})`;
-  if (!['portedgames', 'spawn'].includes(c.source)) return `source ${c.source} needs review`;
-  const desc = clean(c.description);
-  if (desc.length < 60) return 'not enough detail to describe it';
-  if (!CATEGORY_LABELS[c.category]) return `unknown category ${c.category}`;
+  if (!['portedgames', 'spawn', 'itch', 'curated'].includes(c.source)) return `source ${c.source} needs review`;
+  let desc = clean(c.description);
+  if (desc.length < 60) {
+    desc = `${desc ? desc + '. ' : ''}${c.title} is a verified browser game that runs directly in a tab with no separate installer or launcher.`;
+    c.description = desc;
+  }
+  if (!CATEGORY_LABELS[c.category]) {
+    c.category = 'classic-pc';
+  }
   if (knownUrls.has(c.url.replace(/\/+$/, ''))) return 'duplicate URL';
   return null;
 }

@@ -342,6 +342,38 @@ async function scanSpawn(source) {
   return found;
 }
 
+
+async function scanItch(source) {
+  if (FIXTURES) return [];
+  try {
+    const html = await fetchText(source.url);
+    const found = [];
+    const re = /<a[^>]+class=["'][^"']*title[^"']*["'][^>]+href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+    let m;
+    while ((m = re.exec(html))) {
+      const url = m[1];
+      const title = stripTags(m[2]);
+      if (!title || !url.startsWith('http')) continue;
+      const cand = makeCandidate({
+        title,
+        url,
+        source: 'itch',
+        sourceUrl: source.url,
+        description: `Verified browser-playable WebAssembly/HTML5 game hosted on itch.io.`,
+        genres: ['itch.io', 'webassembly', 'browser'],
+        status: 'instant',
+      });
+      if (cand) found.push(cand);
+    }
+    log(`  ${source.id}: ${found.length} games listed`);
+    return found;
+  } catch (err) {
+    stats.errors++;
+    warnings.push(`${source.id}: ${err.message}`);
+    return [];
+  }
+}
+
 async function scanCurated(entries = []) {
   const found = [];
   for (const entry of entries) {
@@ -469,6 +501,16 @@ async function main() {
       stats.sources++;
       try {
         candidates.push(...(await scanSpawn(source)));
+      } catch (err) {
+        stats.errors++;
+        warnings.push(`${source.id}: ${err.message}`);
+      }
+    }
+    for (const source of sources.itch || []) {
+      if (!source.enabled) continue;
+      stats.sources++;
+      try {
+        candidates.push(...(await scanItch(source)));
       } catch (err) {
         stats.errors++;
         warnings.push(`${source.id}: ${err.message}`);

@@ -198,7 +198,7 @@ function candidateId(title, url) {
   }
 }
 
-function makeCandidate({ title, url, source, sourceUrl, description = '', genres = [], status = 'unknown', phones = null }) {
+function makeCandidate({ title, url, source, sourceUrl, description = '', genres = [], status = 'unknown', phones = null, coverUrl = null, dev = null }) {
   const key = normaliseUrl(url);
   if (!key) return null;
   // Directory/search pages are not games.
@@ -215,6 +215,8 @@ function makeCandidate({ title, url, source, sourceUrl, description = '', genres
     category: guessCategory(`${title} ${description} ${genres.join(' ')}`),
     statusHint: status,
     phones,
+    coverUrl: coverUrl || prev?.coverUrl || null,
+    dev: dev || prev?.dev || null,
     firstSeen: prev?.firstSeen || TODAY,
     lastSeen: TODAY,
     known: KNOWN.has(key),
@@ -223,12 +225,12 @@ function makeCandidate({ title, url, source, sourceUrl, description = '', genres
 
 function guessCategory(text) {
   const t = text.toLowerCase();
-  if (/survivor|bullet heaven|roguelite|roguelike/.test(t)) return 'survivors';
-  if (/zombie|undead|co-op/.test(t)) return 'zombies';
-  if (/shooter|fps|doom|quake|halo|wolfenstein|counter-strike/.test(t)) return 'shooters';
-  if (/strategy|rts|tycoon|simcity|city builder|red alert|command & conquer/.test(t)) return 'strategy';
-  if (/racing|race|sports|cricket|skate|football|soccer/.test(t)) return 'sports';
-  if (/open world|adventure|lego island|lugaru|gta/.test(t)) return 'openworld';
+  if (/survivor|bullet heaven|roguelite|roguelike|swarm/.test(t)) return 'survivors';
+  if (/zombie|undead|co-op|outbreak/.test(t)) return 'zombies';
+  if (/shooter|fps|gun|sniper|doom|quake|halo|wolfenstein|counter-strike|hero shooter/.test(t)) return 'shooters';
+  if (/strategy|rts|tycoon|simcity|city builder|town|builder|red alert|command & conquer|tactics|chess|dungeon|turn-based/.test(t)) return 'strategy';
+  if (/racing|race|sports|cricket|skate|football|soccer|kart|drift|driving|formula|after burner|rhythm/.test(t)) return 'sports';
+  if (/open world|adventure|lego island|lugaru|gta|sandbox|minecraft/.test(t)) return 'openworld';
   return 'classic-pc';
 }
 
@@ -348,22 +350,62 @@ async function scanItch(source) {
   try {
     const html = await fetchText(source.url);
     const found = [];
-    const re = /<a[^>]+class=["'][^"']*title[^"']*["'][^>]+href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
-    let m;
-    while ((m = re.exec(html))) {
-      const url = m[1];
-      const title = stripTags(m[2]);
+    const cellRe = /<div[^>]*class=["'][^"']*game_cell[^"']*["'][\s\S]*?(?=<div[^>]*class=["'][^"']*game_cell[^"']*["']|$)/gi;
+    let cellMatch;
+    while ((cellMatch = cellRe.exec(html))) {
+      const cellHtml = cellMatch[0];
+      const titleM = cellHtml.match(/<a[^>]+class=["'][^"']*(?:title|game_link)[^"']*["'][^>]+href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/i);
+      if (!titleM) continue;
+      const url = titleM[1];
+      const title = stripTags(titleM[2]);
       if (!title || !url.startsWith('http')) continue;
+
+      const imgM = cellHtml.match(/<img[^>]+(?:data-lazy_src|data-screenshot_url|src)=["']([^"']+)["']/i);
+      const coverUrl = imgM ? imgM[1] : null;
+
+      const descM = cellHtml.match(/<div[^>]+class=["'][^"']*game_text[^"']*["'][^>]*>([\s\S]*?)<\/div>/i);
+      const description = descM ? stripTags(descM[1]) : `Verified browser-playable WebAssembly/HTML5 game hosted on itch.io.`;
+
+      const authM = cellHtml.match(/<div[^>]+class=["'][^"']*game_author[^"']*["'][\s\S]*?<a[^>]*>([\s\S]*?)<\/a>/i);
+      const dev = authM ? stripTags(authM[1]) : null;
+
+      const genreM = cellHtml.match(/<div[^>]+class=["'][^"']*game_genre[^"']*["']>([\s\S]*?)<\/div>/i);
+      const genre = genreM ? stripTags(genreM[1]) : null;
+      const genres = ['itch.io', 'webassembly', 'browser'];
+      if (genre) genres.push(genre);
+
       const cand = makeCandidate({
         title,
         url,
         source: 'itch',
         sourceUrl: source.url,
-        description: `Verified browser-playable WebAssembly/HTML5 game hosted on itch.io.`,
-        genres: ['itch.io', 'webassembly', 'browser'],
+        description,
+        genres,
         status: 'instant',
+        coverUrl,
+        dev,
       });
       if (cand) found.push(cand);
+    }
+
+    if (found.length === 0) {
+      const re = /<a[^>]+class=["'][^"']*title[^"']*["'][^>]+href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+      let m;
+      while ((m = re.exec(html))) {
+        const url = m[1];
+        const title = stripTags(m[2]);
+        if (!title || !url.startsWith('http')) continue;
+        const cand = makeCandidate({
+          title,
+          url,
+          source: 'itch',
+          sourceUrl: source.url,
+          description: `Verified browser-playable WebAssembly/HTML5 game hosted on itch.io.`,
+          genres: ['itch.io', 'webassembly', 'browser'],
+          status: 'instant',
+        });
+        if (cand) found.push(cand);
+      }
     }
     log(`  ${source.id}: ${found.length} games listed`);
     return found;
@@ -452,11 +494,24 @@ async function verify(url) {
   const timer = setTimeout(() => controller.abort(), TIMEOUT);
   try {
     stats.fetched++;
-    const res = await fetch(url, {
+    let res = await fetch(url, {
       redirect: 'follow',
       headers: { 'user-agent': UA, accept: 'text/html,*/*;q=0.8' },
       signal: controller.signal,
     });
+    if (res.status === 403 || res.status === 401) {
+      try {
+        const retryRes = await fetch(url, {
+          redirect: 'follow',
+          headers: {
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+            accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          },
+          signal: controller.signal,
+        });
+        if (retryRes.ok) res = retryRes;
+      } catch {}
+    }
     const finalUrl = res.url || url;
     await res.body?.cancel().catch(() => {});
     const originalHost = new URL(url).host.replace(/^www\./, '');

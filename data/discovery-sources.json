@@ -72,6 +72,24 @@
         "enabled": true,
         "url": "https://itch.io/games/html5/tag-port",
         "note": "Community source ports compiled for web on itch.io."
+      },
+      {
+        "id": "itch-fps",
+        "enabled": true,
+        "url": "https://itch.io/games/html5/tag-fps",
+        "note": "HTML5 3D first-person shooters on itch.io."
+      },
+      {
+        "id": "itch-racing",
+        "enabled": true,
+        "url": "https://itch.io/games/html5/tag-racing",
+        "note": "HTML5 racing and driving games on itch.io."
+      },
+      {
+        "id": "itch-decompile",
+        "enabled": true,
+        "url": "https://itch.io/games/html5/tag-decompile",
+        "note": "Community game recompilations and decomp projects on itch.io."
       }
     ],
     "curated": [

@@ -131,19 +131,42 @@ if (!NO_PUBLISH && MAX_PUBLISH > 0) {
     const genres = (c.genres || []).map(titleCase).filter((g) => !/^(Action|Survival)$/i.test(g));
     const id = uniqueId(c.title, takenIds);
     const host = new URL(c.url).host.replace(/^www\./, '');
+
+    let coverPath = `assets/covers/${id}.svg`;
+    if (c.coverUrl && !DRY) {
+      try {
+        const imgRes = await fetch(c.coverUrl, {
+          headers: {
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+            'referer': c.url || 'https://itch.io/',
+          },
+          signal: AbortSignal.timeout(10000),
+        });
+        if (imgRes.ok) {
+          const buf = Buffer.from(await imgRes.arrayBuffer());
+          if (buf.length > 1000) {
+            const ext = /png/i.test(imgRes.headers.get('content-type') || '') || c.coverUrl.includes('.png') ? 'png' : 'jpg';
+            const fileName = `${id}.${ext}`;
+            fs.writeFileSync(path.join(ROOT, 'assets/covers', fileName), buf);
+            coverPath = `assets/covers/${fileName}`;
+          }
+        }
+      } catch {}
+    }
+
     const entry = {
       id,
       title: c.title,
       shortTitle: c.title.length > 30 ? `${c.title.slice(0, 28).trim()}…` : c.title,
       url: c.url,
-      cover: `assets/covers/${id}.svg`,
+      cover: coverPath,
       category: c.category,
       categoryLabel: CATEGORY_LABELS[c.category],
       year: (() => {
         const m = `${c.title} ${c.description}`.match(/\b(19[5-9]\d|20[0-2]\d)\b/);
         return m ? Number(m[1]) : new Date().getFullYear();
       })(),
-      dev: c.source === 'spawn' ? 'Community creator (Spawn)' : 'Community fan project',
+      dev: c.dev || (c.source === 'spawn' ? 'Community creator (Spawn)' : 'Community fan project'),
       engine: c.source === 'spawn' ? 'WebGL / Spawn Engine' : 'Browser / WebAssembly',
       status: 'instant',
       statusLabel: status.label,

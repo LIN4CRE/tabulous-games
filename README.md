@@ -3,7 +3,7 @@
 <img src="assets/brand/emblem.svg" alt="Tabulous Games emblem" width="72" align="right">
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-lin4cre.github.io-8fd6ff?style=for-the-badge&logo=githubpages)](https://lin4cre.github.io/tabulous-games/)
-[![Live Games](https://img.shields.io/badge/Verified%20Games-50%20Playable-00f0ff?style=for-the-badge&logo=gamepad)](index.html)
+[![Live Games](https://img.shields.io/badge/Verified%20Games-58%20Playable-00f0ff?style=for-the-badge&logo=gamepad)](index.html)
 [![Sister Project](https://img.shields.io/badge/Sister%20Repo-Retro%20Arcade%20Vault-a855f7?style=for-the-badge&logo=github)](https://github.com/LIN4CRE/retro-arcade-vault)
 [![Tech Stack](https://img.shields.io/badge/Engine-WebAssembly%20%7C%20WebGL-ff0077?style=for-the-badge)](https://webassembly.org/)
 [![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
@@ -83,7 +83,7 @@ A separate manual sweep checked for missing, recognizable PC and console blockbu
 
 ---
 
-## 🚀 The Curated Library (50 entries, 29 instant-play)
+## 🚀 The Curated Library (58 entries, 37 instant-play)
 
 Every card links to the project's own site. Large downloads, WebGPU requirements and "bring your own game files" cases are called out in each card's **Good to Know** box rather than hidden:
 
@@ -91,6 +91,14 @@ Every card links to the project's own site. Large downloads, WebGPU requirements
 | Game Title | Platform / Tech | Genre | Status |
 | :--- | :--- | :--- | :--- |
 | **Need for Speed: Most Wanted — Web Port** 🆕 | PC Recompilation / WebAssembly / WebGPU | Sports &amp; Arcade | ⚡ Instant Play |
+| **Townscaper (Web Edition)** 🆕 | Unity WebGL / WebAssembly | Strategy &amp; Management | ⚡ Instant Play |
+| **Celeste Classic (PICO-8)** 🆕 | PICO-8 / WebAssembly | Classic PC &amp; Retro Ports | ⚡ Instant Play |
+| **Legend of Legaia (Web Recompilation)** 🆕 | PS1 Recompilation / WebGL / WebAssembly | Classic PC &amp; Retro Ports | ⚡ Instant Play |
+| **After Burner II (HTML5 Arcade Port)** 🆕 | melonJS / HTML5 Canvas / WebGL | Sports &amp; Arcade | ⚡ Instant Play |
+| **Web Dashers (Geometry Rhythm Platformer)** 🆕 | HTML5 Canvas / WebGL | Sports &amp; Arcade | ⚡ Instant Play |
+| **Pokémon Mystery Dungeon: Web Engine** 🆕 | HTML5 Canvas / WebAudio | Strategy &amp; Management | ⚡ Instant Play |
+| **Hege Mania (Browser Bullet Heaven)** 🆕 | HTML5 Canvas / WebGL | Bullet Heaven &amp; Survivors | ⚡ Instant Play |
+| **APEX GP 26 (3D Formula Racer)** 🆕 | WebGPU / WebGL / Three.js | Sports &amp; Arcade | ⚡ Instant Play |
 | **CrossCode (HTML5 Action-RPG)** 🆕 | ImpactJS / HTML5 Canvas | Classic PC &amp; Retro Ports | ⚡ Instant Play |
 | **Venge.io (Tactical 3D Hero Shooter)** 🆕 | PlayCanvas / WebGL Engine | Shooters &amp; FPS | 🌐 Multiplayer |
 | **Shell Shockers (3D Egg Battle FPS)** 🆕 | Babylon.js / WebGL | Shooters &amp; FPS | 🌐 Multiplayer |

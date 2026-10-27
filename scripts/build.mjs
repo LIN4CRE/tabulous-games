@@ -64,117 +64,46 @@ function validate() {
   }
 }
 
-const STATUS_ICON = { instant: 'i-bolt', multiplayer: 'i-globe', files: 'i-folder' };
-
-function icon(name, cls = 'ico ico--sm') {
-  return `<svg class="${cls}" aria-hidden="true"><use href="#${name}"></use></svg>`;
-}
+/** Short labels for the compact card badge and the status filter. */
+const STATUS_SHORT = { instant: 'Instant', multiplayer: 'Online', files: 'Own files' };
 
 function card(g) {
-  const status = STATUS_META[g.status];
   const tagText = lower(
-    uniq([...g.tags, g.dev, g.engine, g.categoryLabel, ...(g.alsoKnownAs || [])]).join(' ')
+    uniq([g.title, ...g.tags, g.dev, g.engine, g.categoryLabel, ...(g.alsoKnownAs || [])]).join(' ')
   );
+  const url = esc(g.url);
+  const ext = 'target="_blank" rel="noopener noreferrer"';
 
-  return `        <article class="game-card"
-          data-id="${esc(g.id)}"
-          data-category="${esc(g.category)}"
-          data-status="${esc(g.status)}"
-          data-title="${esc(lower(g.title))}"
-          data-year="${g.year}"
-          data-tags="${esc(tagText)}">
-
-          <a href="${esc(g.url)}" target="_blank" rel="noopener noreferrer" class="cover-link-wrapper" title="Play ${esc(g.title)} in a new tab">
-            <img src="${esc(g.cover)}" alt="${esc(g.title)} cover art" class="cover-img" loading="lazy" decoding="async" width="640" height="360" onerror="this.src='assets/brand/banner.svg'">
-            <div class="floating-badges">
-              <span class="badge-status is-${esc(g.status)}">
-                ${icon(STATUS_ICON[g.status] || 'i-bolt', 'ico ico--sm')}
-                ${esc(status.label)}
-              </span>
-              <span class="floating-right">
-                ${g.isNew ? '<span class="badge-new">NEW</span>' : ''}
-                <span class="badge-year">${g.year}</span>
-              </span>
-            </div>
-            <div class="play-hover-badge">
-              <span class="play-pill">${icon('i-play', 'ico ico--sm')} Play in tab</span>
-            </div>
+  return `        <article class="game-card" data-id="${esc(g.id)}" data-category="${esc(g.category)}" data-status="${esc(g.status)}" data-title="${esc(lower(g.title))}" data-year="${g.year}" data-tags="${esc(tagText)}">
+          <a class="cover" href="${url}" ${ext} tabindex="-1" aria-hidden="true">
+            <img src="${esc(g.cover)}" alt="" loading="lazy" decoding="async" width="640" height="360" onerror="this.onerror=null;this.src='assets/brand/banner.svg'">
+            <span class="badge is-${esc(g.status)}">${esc(STATUS_SHORT[g.status])}</span>${g.isNew ? '\n            <span class="badge badge--new">New</span>' : ''}
           </a>
-
           <div class="card-body">
-            <div class="card-header-row">
-              <h2 class="game-title">
-                <a href="${esc(g.url)}" target="_blank" rel="noopener noreferrer">${esc(g.title)}</a>
-              </h2>
-              <p class="game-meta-subtitle">
-                <span>${esc(g.dev)}</span>
-                <span aria-hidden="true">·</span>
-                <span>${esc(g.engine)}</span>
-              </p>
-            </div>
-
+            <h3 class="game-title"><a href="${url}" ${ext}>${esc(g.title)}</a></h3>
+            <p class="game-meta">${esc(g.categoryLabel)} · ${g.year}</p>
             <p class="game-desc">${esc(g.desc)}</p>
-
-            <div class="info-box">
-              <div class="info-label">${icon('i-shield', 'ico ico--sm')} Good to know</div>
-              <div class="info-text">${esc(g.goodToKnow)}</div>
-              <div class="controls-snippet">${icon('i-terminal', 'ico ico--sm')} ${esc(g.controls)}</div>
+            <div class="card-info" hidden>
+              <p><b>Good to know</b> ${esc(g.goodToKnow)}</p>
+              <p><b>Controls</b> ${esc(g.controls)}</p>
+              <p class="card-dev">${esc(g.dev)} · ${esc(g.engine)}</p>
             </div>
-
-            <div class="tags-row">
-              ${g.tags.map((t) => `<span class="tag-chip">#${esc(t)}</span>`).join('')}
+            <div class="card-actions">
+              <a class="btn-play" href="${url}" ${ext}>Play</a>
+              <button class="btn-info" type="button" aria-expanded="false">Info</button>
             </div>
-
-            <a href="${esc(g.url)}" target="_blank" rel="noopener noreferrer" class="btn-launch">
-              <span>Launch ${esc(g.shortTitle)}</span>
-              ${icon('i-external')}
-            </a>
           </div>
-
         </article>`;
-}
-
-function featuredSection() {
-  const feat = games.find((g) => g.id === db.featured) || games[0];
-  if (!feat) return '';
-  const status = STATUS_META[feat.status];
-  return `      <div class="section-head reveal">
-        <div>
-          <div class="section-kicker">Editor's pick</div>
-          <h2 class="section-title">The one to start with</h2>
-        </div>
-        <a class="section-link" href="#library">See all ${games.length} ${icon('i-arrow-right')}</a>
-      </div>
-
-      <article class="featured reveal">
-        <a class="featured-media" href="${esc(feat.url)}" target="_blank" rel="noopener noreferrer" aria-label="Play ${esc(feat.title)}">
-          <span class="featured-badge">${icon('i-play', 'ico ico--sm')} Featured</span>
-          <img src="${esc(feat.cover)}" alt="${esc(feat.title)} cover art" loading="lazy" decoding="async">
-        </a>
-        <div class="featured-body">
-          <h3 class="featured-title"><a href="${esc(feat.url)}" target="_blank" rel="noopener noreferrer">${esc(feat.title)}</a></h3>
-          <p class="featured-meta">${esc(feat.categoryLabel)} · ${esc(feat.dev)} · ${feat.year} · ${esc(status.label)}</p>
-          <p class="featured-desc">${esc(feat.desc)}</p>
-          <div class="featured-facts">
-            <div>${icon('i-shield')}<span>${esc(feat.goodToKnow)}</span></div>
-            <div>${icon('i-terminal')}<span>${esc(feat.controls)}</span></div>
-          </div>
-          <div class="featured-actions">
-            <a class="btn btn--primary" href="${esc(feat.url)}" target="_blank" rel="noopener noreferrer">${icon('i-play')} Play ${esc(feat.shortTitle)}</a>
-            <a class="btn btn--secondary" href="#library">${icon('i-layers')} Browse the vault</a>
-          </div>
-        </div>
-      </article>`;
 }
 
 function categoryPills() {
   const rows = [
-    `          <button class="pill-btn active" data-category="all">All games <span style="opacity:.55">${games.length}</span></button>`,
+    `          <button class="pill active" data-category="all">All <span>${games.length}</span></button>`,
     ...categories
       .filter((c) => countByCategory(c.id) > 0)
       .map(
         (c) =>
-          `          <button class="pill-btn" data-category="${c.id}">${esc(c.label)} <span style="opacity:.55">${countByCategory(c.id)}</span></button>`
+          `          <button class="pill" data-category="${c.id}">${esc(c.label)} <span>${countByCategory(c.id)}</span></button>`
       ),
   ];
   return rows.join('\n');
@@ -182,43 +111,26 @@ function categoryPills() {
 
 function statusPills() {
   return [
-    `          <button class="pill-btn active" data-status="all">All statuses</button>`,
-    `          <button class="pill-btn" data-status="instant">Instant play <span style="opacity:.55">${countByStatus('instant')}</span></button>`,
-    `          <button class="pill-btn" data-status="multiplayer">Multiplayer <span style="opacity:.55">${countByStatus('multiplayer')}</span></button>`,
-    `          <button class="pill-btn" data-status="files">Custom files <span style="opacity:.55">${countByStatus('files')}</span></button>`,
+    `          <button class="seg active" data-status="all">Any</button>`,
+    ...Object.keys(STATUS_META).map(
+      (id) =>
+        `          <button class="seg" data-status="${id}" title="${esc(STATUS_META[id].label)}">${STATUS_SHORT[id]} <span>${countByStatus(id)}</span></button>`
+    ),
   ].join('\n');
 }
 
 function auditSection() {
   const items = db.excluded || [];
-  const cards = items
-    .map(
-      (e) => `          <div class="audit-item">
-            <div class="audit-item-title">
-              ${icon('i-x')}
-              <span>${esc(e.name)}</span>
-            </div>
-            <div class="audit-item-reason">
-              <div class="audit-url">${esc(e.url)}</div>
-              <div>${esc(e.reason)}</div>
-            </div>
-          </div>`
-    )
+  const rows = items
+    .map((e) => `            <li><b>${esc(e.name)}</b> — ${esc(e.reason)} <code>${esc(e.url)}</code></li>`)
     .join('\n');
 
-  return `      <div class="audit-section" id="audit-section">
-        <div class="audit-header">
-          <h2 class="audit-title">${icon('i-shield')} Transparency log</h2>
-          <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--dim);">${items.length} links tested &amp; excluded</span>
-        </div>
-        <p>
-          Nothing is removed silently. Each entry below was checked and kept out of the live grid — dead hosts,
-          takedowns, storefronts with no game, or titles that could not be verified. The bot also writes removals here automatically.
-        </p>
-        <div class="audit-grid">
-${cards}
-        </div>
-      </div>`;
+  return `        <details class="audit" id="audit">
+          <summary>Removed &amp; excluded links <span>${items.length}</span></summary>
+          <ul>
+${rows}
+          </ul>
+        </details>`;
 }
 
 function readmeTable() {
@@ -281,7 +193,6 @@ function renderIndex(html) {
   out = replaceBlock(out, 'GAMES', games.map(card).join('\n\n'));
   out = replaceBlock(out, 'CATEGORY-PILLS', categoryPills());
   out = replaceBlock(out, 'STATUS-PILLS', statusPills());
-  out = replaceBlock(out, 'FEATURED', featuredSection());
   out = replaceBlock(out, 'AUDIT', auditSection());
   const fallback = scanFallback();
   out = out.replace(

@@ -352,37 +352,6 @@
       "isNew": true
     },
     {
-      "id": "pokebonk-touchzada",
-      "title": "PokeBonk (Touchzada, 8-Player)",
-      "shortTitle": "PokeBonk Online",
-      "url": "https://pokebonk.solais.cloud/",
-      "cover": "assets/covers/pokebonk-touchzada.svg",
-      "category": "survivors",
-      "year": 2026,
-      "dev": "Touchzada (Luciano Gomes)",
-      "engine": "HTML5 Canvas / Online Rooms",
-      "status": "instant",
-      "badge": "8-PLAYER HORDE",
-      "desc": "A separate fan-made PokeBonk by Touchzada: pick a Pokémon, survive the horde, stack absurd combos and Mega Evolve. Casual, Classic and Challenge presets, missions and a shop, plus online runs for up to eight players.",
-      "controls": "WASD or arrow keys to move • Attacks fire automatically • Mouse for menus and the shop • F2 for the balance panel • Esc to go back",
-      "goodToKnow": "Guest mode needs no account; logging in keeps missions, BP currency, shop unlocks and leaderboard runs. Not the same project as Charcher's pokebonk.com — this one is built around online play for up to eight.",
-      "tags": [
-        "Survivors",
-        "Pokémon",
-        "Online Co-op",
-        "Mega Evolution",
-        "Fan Project"
-      ],
-      "alsoKnownAs": [
-        "PokeBonk by Touchzada"
-      ],
-      "categoryLabel": "Survivors & Roguelite",
-      "statusLabel": "Instant Play",
-      "statusColor": "#00f0ff",
-      "added": "2026-10-24",
-      "isNew": true
-    },
-    {
       "id": "azeroth-survivors",
       "title": "Azeroth Survivors (World of Warcraft Survivors)",
       "shortTitle": "Azeroth Survivors",
@@ -584,37 +553,6 @@
       ],
       "alsoKnownAs": [
         "Pork Survivors"
-      ],
-      "categoryLabel": "Survivors & Roguelite",
-      "statusLabel": "Instant Play",
-      "statusColor": "#00f0ff",
-      "added": "2026-10-24",
-      "isNew": true
-    },
-    {
-      "id": "browsing-of-isaac",
-      "title": "The Binding of Isaac: Repentance+ (The Browsing of Isaac)",
-      "shortTitle": "The Browsing of Isaac",
-      "url": "https://tboi.online/",
-      "cover": "assets/covers/browsing-of-isaac.svg",
-      "category": "survivors",
-      "year": 2011,
-      "dev": "chiikabu / Nicalis",
-      "engine": "WebAssembly / Static Recompilation",
-      "status": "instant",
-      "badge": "ROGUELITE CLASSIC",
-      "desc": "chiikabu's WebAssembly recompile of The Binding of Isaac: Repentance+ running in a tab. Every item, synergy and bug from the PC game, with tboi.online streaming the whole data payload so there are no files to import.",
-      "controls": "WASD to move • Arrow keys to shoot • Space for the active item • Q for card or pill • E for bomb • Ctrl to swap items (hold to drop) • Tab for map • Esc to pause • F for fullscreen",
-      "goodToKnow": "The first load streams about 740 MB of game data, so give it time and free disk space. Saves stay in browser storage and can be exported. Chromium browsers are recommended. Unofficial fan recompile — own the game to play fair.",
-      "tags": [
-        "Roguelite",
-        "Isaac",
-        "WebAssembly",
-        "Fan Port",
-        "Bullet Heaven"
-      ],
-      "alsoKnownAs": [
-        "The Binding of Isaac in the browser"
       ],
       "categoryLabel": "Survivors & Roguelite",
       "statusLabel": "Instant Play",
@@ -965,84 +903,6 @@
       "isNew": true
     },
     {
-      "id": "bo1-zombies",
-      "title": "Call of Duty: Black Ops — Zombies",
-      "shortTitle": "BO1 Zombies",
-      "url": "http://vel.gg/bo1z",
-      "cover": "assets/covers/bo1.jpg",
-      "category": "zombies",
-      "categoryLabel": "Zombies & Co-op",
-      "year": 2010,
-      "dev": "Treyarch / Activision",
-      "engine": "WebGL / WebAssembly Canvas",
-      "status": "instant",
-      "statusLabel": "Instant Play",
-      "statusColor": "#00f0ff",
-      "badge": "CO-OP SURVIVAL",
-      "desc": "The iconic survival mode that defined a generation. Fight off relentless waves of the undead, board up barricades, rack up points, and unlock mystery box weapons.",
-      "controls": "WASD to move • Mouse to aim • Left Click to shoot • R to reload • F to rebuild/buy • Space to jump • Shift to sprint",
-      "goodToKnow": "Click inside the window to lock mouse pointer (Press ESC to release). Sound initializes upon first interaction.",
-      "tags": [
-        "FPS",
-        "Zombies",
-        "Survival",
-        "Treyarch",
-        "Cult Classic"
-      ]
-    },
-    {
-      "id": "moon-zombies",
-      "title": "Call of Duty: Black Ops — Moon",
-      "shortTitle": "BO1 Moon Map",
-      "url": "https://moon-zombies.pages.dev/",
-      "cover": "assets/covers/moon.svg",
-      "category": "zombies",
-      "categoryLabel": "Zombies & Co-op",
-      "year": 2011,
-      "dev": "Treyarch / Rezurrection DLC",
-      "engine": "WebGL / Cloudflare Pages",
-      "status": "instant",
-      "statusLabel": "Instant Play",
-      "statusColor": "#00f0ff",
-      "badge": "LOW GRAVITY",
-      "desc": "Blast off to Area 51 and the lunar surface in this standalone recreation of the Moon survival map. Experience low-gravity jumping, decompression zones, and the iconic biodome.",
-      "controls": "WASD to move • Mouse to aim • Left Click to fire • Space for low-gravity leaps • F to interact/buy weapons",
-      "goodToKnow": "Remember to equip your P.E.S. spacesuit helmet when venturing outside onto the lunar surface to avoid asphyxiation!",
-      "tags": [
-        "Zombies",
-        "Space",
-        "Low Gravity",
-        "DLC Classic",
-        "FPS"
-      ]
-    },
-    {
-      "id": "kino-der-toten",
-      "title": "Call of Duty: Black Ops — Kino der Toten",
-      "shortTitle": "Kino der Toten",
-      "url": "https://kino-der-toten.pages.dev/",
-      "cover": "assets/covers/kino.svg",
-      "category": "zombies",
-      "categoryLabel": "Zombies & Co-op",
-      "year": 2010,
-      "dev": "Treyarch",
-      "engine": "WebGL / Cloudflare Pages",
-      "status": "instant",
-      "statusLabel": "Instant Play",
-      "statusColor": "#00f0ff",
-      "badge": "THEATER OF THE DAMNED",
-      "desc": "The greatest Zombies launch map in history. Navigate the abandoned Berlin theater, turn on the power switch, link the teleporter to the projection booth, and Pack-a-Punch your arsenal.",
-      "controls": "WASD to move • Mouse to aim • Left Click to shoot • R to reload • F to activate power/doors • 1-3 to switch weapons",
-      "goodToKnow": "Turn on the power in the main auditorium to activate traps and link the teleporter for instant Pack-a-Punch access.",
-      "tags": [
-        "Zombies",
-        "Theater",
-        "Pack-a-Punch",
-        "Barricades",
-        "Masterpiece"
-      ]
-    },
-    {
       "id": "cs-surf",
       "title": "Counter-Strike Surf (Surfd.net)",
       "shortTitle": "CS Surf",
@@ -1070,9 +930,9 @@
     },
     {
       "id": "halo-ce-web",
-      "title": "Halo: Combat Evolved (Web Port)",
+      "title": "Halo: Combat Evolved (Combat Lab)",
       "shortTitle": "Halo CE Web",
-      "url": "https://mitchellhynes.com/halo/",
+      "url": "https://mitchellhynes.com/combat-lab/",
       "cover": "assets/covers/haloce.jpg",
       "category": "shooters",
       "categoryLabel": "Shooters & FPS",
@@ -1083,40 +943,17 @@
       "statusLabel": "Instant Play",
       "statusColor": "#00f0ff",
       "badge": "SCI-FI LEGEND",
-      "desc": "Mitchell Hynes’s remarkable browser adaptation of Master Chief’s debut. Board the Pillar of Autumn, wield the legendary M6D pistol and assault rifle, and combat the Covenant armada.",
-      "controls": "WASD to move • Mouse to aim • Left Click to fire • Right Click for grenades • Space to jump • E to enter vehicles/action",
-      "goodToKnow": "Runs fully in-browser with zero plugins. Allow pointer lock when prompted for 360-degree Spartan control.",
+      "desc": "Mitchell Hynes's browser port of Master Chief's debut, now called Combat Lab: play the campaign on the Pillar of Autumn and beyond, or jump into online rooms with friends.",
+      "controls": "WASD move • Mouse aim • LMB fire • RMB/G grenade • Space jump • E/R action & reload • Esc pause • Controller supported",
+      "goodToKnow": "Downloads a WebAssembly runtime on first load. Click the game (or \"Focus game\") to capture the mouse. Unofficial fan project, not affiliated with Microsoft or Halo Studios.",
       "tags": [
         "Master Chief",
         "Halo",
         "Bungie",
         "Campaign",
-        "Legendary"
-      ]
-    },
-    {
-      "id": "halo-ce-mobile",
-      "title": "Halo: Combat Evolved Mobile / Web (HCEMobile)",
-      "shortTitle": "HCEMobile",
-      "url": "https://hcemobile.com/",
-      "cover": "assets/covers/halomcc.jpg",
-      "category": "shooters",
-      "categoryLabel": "Shooters & FPS",
-      "year": 2001,
-      "dev": "Bungie / HCEMobile Team",
-      "engine": "WebAssembly / WebGL / Gamepad API",
-      "status": "files",
-      "statusLabel": "Load Files / Web",
-      "statusColor": "#a855f7",
-      "badge": "CROSS-PLATFORM",
-      "desc": "A dedicated cross-platform client of Halo CE featuring custom mobile touch overlays, full Gamepad API integration, and customizable resolution and rendering shaders.",
-      "controls": "Keyboard & Mouse OR Bluetooth/USB Gamepad (Xbox/PlayStation controller fully supported natively)",
-      "goodToKnow": "Supports loading your own custom CE map files (.map) or campaign assets for complete standalone offline playback.",
-      "tags": [
-        "Halo",
-        "Gamepad Support",
-        "Custom Maps",
-        "Mobile Ready"
+        "Legendary",
+        "Combat Lab",
+        "Online"
       ]
     },
     {
@@ -1247,31 +1084,6 @@
         "Driving",
         "Humor",
         "Open World"
-      ]
-    },
-    {
-      "id": "simpsons-wasmarcade",
-      "title": "The Simpsons: Hit & Run (WASM Arcade Mirror)",
-      "shortTitle": "Simpsons Mirror",
-      "url": "https://wasmarcade.com/simpsons",
-      "cover": "assets/covers/simpsons.webp",
-      "category": "openworld",
-      "categoryLabel": "Open World & Action",
-      "year": 2003,
-      "dev": "Radical Entertainment",
-      "engine": "WASM Arcade Pipeline",
-      "status": "instant",
-      "statusLabel": "Instant Play",
-      "statusColor": "#00f0ff",
-      "badge": "HIGH-SPEED MIRROR",
-      "desc": "High-availability mirror of The Simpsons: Hit & Run on WASM Arcade with zero downloads, pre-cached textures, and native audio support.",
-      "controls": "Keyboard & Gamepad supported • Standard WASD drive controls",
-      "goodToKnow": "Alternative high-speed server if the worker endpoint is busy.",
-      "tags": [
-        "Simpsons",
-        "Mirror",
-        "Fast CDN",
-        "WASM Arcade"
       ]
     },
     {
@@ -1458,7 +1270,7 @@
     },
     {
       "id": "cs-16-webxash",
-      "title": "Counter-Strike 1.6 & Half-Life (webXash)",
+      "title": "Counter-Strike 1.6 (webXash)",
       "shortTitle": "CS 1.6 / webXash",
       "url": "https://x8bitrain.github.io/webXash/",
       "cover": "assets/covers/cs16.jpg",
@@ -1510,6 +1322,41 @@
     }
   ],
   "excluded": [
+    {
+      "name": "PokeBonk (Touchzada, 8-Player)",
+      "url": "https://pokebonk.solais.cloud/",
+      "reason": "Duplicate name — PokéBonk is already listed via the official pokebonk.com."
+    },
+    {
+      "name": "Halo: Combat Evolved Mobile / Web (HCEMobile)",
+      "url": "https://hcemobile.com/",
+      "reason": "Duplicate — Halo: Combat Evolved is already listed as an instant-play port (Combat Lab)."
+    },
+    {
+      "name": "The Simpsons: Hit & Run (WASM Arcade Mirror)",
+      "url": "https://wasmarcade.com/simpsons",
+      "reason": "Duplicate — same game as The Simpsons: Hit & Run (SHAR WASM), which stays listed."
+    },
+    {
+      "name": "The Binding of Isaac: Repentance+ (The Browsing of Isaac)",
+      "url": "https://tboi.online/",
+      "reason": "Server unreachable (connection timeout on port 443, 27 Oct 2026). Will be re-added if it comes back."
+    },
+    {
+      "name": "Call of Duty: Black Ops — Kino der Toten",
+      "url": "https://kino-der-toten.pages.dev/",
+      "reason": "Host now instantly redirects to an unrelated link-shortener (lkgp.pro) — hijacked, removed for safety (27 Oct 2026)."
+    },
+    {
+      "name": "Call of Duty: Black Ops — Moon",
+      "url": "https://moon-zombies.pages.dev/",
+      "reason": "Host now instantly redirects to an unrelated link-shortener (lkgp.pro) — hijacked, removed for safety (27 Oct 2026)."
+    },
+    {
+      "name": "Call of Duty: Black Ops — Zombies",
+      "url": "http://vel.gg/bo1z",
+      "reason": "HTTP 451 \"Unavailable For Legal Reasons\" on 27 Oct 2026 — taken down."
+    },
     {
       "name": "Modern Warfare 2 (Railway)",
       "url": "http://ovz-game-production.up.railway.app/",
@@ -1608,7 +1455,7 @@
       "emoji": "🛹"
     }
   ],
-  "lastUpdated": "2026-10-25",
+  "lastUpdated": "2026-10-27",
   "autoDiscovery": {
     "script": "scripts/discover-games.mjs",
     "workflow": ".github/workflows/discover-games.yml",

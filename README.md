@@ -3,7 +3,7 @@
 <img src="assets/brand/emblem.svg" alt="Tabulous Games emblem" width="72" align="right">
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-lin4cre.github.io-8fd6ff?style=for-the-badge&logo=githubpages)](https://lin4cre.github.io/tabulous-games/)
-[![Live Games](https://img.shields.io/badge/Verified%20Games-52%20Playable-00f0ff?style=for-the-badge&logo=gamepad)](index.html)
+[![Live Games](https://img.shields.io/badge/Verified%20Games-45%20Playable-00f0ff?style=for-the-badge&logo=gamepad)](index.html)
 [![Sister Project](https://img.shields.io/badge/Sister%20Repo-Retro%20Arcade%20Vault-a855f7?style=for-the-badge&logo=github)](https://github.com/LIN4CRE/retro-arcade-vault)
 [![Tech Stack](https://img.shields.io/badge/Engine-WebAssembly%20%7C%20WebGL-ff0077?style=for-the-badge)](https://webassembly.org/)
 [![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
@@ -83,7 +83,7 @@ A separate manual sweep checked for missing, recognizable PC and console blockbu
 
 ---
 
-## 🚀 The Curated Library (52 entries, 34 instant-play)
+## 🚀 The Curated Library (45 entries, 28 instant-play)
 
 Every card links to the project's own site. Large downloads, WebGPU requirements and "bring your own game files" cases are called out in each card's **Good to Know** box rather than hidden:
 
@@ -100,7 +100,6 @@ Every card links to the project's own site. Large downloads, WebGPU requirements
 | **Command &amp; Conquer: Generals — Zero Hour (GeneralsX Web)** 🆕 | GeneralsX / WebAssembly Decompilation | Strategy &amp; Sim | 📁 Custom Files |
 | **Warcraft III (Warsmash Web)** 🆕 | Warsmash Browser Client / WebGL | Strategy &amp; Sim | 📁 Custom Files |
 | **S.T.A.L.K.E.R.: Call of Pripyat (ZoneVM)** 🆕 | OpenXRay / WebAssembly | Shooters &amp; FPS | 📁 Custom Files |
-| **PokeBonk (Touchzada, 8-Player)** 🆕 | HTML5 Canvas / Online Rooms | Survivors &amp; Roguelite | ⚡ Instant Play |
 | **Azeroth Survivors (World of Warcraft Survivors)** 🆕 | WebGPU / Rust + Bevy WASM | Survivors &amp; Roguelite | ⚡ Instant Play |
 | **Diablo Survivors (3D Multiplayer)** 🆕 | WebGL / Spawn Engine | Survivors &amp; Roguelite | ⚡ Instant Play |
 | **D2 Survivors (Diablo II Survivors)** 🆕 | WebAssembly / Own D2 Files | Survivors &amp; Roguelite | 📁 Custom Files |
@@ -108,7 +107,6 @@ Every card links to the project's own site. Large downloads, WebGPU requirements
 | **PokéSurvivor (966 Pokémon)** 🆕 | HTML5 Canvas / WebGL | Survivors &amp; Roguelite | ⚡ Instant Play |
 | **Pokémon Survivors (Bullet Heaven)** 🆕 | HTML5 / Canvas | Survivors &amp; Roguelite | ⚡ Instant Play |
 | **Bacon Survivor (Pork Survivors-like)** 🆕 | HTML5 / Canvas | Survivors &amp; Roguelite | ⚡ Instant Play |
-| **The Binding of Isaac: Repentance+ (The Browsing of Isaac)** 🆕 | WebAssembly / Static Recompilation | Survivors &amp; Roguelite | ⚡ Instant Play |
 | **Doom (Wasm Doom)** 🆕 | Chocolate Doom WASM / WebSockets | Classic PC &amp; Retro Ports | ⚡ Instant Play |
 | **Crash Bash Online** 🆕 | WebGL / Server-side Game Logic | Sports &amp; Arcade | 🌐 Multiplayer |
 | **Tomb Raider (OpenLara)** 🆕 | WebGL / WebAssembly Engine Rewrite | Classic PC &amp; Retro Ports | ⚡ Instant Play |
@@ -121,18 +119,13 @@ Every card links to the project's own site. Large downloads, WebGPU requirements
 | **Alley Cat (alleycat.exe)** 🆕 | Static Recompilation / WASM | Classic PC &amp; Retro Ports | ⚡ Instant Play |
 | **SimCity Classic (micropolisJS)** 🆕 | JavaScript / HTML5 Canvas | Strategy &amp; Sim | ⚡ Instant Play |
 | **Cricket 07 (Browser Recompilation)** 🆕 | WebAssembly / WebGPU Recompilation | Sports &amp; Arcade | ⚡ Instant Play |
-| **Call of Duty: Black Ops — Zombies** | WebGL / WebAssembly Canvas | Zombies &amp; Co-op | ⚡ Instant Play |
-| **Call of Duty: Black Ops — Moon** | WebGL / Cloudflare Pages | Zombies &amp; Co-op | ⚡ Instant Play |
-| **Call of Duty: Black Ops — Kino der Toten** | WebGL / Cloudflare Pages | Zombies &amp; Co-op | ⚡ Instant Play |
 | **Counter-Strike Surf (Surfd.net)** | WebGL / Source Physics Engine | Shooters &amp; FPS | ⚡ Instant Play |
-| **Halo: Combat Evolved (Web Port)** | WebGL / WebAssembly Engine | Shooters &amp; FPS | ⚡ Instant Play |
-| **Halo: Combat Evolved Mobile / Web (HCEMobile)** | WebAssembly / WebGL / Gamepad API | Shooters &amp; FPS | 📁 Custom Files |
+| **Halo: Combat Evolved (Combat Lab)** | WebGL / WebAssembly Engine | Shooters &amp; FPS | ⚡ Instant Play |
 | **Skate 3 (Web Fan Project)** | WebGL / Canvas Physics | Sports &amp; Arcade | ⚡ Instant Play |
 | **Pro Evolution Soccer 6 (PES 6 Web)** | PPSSPP WebAssembly Emulation | Sports &amp; Arcade | ⚡ Instant Play |
 | **Grand Theft Auto: Vice City (reVC WASM)** | reVC WebAssembly / WebGL | Open World &amp; Action | ⚡ Instant Play |
 | **Grand Theft Auto III (re3 WASM)** | re3 WebAssembly / WebGL | Open World &amp; Action | ⚡ Instant Play |
 | **The Simpsons: Hit &amp; Run (SHAR WASM)** | WebAssembly / Cloudflare Workers | Open World &amp; Action | ⚡ Instant Play |
-| **The Simpsons: Hit &amp; Run (WASM Arcade Mirror)** | WASM Arcade Pipeline | Open World &amp; Action | ⚡ Instant Play |
 | **Minecraft Java 1.8.8 (Eaglercraft WASM)** | TeaVM / WebAssembly Java | Open World &amp; Action | ⚡ Instant Play |
 | **Quake (QuakeWorld Online)** | WebQuake / WebGL / WebSockets | Classic PC &amp; Retro Ports | 🌐 Multiplayer |
 | **Quake II (JSQuake II)** | WebGL / WebAssembly Netcode | Classic PC &amp; Retro Ports | 🌐 Multiplayer |
@@ -140,7 +133,7 @@ Every card links to the project's own site. Large downloads, WebGPU requirements
 | **Return to Castle Wolfenstein (iortcw Web)** | iortcw WebAssembly / WebGL | Classic PC &amp; Retro Ports | 🌐 Multiplayer |
 | **Urban Terror (ut.pieter.com)** | ioquake3 WebAssembly | Shooters &amp; FPS | ⚡ Instant Play |
 | **Half-Life (Pixelsuft WebXash)** | Xash3D FWGS WebAssembly | Classic PC &amp; Retro Ports | ⚡ Instant Play |
-| **Counter-Strike 1.6 &amp; Half-Life (webXash)** | Xash3D WebAssembly Framework | Shooters &amp; FPS | 📁 Custom Files |
+| **Counter-Strike 1.6 (webXash)** | Xash3D WebAssembly Framework | Shooters &amp; FPS | 📁 Custom Files |
 | **Diablo 1 (DiabloWeb / DevilutionX)** | DevilutionX WebAssembly | Classic PC &amp; Retro Ports | ⚡ Instant Play |
 <!-- GAMES-TABLE:END -->
 
@@ -161,7 +154,7 @@ GitHub Pages redeploys from `main` on that commit, so the live site updates itse
 
 ### "When was this last scanned?"
 
-Every visitor sees it: a status panel above the filters reads `data/status.json` and shows the last scan time (UTC), how long ago it was, when the next one is due, new finds awaiting review, links re-checked and how many entries were auto-added. The dot is green under 30 hours, amber to 72, red beyond that — so a stalled bot is obvious at a glance. If you open `index.html` from disk (no server), it falls back to the copy baked in at build time.
+Every visitor sees it: a small indicator in the header reads `data/status.json` and shows how long ago every link was last tested (green under 3 days, amber to 10, red beyond that), so a stalled check is obvious at a glance. If the file has no real check recorded, it simply says links are tested before listing.
 
 ### Running it by hand
 
@@ -185,7 +178,7 @@ Or trigger the workflow yourself: **Actions → Discover new browser games → R
 
 ## 🔍 Transparency audit
 
-The full, generated list of excluded links is rendered at the bottom of the site and stored in the `excluded` array of `games.json`. It currently covers **12** entries:
+The full, generated list of excluded links is rendered at the bottom of the site and stored in the `excluded` array of `games.json`. It currently covers **19** entries:
 
 *   **Portal (yikes.pw)** — redirected to an HTTP `:8080` endpoint that returned Cloudflare 521.
 *   **Half-Life 2 (slqnt)** — the public host returned a deployment-not-found 404.

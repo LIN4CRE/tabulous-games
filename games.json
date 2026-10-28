@@ -35,6 +35,38 @@
       "isNew": true
     },
     {
+      "id": "sm64-web",
+      "title": "Super Mario 64 (PC Port WebGL)",
+      "shortTitle": "Super Mario 64",
+      "url": "https://notan127.github.io/SM64-PC-Port-WebGL/",
+      "cover": "assets/covers/sm64-web.png",
+      "category": "classic-pc",
+      "categoryLabel": "Classic PC & Retro Ports",
+      "year": 1996,
+      "dev": "Nintendo / notan127 & sm64pc team",
+      "engine": "sm64pc / WebAssembly / WebGL",
+      "status": "instant",
+      "statusLabel": "Instant Play",
+      "statusColor": "#00f0ff",
+      "desc": "The groundbreaking 1996 Nintendo 64 3D platformer running natively in your browser via the sm64pc decompilation: explore Peach’s Castle, collect Power Stars, and defeat Bowser with smooth 60 FPS WebGL rendering.",
+      "controls": "WASD to move • L to jump (A) • Comma (,) to attack (B) • K to crouch (Z) • Shift for camera (R) • Space for Start • Arrow keys for C-buttons • Gamepad supported",
+      "goodToKnow": "Based on the sm64pc native decompilation compiled to WebAssembly. Features full gamepad support, browser save file backups, and buttery smooth 60 FPS performance without any plugin installs.",
+      "tags": [
+        "Super Mario 64",
+        "Mario",
+        "Platformer",
+        "Nintendo 64",
+        "Decompilation",
+        "WebGL"
+      ],
+      "alsoKnownAs": [
+        "SM64",
+        "Super Mario 64 Web",
+        "SM64 WebGL"
+      ],
+      "isNew": true
+    },
+    {
       "id": "townscaper",
       "title": "Townscaper (Web Edition)",
       "shortTitle": "Townscaper",
@@ -1783,7 +1815,7 @@
       "emoji": "🛹"
     }
   ],
-  "lastUpdated": "2026-10-27",
+  "lastUpdated": "2026-10-28",
   "autoDiscovery": {
     "script": "scripts/discover-games.mjs",
     "workflow": ".github/workflows/discover-games.yml",

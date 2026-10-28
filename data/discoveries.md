@@ -1,14 +1,14 @@
 # Browser game discovery report
 
-Generated: **2026-10-27T19:44:30.736Z** · mode: `links-only`
+Generated: **2026-10-28T14:22:49.904Z** · mode: `links-only`
 
 | Metric | Value |
 | :--- | :--- |
 | Sources scanned | 0 |
-| Pages fetched | 58 |
+| Pages fetched | 59 |
 | New candidates | 0 |
 | Already in catalogue (skipped) | 0 |
-| Catalogue links checked | 58 |
+| Catalogue links checked | 59 |
 | Dead or broken links | 0 |
 | Errors | 0 |
 

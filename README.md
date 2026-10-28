@@ -3,7 +3,7 @@
 <img src="assets/brand/emblem.svg" alt="Tabulous Games emblem" width="72" align="right">
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-lin4cre.github.io-8fd6ff?style=for-the-badge&logo=githubpages)](https://lin4cre.github.io/tabulous-games/)
-[![Live Games](https://img.shields.io/badge/Verified%20Games-58%20Playable-00f0ff?style=for-the-badge&logo=gamepad)](index.html)
+[![Live Games](https://img.shields.io/badge/Verified%20Games-59%20Playable-00f0ff?style=for-the-badge&logo=gamepad)](index.html)
 [![Sister Project](https://img.shields.io/badge/Sister%20Repo-Retro%20Arcade%20Vault-a855f7?style=for-the-badge&logo=github)](https://github.com/LIN4CRE/retro-arcade-vault)
 [![Tech Stack](https://img.shields.io/badge/Engine-WebAssembly%20%7C%20WebGL-ff0077?style=for-the-badge)](https://webassembly.org/)
 [![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
@@ -83,7 +83,7 @@ A separate manual sweep checked for missing, recognizable PC and console blockbu
 
 ---
 
-## 🚀 The Curated Library (58 entries, 37 instant-play)
+## 🚀 The Curated Library (59 entries, 38 instant-play)
 
 Every card links to the project's own site. Large downloads, WebGPU requirements and "bring your own game files" cases are called out in each card's **Good to Know** box rather than hidden:
 
@@ -91,6 +91,7 @@ Every card links to the project's own site. Large downloads, WebGPU requirements
 | Game Title | Platform / Tech | Genre | Status |
 | :--- | :--- | :--- | :--- |
 | **Need for Speed: Most Wanted — Web Port** 🆕 | PC Recompilation / WebAssembly / WebGPU | Sports &amp; Arcade | ⚡ Instant Play |
+| **Super Mario 64 (PC Port WebGL)** 🆕 | sm64pc / WebAssembly / WebGL | Classic PC &amp; Retro Ports | ⚡ Instant Play |
 | **Townscaper (Web Edition)** 🆕 | Unity WebGL / WebAssembly | Strategy &amp; Management | ⚡ Instant Play |
 | **Celeste Classic (PICO-8)** 🆕 | PICO-8 / WebAssembly | Classic PC &amp; Retro Ports | ⚡ Instant Play |
 | **Legend of Legaia (Web Recompilation)** 🆕 | PS1 Recompilation / WebGL / WebAssembly | Classic PC &amp; Retro Ports | ⚡ Instant Play |

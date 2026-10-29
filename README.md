@@ -3,7 +3,7 @@
 <img src="assets/brand/emblem.svg" alt="Tabulous Games emblem" width="72" align="right">
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-lin4cre.github.io-8fd6ff?style=for-the-badge&logo=githubpages)](https://lin4cre.github.io/tabulous-games/)
-[![Live Games](https://img.shields.io/badge/Verified%20Games-59%20Playable-00f0ff?style=for-the-badge&logo=gamepad)](index.html)
+[![Live Games](https://img.shields.io/badge/Verified%20Games-326%20Playable-00f0ff?style=for-the-badge&logo=gamepad)](index.html)
 [![Sister Project](https://img.shields.io/badge/Sister%20Repo-Retro%20Arcade%20Vault-a855f7?style=for-the-badge&logo=github)](https://github.com/LIN4CRE/retro-arcade-vault)
 [![Tech Stack](https://img.shields.io/badge/Engine-WebAssembly%20%7C%20WebGL-ff0077?style=for-the-badge)](https://webassembly.org/)
 [![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
@@ -83,7 +83,7 @@ A separate manual sweep checked for missing, recognizable PC and console blockbu
 
 ---
 
-## 🚀 The Curated Library (59 entries, 38 instant-play)
+## 🚀 The Curated Library (326 entries, 38 instant-play)
 
 Every card links to the project's own site. Large downloads, WebGPU requirements and "bring your own game files" cases are called out in each card's **Good to Know** box rather than hidden:
 
@@ -149,6 +149,273 @@ Every card links to the project's own site. Large downloads, WebGPU requirements
 | **Half-Life (Pixelsuft WebXash)** | Xash3D FWGS WebAssembly | Classic PC &amp; Retro Ports | ⚡ Instant Play |
 | **Counter-Strike 1.6 (webXash)** | Xash3D WebAssembly Framework | Shooters &amp; FPS | 📁 Custom Files |
 | **Diablo 1 (DiabloWeb / DevilutionX)** | DevilutionX WebAssembly | Classic PC &amp; Retro Ports | ⚡ Instant Play |
+| **Zelda 64: Recompiled (The Legend of Zelda: Majora's Mask)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Dusklight (The Legend of Zelda: Twilight Princess)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Ship of Harkinian (The Legend of Zelda: Ocarina of Time)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Unleashed Recompiled (Sonic Unleashed)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **SpaghettiKart (Mario Kart 64)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **2 Ship 2 Harkinian (The Legend of Zelda: Majora's Mask)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Starship (Star Fox 64)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Banjo: Recompiled (Banjo-Kazooie)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Ghostship (Super Mario 64)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Donkey Kong 64: Recompiled** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Conker BFD Reloaded (Conker's Bad Fur Day)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Snap 64 Recomp (Pokémon Snap)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **No Mercy Recomp (WWF No Mercy)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **WrestleMania 2000 Recomp (WWF WrestleMania 2000)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **World Tour Recomp (WCW vs. nWo: World Tour)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Revenge Recomp (WCW/nWo Revenge)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **VPW64 Recomp (Virtual Pro Wrestling 64)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **SVR2007 Recomp (WWE SmackDown vs. Raw 2007)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **SVR2008 Recomp (WWE SmackDown vs. Raw 2008)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **SVR2009 Recomp (WWE SmackDown vs. Raw 2009)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **SVR2010 Recomp (WWE SmackDown vs. Raw 2010)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **All Stars Recomp (WWE All Stars)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **WWE '13 Recomp** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **WWE 2K14 Recomp** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Uncharted PC Port (Uncharted: The Nathan Drake Collection)** 🆕 | Static Recompilation / Native C++ | Open World &amp; Action | 📁 Custom Files |
+| **Def Jam FFNY Recomp (Def Jam: Fight for NY)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Xerenge (Burnout Revenge)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **ReStreet (FIFA Street)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Perfect Dark Port** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **SpeedBreaker (Need for Speed: Most Wanted)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Drakengard 3 Recompiled** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **FM4 Recomp (Forza Motorsport 4)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Estacado (The Darkness)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Case Zero Recomp (Dead Rising 2: Case Zero)** 🆕 | Static Recompilation / Native C++ | Zombies &amp; Co-op | 📁 Custom Files |
+| **WET Recomp** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Army of Two Recomp** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Pilotwings 64 Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Skate 2 PC** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **AeroGauge Recomp** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Def Jam Vendetta Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **BattleTanx PC Port (BattleTanx: Global Assault)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **ISS 2000 Widescreen (International Superstar Soccer 2000)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **WWE 2K16 PC** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Power Dozer (Blast Corps)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Blocksphere (Tetrisphere)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Skate 3 Recomp** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Wind Waker HD Recomp (The Legend of Zelda: The Wind Waker HD)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Symphony Recomp (Castlevania: Symphony of the Night)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Pinyon Shift (Forza Horizon)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **reblue (Blue Dragon)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Lost Odyssey Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Silent Hill Decomp** 🆕 | Static Recompilation / Native C++ | Zombies &amp; Co-op | 📁 Custom Files |
+| **Hell's Gate (Dante's Inferno)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Tenkaichi 3 Decomp (Dragon Ball Z: Budokai Tenkaichi 3)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Fable 2 Recomp (Fable II)** 🆕 | Static Recompilation / Native C++ | Open World &amp; Action | 📁 Custom Files |
+| **Yakumo (Monster Hunter Portable 3rd)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **BattleShip (Super Smash Bros.)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Edge of Time Recomp (Spider-Man: Edge of Time)** 🆕 | Static Recompilation / Native C++ | Open World &amp; Action | 📁 Custom Files |
+| **Sky Recomp (The Legend of Zelda: Skyward Sword)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Nocturne Recomp (Shin Megami Tensei III: Nocturne)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **The Simpsons Game Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Strikers (Super Mario Strikers)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Project Midas (GoldenEye 007)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Downpour Recomp (Silent Hill: Downpour)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Dinosaur Planet Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Bomberman 64: Recompiled** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **G-Diffuser (F-Zero X)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Quest 64 Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Condemned 2 Recomp (Condemned 2: Bloodshot)** 🆕 | Static Recompilation / Native C++ | Zombies &amp; Co-op | 📁 Custom Files |
+| **ReTiP (Viva Piñata: Trouble in Paradise)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **King Kong Recompiled (Peter Jackson's King Kong)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **PGR4 Recomp (Project Gotham Racing 4)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Mega Man X Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Rise of a Ninja Recomp (Naruto: Rise of a Ninja)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **reNut (Banjo-Kazooie: Nuts &amp; Bolts)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **DP Recomp (Deadly Premonition)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Harvest Moon 64 Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **MCLA Recomp (Midnight Club: Los Angeles)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **SDOJ Recomp (DoDonPachi SaiDaiOuJou)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Eternal Sonata Reprise** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **CVLoD Recomp (Castlevania: Legacy of Darkness)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Super Mario World Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Budokai HD Recompiled (Dragon Ball Z: Budokai)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Finest Hour Remastered (Call of Duty: Finest Hour)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Gears Judgment Recomp (Gears of War: Judgment)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Snowboard Kids 2 Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **SSSV Recomp (Space Station Silicon Valley)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Open Nectar (Pikmin)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Forbidden Memories Recompiled (Yu-Gi-Oh! Forbidden Memories)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Budokai 3 HD Recomp (Dragon Ball Z: Budokai 3)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **TTT2 PC (Tekken Tag Tournament 2)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Ridge Racer 6 Recomp** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Burst Limit Recompiled (Dragon Ball Z: Burst Limit)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **SvR 2011 PC Port (WWE SmackDown vs. Raw 2011)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Rumble Roses XX Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **JSRF Unleashed (Jet Set Radio Future)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Dragon Age: Origins Recompiled** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **SpartanPort (God of War III Remastered)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **CTR Nitro-Fueled Online (Crash Team Racing Nitro-Fueled)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **reSOT (Prince of Persia: The Sands of Time)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Crash of the Titans** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Ninja Gaiden Black Recomp** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Savage Wind Recomp (The Legend of Zelda: Breath of the Wild)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **BLACK XBE Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Driveclub Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **AC6 Recomp (Ace Combat 6: Fires of Liberation)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **B2 Recomp (Bayonetta 2)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **ICO PC** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **SCDA XBE Recomp (Tom Clancy's Splinter Cell: Double Agent)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **CoD3 Recomp (Call of Duty 3)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Goemon64 Recomp (Mystical Ninja Starring Goemon (Nintendo 64))** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Project Cane (Sly Cooper and the Thievius Raccoonus)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Mega Man 64 Recompiled** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Luigi's Mansion Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **DKC1 Recomp (Donkey Kong Country)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **OpenShao (Mortal Kombat: Shaolin Monks)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **DKR-R (Diddy Kong Racing)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **BotW Native (The Legend of Zelda: Breath of the Wild)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Dimensions Recomp (LEGO Dimensions)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **DOAXVB RE (Dead or Alive Xtreme Beach Volleyball)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **KH Days Port (Kingdom Hearts 358/2 Days)** 🆕 | Static Recompilation / Native C++ | Strategy &amp; Sim | 📁 Custom Files |
+| **Burnout 3 PC (Burnout 3: Takedown)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Mercenaries Recompiled (Mercenaries: Playground of Destruction)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **MW2 Recompiled (Call of Duty: Modern Warfare 2)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Mega Man X4 Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Hercules Recompiled (Disney's Hercules)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Banjo-Tooie Port** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Case West Recomp (Dead Rising 2: Case West)** 🆕 | Static Recompilation / Native C++ | Zombies &amp; Co-op | 📁 Custom Files |
+| **Gears of War 2 PC Port** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Storm Generations Port (Naruto Shippūden: Ultimate Ninja STORM Generations)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **FIFA WC 2014 Recompiled (2014 FIFA World Cup Brazil)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Kameo RePowered (Kameo: Elements of Power)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Crackdown Recompiled** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **God of War II Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Tekken 6 Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Downhill Revived (Downhill Domination)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **VF1 Recomp (Virtua Fighter)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **SkullBurglar (50 Cent: Blood on the Sand)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Rush 2 Recompiled (Rush 2: Extreme Racing USA)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Shake It! Native PC (Wario Land: Shake It!)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Mega Man X5 Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Geometry Wars 2 Recomp (Geometry Wars: Retro Evolved 2)** 🆕 | Static Recompilation / Native C++ | Strategy &amp; Sim | 📁 Custom Files |
+| **Vandal Hearts PC Port** 🆕 | Static Recompilation / Native C++ | Strategy &amp; Sim | 📁 Custom Files |
+| **Project8 Recomp (Tony Hawk's Project 8)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Bloodborne PC** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Streetball Revival (NBA Street Vol. 2)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Renegade Squadron PC (Star Wars Battlefront: Renegade Squadron)** 🆕 | Static Recompilation / Native C++ | Strategy &amp; Sim | 📁 Custom Files |
+| **RampageRE (Rampage: Total Destruction)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **SMS Launcher (Super Mario Sunshine)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **rac-rs (Ratchet &amp; Clank)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **LAS Recomp (The Legend of Zelda: Link's Awakening)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Let's Go Recomp (Pokémon: Let's Go, Pikachu!)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Marathon Recomp (Sonic the Hedgehog (2006))** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **SSBU Recomp (Super Smash Bros. Ultimate)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Shadow of the Colossus PC** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **inFAMOUS Second Son PC** 🆕 | Static Recompilation / Native C++ | Open World &amp; Action | 📁 Custom Files |
+| **The Last Guardian PC** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Killzone Shadow Fall PC** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Dragon's Crown Pro PC** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **UFC 3 PC (EA Sports UFC 3)** 🆕 | Static Recompilation / Native C++ | Strategy &amp; Sim | 📁 Custom Files |
+| **MediEvil PC** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Unicorn Overlord PC** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **WipEout Omega PC (WipEout Omega Collection)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Gravity Rush 2 PC** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **inFAMOUS First Light PC** 🆕 | Static Recompilation / Native C++ | Open World &amp; Action | 📁 Custom Files |
+| **inFAMOUS Reborn** 🆕 | Static Recompilation / Native C++ | Open World &amp; Action | 📁 Custom Files |
+| **Metroid Prime Port** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Eternal Darkness Recomp (Eternal Darkness: Sanity's Requiem)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Nebula (Super Mario Galaxy)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **NSMB Wii Recompiled (New Super Mario Bros. Wii)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Recharged (Mario Strikers Charged)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **NSMBU Recomp (New Super Mario Bros. U)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **SMM2 Recomp (Super Mario Maker 2)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **HWDER (Hyrule Warriors: Definitive Edition)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **SoulSilver Recomp (Pokémon SoulSilver)** 🆕 | Static Recompilation / Native C++ | Strategy &amp; Sim | 📁 Custom Files |
+| **TWIPE 00Sheven (The World Is Not Enough)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Jet Force Gemini Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Sin and Punishment Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Super Mario All-Stars Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Darkwatch: Darker Edition** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **ChupathingyCE (Halo: Combat Evolved)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **DOA3 Recomp (Dead or Alive 3)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Two Towers Recomp (The Lord of the Rings: The Two Towers)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Urban Chaos: Burner Edition (Urban Chaos: Riot Response)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **PGR2 Recomp (Project Gotham Racing 2)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Buffy: Chaos Bleeds PC (Buffy the Vampire Slayer: Chaos Bleeds)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **PGR Recomp (Project Gotham Racing)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Forza 2 Recomp (Forza Motorsport 2)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **SSF2T HD Remix Recompiled (Super Street Fighter II Turbo HD Remix)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **WWE '12 PC** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Hard Corps: Uprising Recompiled** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Souls of the Reaper (Diablo III)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Broken Bond Recomp (Naruto: The Broken Bond)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **SoulCalibur II HD Recomp (SoulCalibur II HD Online)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Project RE-Visited RE3 (Resident Evil 3: Nemesis)** 🆕 | Static Recompilation / Native C++ | Zombies &amp; Co-op | 📁 Custom Files |
+| **Wipeout XL Recompiled** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **MGS Reintegral (Metal Gear Solid)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Vice City Stories Recomp (Grand Theft Auto: Vice City Stories)** 🆕 | Static Recompilation / Native C++ | Open World &amp; Action | 📁 Custom Files |
+| **Takedawn (Burnout 3: Takedown)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **GT4 Recomp (Gran Turismo 4)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Crash Bandicoot PC** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **MHGU Recomp (Monster Hunter Generations Ultimate)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Perfect Dark Zero Recomp** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **GHClassic (Guitar Hero II)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Whopping Collection (Sneak King, Big Bumpin' and PocketBike Racer)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **PaperBoat (Paper Mario)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Summit Strike Recomp (Tom Clancy's Ghost Recon 2: Summit Strike)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Voldorium (SoulCalibur)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Bigodao (Wario Land: Super Mario Land 3)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Forza Horizon 1: ReImagined** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **RE-Amped2 (Amped 2)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Until Dawn PC** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Cristalis (Crystal Defenders)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Athelas (The Lord of the Rings: The Two Towers / The Return of the King)** 🆕 | Static Recompilation / Native C++ | Strategy &amp; Sim | 📁 Custom Files |
+| **COGBox (Gears of War 2, Gears of War 3, Gears of War: Judgment)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **ValkyrieRecomp (Valkyrie Profile)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **DW5XL Recomp (Dynasty Warriors 5: Xtreme Legends)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **KirbyRecomp (Super Kirby Clash)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Saw II: Flesh &amp; Blood** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Marchwind64 (Super Robot Wars 64)** 🆕 | Static Recompilation / Native C++ | Strategy &amp; Sim | 📁 Custom Files |
+| **F-ZERO GLINUX (F-Zero GX)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **LEGO Dimensions PC Port** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Razdor (Discord Times)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Laserlords** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Super Smash Decomp (Super Smash Bros. Brawl)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **DQIX Enhanced (Dragon Quest IX)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Xenogears PC** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Azura: Gears of War 3** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Atlantis Native (Atlantis: The Lost Tales)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **TMNT IV: Turtles in Time PC (Teenage Mutant Ninja Turtles IV: Turtles in Time)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Splatterhouse Recompiled (Splatterhouse (2010))** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Knack PC** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **SotE Recomp (Star Wars: Shadows of the Empire)** 🆕 | Static Recompilation / Native C++ | Strategy &amp; Sim | 📁 Custom Files |
+| **Urban Reign PC** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **TimeSplitters Recomp** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **God Hand Port** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Sakura Wars PS4RT** 🆕 | Static Recompilation / Native C++ | Strategy &amp; Sim | 📁 Custom Files |
+| **Crash Twinsanity PC** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **TimeSplitters: Future Perfect PC** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Project Pyrrhus (Killzone 2)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **NFL Head Coach 09 Recomp** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Project Helghast (Killzone 3)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Code Veronica HD Recomp (Resident Evil Code: Veronica X)** 🆕 | Static Recompilation / Native C++ | Zombies &amp; Co-op | 📁 Custom Files |
+| **Juiced 2 Recompiled (Juiced 2: Hot Import Nights)** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **PORTHEON (EA Sports UFC 3)** 🆕 | Static Recompilation / Native C++ | Strategy &amp; Sim | 📁 Custom Files |
+| **Sneaky Whopper Recomp (Sneak King)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Project Veronica (Resident Evil Code: Veronica X)** 🆕 | Static Recompilation / Native C++ | Zombies &amp; Co-op | 📁 Custom Files |
+| **New Super Paper Bros (Super Paper Mario)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Mother 3 Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **reGH2 (Guitar Hero II)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Marvel Ultimate Alliance Recompiled (Marvel: Ultimate Alliance)** 🆕 | Static Recompilation / Native C++ | Strategy &amp; Sim | 📁 Custom Files |
+| **Madden NFL 08 Recompiled** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **NHL 2K8 Recompiled** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **Freedom Unbound (Monster Hunter Freedom Unite)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Smash 4 PC (Super Smash Bros. for Wii U)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Curse of Darkness Recomp (Castlevania: Curse of Darkness)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Pirates: At World's End Recomp (Pirates of the Caribbean: At World's End)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Uncharted Collection PC (Uncharted: The Nathan Drake Collection)** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **Skate 3 Recomp Plus** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
+| **bbport (Bloodborne)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Bloodborne Windows Port** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **bbport Windows (Bloodborne)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Bloodborne PC Stability** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Bloodborne Linux** 🆕 | Static Recompilation / Native C++ | Shooters &amp; FPS | 📁 Custom Files |
+| **bbport Mac (Bloodborne)** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Super Bomberman 5 Recomp** 🆕 | Static Recompilation / Native C++ | Classic PC &amp; Retro Ports | 📁 Custom Files |
+| **Ridge Racer PSP Recomp** 🆕 | Static Recompilation / Native C++ | Sports &amp; Arcade | 📁 Custom Files |
 <!-- GAMES-TABLE:END -->
 
 Legend: ⚡ instant play · 🌐 online multiplayer · 📁 needs your own game files / add-ons.

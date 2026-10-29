@@ -67,6 +67,162 @@ function validate() {
 /** Short labels for the compact card badge and the status filter. */
 const STATUS_SHORT = { instant: 'Instant', multiplayer: 'Online', files: 'Own files' };
 
+function getPlatform(game) {
+  const text = (
+    game.title +
+    ' ' +
+    game.engine +
+    ' ' +
+    (game.tags || []).join(' ') +
+    ' ' +
+    (game.alsoKnownAs || []).join(' ')
+  ).toLowerCase();
+  if (
+    text.includes('nintendo 64') ||
+    text.includes('n64') ||
+    text.includes('sm64') ||
+    text.includes('zelda 64') ||
+    text.includes('banjo') ||
+    text.includes('kart 64') ||
+    text.includes('star fox 64') ||
+    text.includes('donkey kong 64') ||
+    text.includes('conker') ||
+    text.includes('snap 64') ||
+    text.includes('f-zero x') ||
+    text.includes('paper mario') ||
+    text.includes('perfect dark') ||
+    text.includes('goldeneye') ||
+    text.includes('diddy kong')
+  )
+    return 'N64';
+  if (
+    text.includes('playstation 2') ||
+    text.includes('ps2') ||
+    text.includes('dobiestation') ||
+    text.includes('burnout 3') ||
+    text.includes('pes 6') ||
+    text.includes('jak and daxter') ||
+    text.includes('sly cooper') ||
+    text.includes('ratchet')
+  )
+    return 'PS2';
+  if (
+    text.includes('playstation 3') ||
+    text.includes('ps3') ||
+    text.includes('rpcs3') ||
+    text.includes('skate 3') ||
+    text.includes('sonic unleashed') ||
+    text.includes('red dead redemption') ||
+    text.includes('the last of us') ||
+    text.includes('infamous') ||
+    text.includes('god of war 3') ||
+    text.includes('killzone') ||
+    text.includes('uncharted')
+  )
+    return 'PS3';
+  if (
+    text.includes('playstation 4') ||
+    text.includes('ps4') ||
+    text.includes('shadps4') ||
+    text.includes('bloodborne') ||
+    text.includes('driveclub') ||
+    text.includes('gravity rush') ||
+    text.includes('order 1886') ||
+    text.includes('pt ') ||
+    text.includes('p.t.')
+  )
+    return 'PS4';
+  if (
+    text.includes('playstation') ||
+    text.includes('ps1') ||
+    text.includes('psx') ||
+    text.includes('duckstation') ||
+    text.includes('silent hill') ||
+    text.includes('metal gear solid') ||
+    text.includes('crash bandicoot') ||
+    text.includes('spyro') ||
+    text.includes('xenogears') ||
+    text.includes('castlevania: symphony') ||
+    text.includes('tony hawk') ||
+    text.includes('ridge racer') ||
+    text.includes('gran turismo') ||
+    text.includes('legaia') ||
+    text.includes('wipeout')
+  )
+    return 'PS1';
+  if (
+    text.includes('xbox 360') ||
+    text.includes('x360') ||
+    text.includes('xenia') ||
+    text.includes('halo 3') ||
+    text.includes('halo: reach') ||
+    text.includes('gears of war') ||
+    text.includes('forza')
+  )
+    return 'Xbox 360';
+  if (
+    text.includes('xbox') ||
+    text.includes('halo: combat evolved') ||
+    text.includes('halo ce') ||
+    text.includes('jet set radio future')
+  )
+    return 'Xbox';
+  if (
+    text.includes('gamecube') ||
+    text.includes('wii') ||
+    text.includes('dolphin') ||
+    text.includes('twilight princess') ||
+    text.includes('wind waker') ||
+    text.includes('super smash bros. melee') ||
+    text.includes('super mario sunshine') ||
+    text.includes('metroid prime')
+  )
+    return 'GC / Wii';
+  if (
+    text.includes('game boy advance') ||
+    text.includes('gba') ||
+    text.includes('pokemon emerald') ||
+    text.includes('mother 3') ||
+    text.includes('minish cap') ||
+    text.includes('golden sun')
+  )
+    return 'GBA';
+  if (text.includes('nintendo ds') || text.includes('nds') || text.includes('melonds')) return 'NDS';
+  if (
+    text.includes('dreamcast') ||
+    text.includes('flycast') ||
+    text.includes('shenmue') ||
+    text.includes('sonic adventure') ||
+    text.includes('crazy taxi') ||
+    text.includes('skies of arcadia')
+  )
+    return 'Dreamcast';
+  if (
+    text.includes('saturn') ||
+    text.includes('sega saturn') ||
+    text.includes('panzer dragoon') ||
+    text.includes('nights into dreams')
+  )
+    return 'Saturn';
+  if (text.includes('pico-8') || text.includes('celeste classic')) return 'PICO-8';
+  if (
+    text.includes('ms-dos') ||
+    text.includes('dosbox') ||
+    text.includes('doom') ||
+    text.includes('quake') ||
+    text.includes('duke nukem') ||
+    text.includes('wolfenstein') ||
+    text.includes('daggerfall') ||
+    text.includes('diablo')
+  )
+    return 'Classic PC';
+  if (text.includes('webgpu') || text.includes('most wanted')) return 'WebGPU';
+  if (text.includes('webassembly') || text.includes('wasm')) return 'WASM';
+  if (text.includes('webgl')) return 'WebGL';
+  if (text.includes('recomp') || text.includes('pc port') || text.includes('native')) return 'PC Port';
+  return 'Web / Indie';
+}
+
 function card(g) {
   const tagText = lower(
     uniq([g.title, ...g.tags, g.dev, g.engine, g.categoryLabel, ...(g.alsoKnownAs || [])]).join(' ')
@@ -74,10 +230,12 @@ function card(g) {
   const url = esc(g.url);
   const ext = 'target="_blank" rel="noopener noreferrer"';
 
-  return `        <article class="game-card" data-id="${esc(g.id)}" data-category="${esc(g.category)}" data-status="${esc(g.status)}" data-title="${esc(lower(g.title))}" data-year="${g.year}" data-tags="${esc(tagText)}">
+  const platform = getPlatform(g);
+  return `        <article class="game-card" id="game-${esc(g.id)}" data-id="${esc(g.id)}" data-category="${esc(g.category)}" data-status="${esc(g.status)}" data-platform="${esc(platform)}" data-title="${esc(lower(g.title))}" data-year="${g.year}" data-tags="${esc(tagText)}">
           <a class="cover" href="${url}" ${ext} tabindex="-1" aria-hidden="true">
             <img src="${esc(g.cover)}" alt="" loading="lazy" decoding="async" width="640" height="360" onerror="this.onerror=null;this.src='assets/brand/banner.svg'">
             <span class="badge is-${esc(g.status)}">${esc(STATUS_SHORT[g.status])}</span>${g.isNew ? '\n            <span class="badge badge--new">New</span>' : ''}
+            <span class="badge badge--platform">${esc(platform)}</span>
           </a>
           <div class="card-body">
             <h3 class="game-title"><a href="${url}" ${ext}>${esc(g.title)}</a></h3>
@@ -91,6 +249,7 @@ function card(g) {
             <div class="card-actions">
               <a class="btn-play" href="${url}" ${ext}>Play</a>
               <button class="btn-info" type="button" aria-expanded="false">Info</button>
+              <button class="btn-share" type="button" data-id="${esc(g.id)}" data-title="${esc(g.title)}" title="Copy direct link to ${esc(g.title)}" aria-label="Copy direct link to ${esc(g.title)}"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button>
             </div>
           </div>
         </article>`;

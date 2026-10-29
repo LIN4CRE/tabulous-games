@@ -1831,36 +1831,6 @@
       "isNew": true
     },
     {
-      "id": "recomp-2ship2harkinian",
-      "title": "2 Ship 2 Harkinian (The Legend of Zelda: Majora's Mask)",
-      "shortTitle": "2 Ship 2 Harkinian",
-      "url": "https://recomplauncher.com/game/2ship2harkinian",
-      "cover": "assets/covers/recomp-2ship2harkinian.jpg",
-      "category": "classic-pc",
-      "categoryLabel": "Classic PC & Retro Ports",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "Majora's Mask as a native PC game, with high resolutions, widescreen and enhancements.",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "The Legend of Zelda: Majora's Mask",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "The Legend of Zelda: Majora's Mask"
-      ],
-      "isNew": true
-    },
-    {
       "id": "recomp-starship",
       "title": "Starship (Star Fox 64)",
       "shortTitle": "Starship",
@@ -1917,36 +1887,6 @@
       ],
       "alsoKnownAs": [
         "Banjo-Kazooie"
-      ],
-      "isNew": true
-    },
-    {
-      "id": "recomp-ghostship",
-      "title": "Ghostship (Super Mario 64)",
-      "shortTitle": "Ghostship",
-      "url": "https://recomplauncher.com/game/ghostship",
-      "cover": "assets/covers/recomp-ghostship.jpg",
-      "category": "classic-pc",
-      "categoryLabel": "Classic PC & Retro Ports",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "Super Mario 64 as a native PC game, with widescreen, high frame rates and mods.",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Super Mario 64",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Super Mario 64"
       ],
       "isNew": true
     },
@@ -2551,36 +2491,6 @@
       "isNew": true
     },
     {
-      "id": "recomp-speedbreaker",
-      "title": "SpeedBreaker (Need for Speed: Most Wanted)",
-      "shortTitle": "SpeedBreaker",
-      "url": "https://recomplauncher.com/game/speedbreaker",
-      "cover": "assets/covers/recomp-speedbreaker.jpg",
-      "category": "sports",
-      "categoryLabel": "Sports & Arcade",
-      "year": 2005,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "Unofficial static recompilation of the Xbox 360 version of Need for Speed: Most Wanted (2005): a native port for Steam Deck, Steam Machine, Steam Frame, Linux a",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Need for Speed: Most Wanted",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Need for Speed: Most Wanted"
-      ],
-      "isNew": true
-    },
-    {
       "id": "recomp-dod3-recomp",
       "title": "Drakengard 3 Recompiled",
       "shortTitle": "Drakengard 3 Recompiled",
@@ -3031,36 +2941,6 @@
       "isNew": true
     },
     {
-      "id": "recomp-skate3recomp",
-      "title": "Skate 3 Recomp",
-      "shortTitle": "Skate 3 Recomp",
-      "url": "https://recomplauncher.com/game/skate3recomp",
-      "cover": "assets/covers/recomp-skate3recomp.jpg",
-      "category": "sports",
-      "categoryLabel": "Sports & Arcade",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "A native recompilation of Skate 3 for Windows, Linux, and macOS.",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Skate 3",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Skate 3"
-      ],
-      "isNew": true
-    },
-    {
       "id": "recomp-zeldawwhdrecomp",
       "title": "Wind Waker HD Recomp (The Legend of Zelda: The Wind Waker HD)",
       "shortTitle": "Wind Waker HD Recomp",
@@ -3117,36 +2997,6 @@
       ],
       "alsoKnownAs": [
         "Castlevania: Symphony of the Night"
-      ],
-      "isNew": true
-    },
-    {
-      "id": "recomp-pinyon-shift",
-      "title": "Pinyon Shift (Forza Horizon)",
-      "shortTitle": "Pinyon Shift",
-      "url": "https://recomplauncher.com/game/pinyon-shift",
-      "cover": "assets/covers/recomp-pinyon-shift.jpg",
-      "category": "sports",
-      "categoryLabel": "Sports & Arcade",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "A playable preview of Forza Horizon static recompilation",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Forza Horizon",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Forza Horizon"
       ],
       "isNew": true
     },
@@ -5188,36 +5038,6 @@
       "isNew": true
     },
     {
-      "id": "recomp-botw-native",
-      "title": "BotW Native (The Legend of Zelda: Breath of the Wild)",
-      "shortTitle": "BotW Native",
-      "url": "https://recomplauncher.com/game/botw-native",
-      "cover": "assets/covers/recomp-botw-native.jpg",
-      "category": "classic-pc",
-      "categoryLabel": "Classic PC & Retro Ports",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "Breath of the Wild (Wii U, v1.5.0) statically recompiled to a native Windows program with a Vulkan renderer.",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "The Legend of Zelda: Breath of the Wild",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "The Legend of Zelda: Breath of the Wild"
-      ],
-      "isNew": true
-    },
-    {
       "id": "recomp-dimensionsrecomp",
       "title": "Dimensions Recomp (LEGO Dimensions)",
       "shortTitle": "Dimensions Recomp",
@@ -5304,36 +5124,6 @@
       ],
       "alsoKnownAs": [
         "Kingdom Hearts 358/2 Days"
-      ],
-      "isNew": true
-    },
-    {
-      "id": "recomp-burnout3-pc",
-      "title": "Burnout 3 PC (Burnout 3: Takedown)",
-      "shortTitle": "Burnout 3 PC",
-      "url": "https://recomplauncher.com/game/burnout3-pc",
-      "cover": "assets/covers/recomp-burnout3-pc.jpg",
-      "category": "sports",
-      "categoryLabel": "Sports & Arcade",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "Burnout 3: Takedown as a native Windows port, through a PS2 decompilation toolchain. Unofficial; bring your own disc. No game content included.",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Burnout 3: Takedown",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Burnout 3: Takedown"
       ],
       "isNew": true
     },
@@ -5999,7 +5789,7 @@
     },
     {
       "id": "recomp-bloodborne-pc",
-      "title": "Bloodborne PC",
+      "title": "Bloodborne PC (bbport / ShadPS4)",
       "shortTitle": "Bloodborne PC",
       "url": "https://recomplauncher.com/game/bloodborne-pc",
       "cover": "assets/covers/recomp-bloodborne-pc.jpg",
@@ -6012,7 +5802,7 @@
       "statusLabel": "Custom Files",
       "statusColor": "#a855f7",
       "badge": "PC RECOMP",
-      "desc": "Bloodborne running natively on Windows 10/11: launcher in 13 languages, DLSS, FSR 3.1/4, unlocked FPS, cheats, mods, one-click updates.",
+      "desc": "The PS4 dark fantasy masterpiece running natively on PC via bbport and ShadPS4: high resolution, 60+ FPS, and native controller support with zero PS Now streaming lag.",
       "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
       "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
       "tags": [
@@ -6023,7 +5813,9 @@
         "Open Source"
       ],
       "alsoKnownAs": [
-        "Bloodborne"
+        "Bloodborne",
+        "bbport",
+        "ShadPS4 Bloodborne"
       ],
       "isNew": true
     },
@@ -7078,36 +6870,6 @@
       "isNew": true
     },
     {
-      "id": "recomp-chupathingyce",
-      "title": "ChupathingyCE (Halo: Combat Evolved)",
-      "shortTitle": "ChupathingyCE",
-      "url": "https://recomplauncher.com/game/chupathingyce",
-      "cover": "assets/covers/recomp-chupathingyce.jpg",
-      "category": "shooters",
-      "categoryLabel": "Shooters & FPS",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "Chupathingy: Halo: Combat Evolved running natively on Windows, Mac, Linux and Android. A port of the Halo CE decomp project, built for stability and community m",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Halo: Combat Evolved",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Halo: Combat Evolved"
-      ],
-      "isNew": true
-    },
-    {
       "id": "recomp-doa3-recomp",
       "title": "DOA3 Recomp (Dead or Alive 3)",
       "shortTitle": "DOA3 Recomp",
@@ -7134,36 +6896,6 @@
       ],
       "alsoKnownAs": [
         "Dead or Alive 3"
-      ],
-      "isNew": true
-    },
-    {
-      "id": "recomp-tootawersrecomp",
-      "title": "Two Towers Recomp (The Lord of the Rings: The Two Towers)",
-      "shortTitle": "Two Towers Recomp",
-      "url": "https://recomplauncher.com/game/tootawersrecomp",
-      "cover": "assets/covers/recomp-tootawersrecomp.jpg",
-      "category": "classic-pc",
-      "categoryLabel": "Classic PC & Retro Ports",
-      "year": 2002,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "A native Windows PC port of The Lord of the Rings: The Two Towers (Xbox, USA, 2002), made by static recompilation. It needs your own copy of the game, either th",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "The Lord of the Rings: The Two Towers",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "The Lord of the Rings: The Two Towers"
       ],
       "isNew": true
     },
@@ -7618,36 +7350,6 @@
       "isNew": true
     },
     {
-      "id": "recomp-takedawn",
-      "title": "Takedawn (Burnout 3: Takedown)",
-      "shortTitle": "Takedawn",
-      "url": "https://recomplauncher.com/game/takedawn",
-      "cover": "assets/covers/recomp-takedawn.jpg",
-      "category": "sports",
-      "categoryLabel": "Sports & Arcade",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "Burnout 3: Takedown recompiled from the Xbox version, with high refresh rates and sharper textures.",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Burnout 3: Takedown",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Burnout 3: Takedown"
-      ],
-      "isNew": true
-    },
-    {
       "id": "recomp-gt4-staticrecomp",
       "title": "GT4 Recomp (Gran Turismo 4)",
       "shortTitle": "GT4 Recomp",
@@ -7764,36 +7466,6 @@
       ],
       "alsoKnownAs": [
         "Perfect Dark Zero"
-      ],
-      "isNew": true
-    },
-    {
-      "id": "recomp-ghclassic",
-      "title": "GHClassic (Guitar Hero II)",
-      "shortTitle": "GHClassic",
-      "url": "https://recomplauncher.com/game/ghclassic",
-      "cover": "assets/covers/recomp-ghclassic.jpg",
-      "category": "classic-pc",
-      "categoryLabel": "Classic PC & Retro Ports",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "Guitar Hero, Guitar Hero II and Rocks the 80s in one native PC port, from the PS2 and Xbox 360 versions.",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Guitar Hero II",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Guitar Hero II"
       ],
       "isNew": true
     },
@@ -8098,36 +7770,6 @@
       "isNew": true
     },
     {
-      "id": "recomp-cogbox",
-      "title": "COGBox (Gears of War 2, Gears of War 3, Gears of War: Judgment)",
-      "shortTitle": "COGBox",
-      "url": "https://recomplauncher.com/game/cogbox",
-      "cover": "assets/covers/recomp-cogbox.jpg",
-      "category": "shooters",
-      "categoryLabel": "Shooters & FPS",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "An All-in-One Launcher for the Xbox 360 Gears of War Games!",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Gears of War 2, Gears of War 3, Gears of War: Judgment",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Gears of War 2, Gears of War 3, Gears of War: Judgment"
-      ],
-      "isNew": true
-    },
-    {
       "id": "recomp-valkyrierecomp",
       "title": "ValkyrieRecomp (Valkyrie Profile)",
       "shortTitle": "ValkyrieRecomp",
@@ -8301,36 +7943,6 @@
       ],
       "alsoKnownAs": [
         "F-Zero GX"
-      ],
-      "isNew": true
-    },
-    {
-      "id": "recomp-lego-dimensions-pc",
-      "title": "LEGO Dimensions PC Port",
-      "shortTitle": "LEGO Dimensions PC Port",
-      "url": "https://recomplauncher.com/game/lego-dimensions-pc",
-      "cover": "assets/covers/recomp-lego-dimensions-pc.jpg",
-      "category": "classic-pc",
-      "categoryLabel": "Classic PC & Retro Ports",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "PS4 version Of Lego Dimensions Native Port",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "LEGO Dimensions",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "LEGO Dimensions"
       ],
       "isNew": true
     },
@@ -8992,36 +8604,6 @@
       "isNew": true
     },
     {
-      "id": "recomp-portheon",
-      "title": "PORTHEON (EA Sports UFC 3)",
-      "shortTitle": "PORTHEON",
-      "url": "https://recomplauncher.com/game/portheon",
-      "cover": "assets/covers/recomp-portheon.jpg",
-      "category": "strategy",
-      "categoryLabel": "Strategy & Sim",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "EA SPORTS UFC 3 (PS4) native port for Linux and Windows — SacredFire/bbport runtime + shadPS4-derived Vulkan renderer",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "EA Sports UFC 3",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "EA Sports UFC 3"
-      ],
-      "isNew": true
-    },
-    {
       "id": "recomp-sneaky-whopper-recomp",
       "title": "Sneaky Whopper Recomp (Sneak King)",
       "shortTitle": "Sneaky Whopper Recomp",
@@ -9048,36 +8630,6 @@
       ],
       "alsoKnownAs": [
         "Sneak King"
-      ],
-      "isNew": true
-    },
-    {
-      "id": "recomp-project-veronica",
-      "title": "Project Veronica (Resident Evil Code: Veronica X)",
-      "shortTitle": "Project Veronica",
-      "url": "https://recomplauncher.com/game/project-veronica",
-      "cover": "assets/covers/recomp-project-veronica.jpg",
-      "category": "zombies",
-      "categoryLabel": "Zombies & Co-op",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "Enhanced RE CVX port/recompilation including enhanced rendering options",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Resident Evil Code: Veronica X",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Resident Evil Code: Veronica X"
       ],
       "isNew": true
     },
@@ -9378,246 +8930,6 @@
       ],
       "alsoKnownAs": [
         "Pirates of the Caribbean: At World's End"
-      ],
-      "isNew": true
-    },
-    {
-      "id": "recomp-uncharted-collection-pc",
-      "title": "Uncharted Collection PC (Uncharted: The Nathan Drake Collection)",
-      "shortTitle": "Uncharted Collection PC",
-      "url": "https://recomplauncher.com/game/uncharted-collection-pc",
-      "cover": "assets/covers/recomp-uncharted-collection-pc.jpg",
-      "category": "shooters",
-      "categoryLabel": "Shooters & FPS",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "Unofficial native Windows port of Uncharted: The Nathan Drake Collection (PS4). UC3 at 60 FPS, UC2 playable, UC1 experimental. No game files included.",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Uncharted: The Nathan Drake Collection",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Uncharted: The Nathan Drake Collection"
-      ],
-      "isNew": true
-    },
-    {
-      "id": "recomp-skate3recomp-plus",
-      "title": "Skate 3 Recomp Plus",
-      "shortTitle": "Skate 3 Recomp Plus",
-      "url": "https://recomplauncher.com/game/skate3recomp-plus",
-      "cover": "assets/covers/recomp-skate3recomp-plus.jpg",
-      "category": "sports",
-      "categoryLabel": "Sports & Arcade",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "An enhanced native recompilation of Skate 3 for Windows, with extra features.",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Skate 3",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Skate 3"
-      ],
-      "isNew": true
-    },
-    {
-      "id": "recomp-bloodborne-pc-2",
-      "title": "bbport (Bloodborne)",
-      "shortTitle": "bbport",
-      "url": "https://recomplauncher.com/game/bloodborne-pc-2",
-      "cover": "assets/covers/recomp-bloodborne-pc-2.jpg",
-      "category": "classic-pc",
-      "categoryLabel": "Classic PC & Retro Ports",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "bbport is a PC recomp of Bloodborne. Bring your own copy of the game.",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Bloodborne",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Bloodborne"
-      ],
-      "isNew": true
-    },
-    {
-      "id": "recomp-bloodborne-pc-windows-port",
-      "title": "Bloodborne Windows Port",
-      "shortTitle": "Bloodborne Windows Port",
-      "url": "https://recomplauncher.com/game/bloodborne-pc-windows-port",
-      "cover": "assets/covers/recomp-bloodborne-pc-windows-port.jpg",
-      "category": "classic-pc",
-      "categoryLabel": "Classic PC & Retro Ports",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "Native x86-64 Windows loader for Bloodborne (CUSA03173) with native CPU execution, Win32 runtime, and shadPS4-based Vulkan GPU rendering. Based on deadinside28'",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Bloodborne",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Bloodborne"
-      ],
-      "isNew": true
-    },
-    {
-      "id": "recomp-bloodborne-pc-3",
-      "title": "bbport Windows (Bloodborne)",
-      "shortTitle": "bbport Windows",
-      "url": "https://recomplauncher.com/game/bloodborne-pc-3",
-      "cover": "assets/covers/recomp-bloodborne-pc-3.jpg",
-      "category": "classic-pc",
-      "categoryLabel": "Classic PC & Retro Ports",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "Bloodborne running natively on Windows 10 and 11 from your own PS4 copy: a launcher, DLSS, FSR 4 and XeSS upscaling, frame generation, keyboard and mouse, and m",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Bloodborne",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Bloodborne"
-      ],
-      "isNew": true
-    },
-    {
-      "id": "recomp-bloodborne-pc-4",
-      "title": "Bloodborne PC Stability",
-      "shortTitle": "Bloodborne PC Stability",
-      "url": "https://recomplauncher.com/game/bloodborne-pc-4",
-      "cover": "assets/covers/recomp-bloodborne-pc-4.jpg",
-      "category": "classic-pc",
-      "categoryLabel": "Classic PC & Retro Ports",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "Custom Windows port of Bloodborne with a WPF launcher, Vulkan, DLSS model presets, FSR upscaling, keyboard/mouse controls, ultrawide support and stability fixes",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Bloodborne",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Bloodborne"
-      ],
-      "isNew": true
-    },
-    {
-      "id": "recomp-bloodborne-linux",
-      "title": "Bloodborne Linux",
-      "shortTitle": "Bloodborne Linux",
-      "url": "https://recomplauncher.com/game/bloodborne-linux",
-      "cover": "assets/covers/recomp-bloodborne-linux.jpg",
-      "category": "shooters",
-      "categoryLabel": "Shooters & FPS",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "Bloodborne running natively on Linux and the Steam Deck, built on bbport: online play and Seamless Co-op, unlocked FPS, ultrawide, FSR and DLSS, any controller,",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Bloodborne",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Bloodborne"
-      ],
-      "isNew": true
-    },
-    {
-      "id": "recomp-bbport-mac",
-      "title": "bbport Mac (Bloodborne)",
-      "shortTitle": "bbport Mac",
-      "url": "https://recomplauncher.com/game/bbport-mac",
-      "cover": "assets/covers/recomp-bbport-mac.jpg",
-      "category": "classic-pc",
-      "categoryLabel": "Classic PC & Retro Ports",
-      "year": 2004,
-      "dev": "Community / Open Source Recomp",
-      "engine": "Static Recompilation / Native C++",
-      "status": "files",
-      "statusLabel": "Custom Files",
-      "statusColor": "#a855f7",
-      "badge": "PC RECOMP",
-      "desc": "bbport Mac is a PC recomp of Bloodborne. Bring your own copy of the game.",
-      "controls": "Keyboard or gamepad with native remapping • Full high-framerate widescreen support.",
-      "goodToKnow": "Indexed on RecompLauncher. Runs natively on Windows/Linux/Mac with modern performance improvements. Requires your own original game copy/ROM to extract game data assets.",
-      "tags": [
-        "Recomp",
-        "PC Port",
-        "Native",
-        "Bloodborne",
-        "Open Source"
-      ],
-      "alsoKnownAs": [
-        "Bloodborne"
       ],
       "isNew": true
     },

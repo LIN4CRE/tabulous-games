@@ -1465,7 +1465,26 @@ function tagsFor(p) {
   ];
 }
 
-function game(p) {
+/** Varied, factual closing lines so 79 cards don't all read the same. */
+const DESC_CLOSERS = [
+  (p) => `A ${p.y} ${p.p} release, rebuilt to run as a native desktop program rather than under an emulator.`,
+  (p) => `Originally released for ${p.p} in ${p.y}; the PC build runs the game's code directly on your machine.`,
+  (p) => `The ${p.p} classic is recompiled for PC, with display and input options handled by the port itself.`,
+  (p) => `One of the round-up's ${p.p} ports: community-built code, with the game data supplied by you.`,
+  (p) => `A fan-built native port of the ${p.y} ${p.p} original, with no emulation layer.`,
+  (p) => `${p.p} owners get a desktop build that runs the original game logic natively.`,
+];
+
+/** Platform-specific, honestly hedged control notes. */
+function controlsFor(p) {
+  if (p.c === 'arcade') return 'Arcade inputs are usually mapped to keyboard, mouse and gamepads; on light-gun titles the mouse handles aiming. The linked page lists the exact bindings and supported hardware.';
+  if (['Wii', 'Switch', 'GameCube', 'Wii U'].includes(p.p)) return 'Keyboard/mouse and common gamepads are typically supported, with pointer-style controls mapped to the mouse or right stick. Check the linked page for exact bindings.';
+  if (['N64', 'SNES', 'NES'].includes(p.p)) return 'Keyboard/mouse and gamepad support replace the original controller, with remappable bindings and PC-side display options. The linked page lists the exact controls.';
+  if (['PS1', 'PS2', 'PS4', 'Xbox', 'Xbox 360'].includes(p.p)) return 'Gamepads and keyboard/mouse are generally supported with remappable bindings, plus PC display and graphics options. The linked page lists the exact controls.';
+  return 'Controls, display and graphics options are configured in the port itself; the linked page lists the exact key bindings and supported hardware.';
+}
+
+function game(p, i) {
   const url = LINKS[p.l];
   if (!url) throw new Error(`no source link for ${p.t}`);
   const source = sourceLabel(url);
@@ -1488,8 +1507,8 @@ function game(p) {
     statusLabel: 'Own game files',
     statusColor: '#a855f7',
     badge: 'UNOFFICIAL PC PORT',
-    desc: `${p.b} An unofficial native PC port rebuilds the ${p.y} ${p.p} original as a desktop build rather than an emulator — one of the community projects collected in the ports round-up.`,
-    controls: 'Native desktop build. Controls, display and graphics options are set in the port itself; the linked project page lists the exact key bindings and supported hardware.',
+    desc: `${p.b} ${DESC_CLOSERS[i % DESC_CLOSERS.length](p)}`,
+    controls: controlsFor(p),
     goodToKnow: `Unofficial fan project, not affiliated with or endorsed by the rights holders. You need your own legally dumped copy of ${p.t} — no game data is bundled with the port or this site, and there is no workaround: without the original assets the port cannot start. The link opens ${source}, where the download and setup requirements are published.`,
     tags: tagsFor(p),
     alsoKnownAs: p.a || [],

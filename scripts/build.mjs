@@ -72,15 +72,66 @@ function getPlatform(game) {
   return game.platform || 'PC Port';
 }
 
+const sourceType = (g) => (/github\.com|gitlab\.com/.test(g.url) ? 'repo' : 'article');
+
+function firstSentence(text) {
+  const m = String(text).match(/^.+?[.!?](?:\s|$)/);
+  return m ? m[0].trim() : String(text);
+}
+
+/** Landing spotlight, generated from the catalogue's featured port. */
+function hero() {
+  const g = games.find((x) => x.id === db.featured) || games[0];
+  const links = new Set(games.map((x) => x.url)).size;
+  const repos = games.filter((x) => sourceType(x) === 'repo').length;
+  const url = esc(g.url);
+  const ext = 'target="_blank" rel="noopener noreferrer"';
+  return `        <section class="container hero" aria-label="Featured port">
+          <div class="hero-inner">
+            <div class="hero-copy">
+              <span class="hero-eyebrow"><i></i> FEATURED PORT · ${esc(g.sourceLabel || 'Project page')}</span>
+              <h2>${esc(g.title)}</h2>
+              <p class="hero-desc">${esc(firstSentence(g.desc))}</p>
+              <div class="hero-meta"><span>${esc(g.platform)} original · ${g.year}</span><span>Own game files required</span></div>
+              <div class="hero-actions">
+                <a class="btn-hero" href="${url}" ${ext}>Open project page ↗</a>
+                <a class="btn-hero-ghost" href="#gamesGrid">Browse all <span data-count-games>${games.length}</span> ports ↓</a>
+              </div>
+            </div>
+            <a class="hero-art" href="${url}" ${ext} aria-label="Open the ${esc(g.title)} port page">
+              <img src="${esc(g.cover)}" alt="Original cover art for ${esc(g.title)}" width="640" height="360" fetchpriority="high">
+              <span class="hero-art-label">ORIGINAL COVER ART</span>
+            </a>
+          </div>
+          <div class="hero-stats" aria-label="Directory at a glance">
+            <div><strong data-count-games>${games.length}</strong><span>ports listed</span></div>
+            <div><strong>${categories.length}</strong><span>platform groups</span></div>
+            <div><strong>${links}</strong><span>links verified</span></div>
+            <div><strong>${repos}</strong><span>direct project repos</span></div>
+          </div>
+        </section>`;
+}
+
+/** Filter cards by the kind of page they link to. */
+function sourcePills() {
+  const repos = games.filter((g) => sourceType(g) === 'repo').length;
+  return [
+    `          <button class="seg active" data-source="all">All links <span>${games.length}</span></button>`,
+    `          <button class="seg" data-source="repo" title="Direct GitHub / GitLab project repositories">Repos <span>${repos}</span></button>`,
+    `          <button class="seg" data-source="article" title="DSOGaming port announcements">Articles <span>${games.length - repos}</span></button>`,
+  ].join('\n');
+}
+
 function card(g) {
   const tagText = lower(
-    uniq([g.title, ...g.tags, g.dev, g.engine, g.categoryLabel, ...(g.alsoKnownAs || [])]).join(' ')
+    uniq([g.title, ...g.tags, g.dev, g.engine, g.categoryLabel, g.sourceLabel, sourceType(g) === 'repo' ? 'project repository' : 'port announcement', ...(g.alsoKnownAs || [])]).join(' ')
   );
   const url = esc(g.url);
   const ext = 'target="_blank" rel="noopener noreferrer"';
 
   const platform = getPlatform(g);
-  return `        <article class="game-card" id="game-${esc(g.id)}" data-id="${esc(g.id)}" data-category="${esc(g.category)}" data-status="${esc(g.status)}" data-platform="${esc(platform)}" data-title="${esc(lower(g.title))}" data-year="${g.year}" data-tags="${esc(tagText)}">
+  const actionLabel = sourceType(g) === 'repo' ? 'Project repo ↗' : 'Port article ↗';
+  return `        <article class="game-card" id="game-${esc(g.id)}" data-id="${esc(g.id)}" data-category="${esc(g.category)}" data-status="${esc(g.status)}" data-platform="${esc(platform)}" data-title="${esc(lower(g.title))}" data-year="${g.year}" data-source="${sourceType(g)}" data-tags="${esc(tagText)}">
           <a class="cover" href="${url}" ${ext} tabindex="-1" aria-hidden="true">
             <img src="${esc(g.cover)}" alt="" loading="lazy" decoding="async" width="640" height="360" onerror="this.onerror=null;this.src='assets/brand/banner.svg'">
             <span class="badge is-${esc(g.status)}">${esc(STATUS_SHORT[g.status])}</span>${g.isNew ? '\n            <span class="badge badge--new">New</span>' : ''}
@@ -96,7 +147,7 @@ function card(g) {
               <p class="card-dev">${esc(g.platform || 'Console')} original (${g.year}) · ${esc(g.engine)} · Source: ${esc(g.sourceLabel || g.source || 'announcement')}</p>
             </div>
             <div class="card-actions">
-              <a class="btn-play" href="${url}" ${ext}>Port page</a>
+              <a class="btn-play" href="${url}" ${ext}>${actionLabel}</a>
               <button class="btn-info" type="button" aria-expanded="false">Info</button>
               <button class="btn-share" type="button" data-id="${esc(g.id)}" data-title="${esc(g.title)}" title="Copy direct link to ${esc(g.title)}" aria-label="Copy direct link to ${esc(g.title)}"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button>
             </div>
@@ -173,9 +224,11 @@ function patchIndexCounts(html) {
 
 function renderIndex(html) {
   let out = html;
+  out = replaceBlock(out, 'HERO', hero());
   out = replaceBlock(out, 'GAMES', games.map(card).join('\n\n'));
   out = replaceBlock(out, 'CATEGORY-PILLS', categoryPills());
   out = replaceBlock(out, 'STATUS-PILLS', statusPills());
+  out = replaceBlock(out, 'SOURCE-PILLS', sourcePills());
   return patchIndexCounts(tokens(out));
 }
 

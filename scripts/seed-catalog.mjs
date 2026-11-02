@@ -1465,14 +1465,17 @@ function tagsFor(p) {
   ];
 }
 
+/** Natural wording for the "Multi" and "Arcade" platform labels. */
+const ORIG = (p) => (p.p === 'Multi' ? 'multi-platform' : p.p === 'Arcade' ? 'arcade' : p.p);
+
 /** Varied, factual closing lines so 79 cards don't all read the same. */
 const DESC_CLOSERS = [
-  (p) => `A ${p.y} ${p.p} release, rebuilt to run as a native desktop program rather than under an emulator.`,
-  (p) => `Originally released for ${p.p} in ${p.y}; the PC build runs the game's code directly on your machine.`,
-  (p) => `The ${p.p} classic is recompiled for PC, with display and input options handled by the port itself.`,
-  (p) => `One of the round-up's ${p.p} ports: community-built code, with the game data supplied by you.`,
-  (p) => `A fan-built native port of the ${p.y} ${p.p} original, with no emulation layer.`,
-  (p) => `${p.p} owners get a desktop build that runs the original game logic natively.`,
+  (p) => `A ${p.y} ${ORIG(p)} release, rebuilt to run as a native desktop program rather than under an emulator.`,
+  (p) => `Originally a ${p.y} ${ORIG(p)} release; the PC build runs the game's code directly on your machine.`,
+  (p) => `The ${ORIG(p)} classic is recompiled for PC, with display and input options handled by the port itself.`,
+  (p) => `One of the round-up's ${ORIG(p)} ports: community-built code, with the game data supplied by you.`,
+  (p) => `A fan-built native port of the ${p.y} ${ORIG(p)} original, with no emulation layer.`,
+  (p) => `This ${p.y} ${ORIG(p)} game now runs natively on the desktop through a fan-built port.`,
 ];
 
 /** Platform-specific, honestly hedged control notes. */

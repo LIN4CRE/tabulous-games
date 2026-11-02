@@ -105,6 +105,15 @@ function validateInstant() {
     if (r.repo && !r.repo.startsWith('https://')) problems.push(`${r.title}: repo is not HTTPS`);
     if (r.reference && !r.reference.startsWith('https://')) problems.push(`${r.title}: reference is not HTTPS`);
   }
+  const descriptions = new Set();
+  for (const g of ipGames) {
+    if (descriptions.has(g.description)) problems.push(`boilerplate description reused on ${g.id}`);
+    descriptions.add(g.description);
+    if (g.description.length < 50) problems.push(`${g.id}: description is too short`);
+    if (/hosted by the Internet Archive|preserved in the Internet Archive/.test(g.description)) {
+      problems.push(`${g.id}: still has generic boilerplate instead of a real description`);
+    }
+  }
   if (problems.length) {
     console.error('Instant-play validation failed:\n  ' + problems.join('\n  '));
     process.exit(1);

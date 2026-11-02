@@ -513,6 +513,7 @@ Every row below is in `instant-play.json` with the same fields. `verification` i
 
 | Check | Result |
 | :--- | :--- |
+| 176 unique, per-title descriptions (no boilerplate) | **Pass** — enforced by `validateInstant()` in `build.mjs` |
 | `npm run check` (`build.mjs --check`, `check-artwork.mjs`, `check-site.mjs`) | **Pass** — `79 ports + 176 instant games, 25 script ids, 4 repos — all consistent` |
 | `jsdom` DOM suite (`npm run test:dom`, 62 assertions) | **Pass, 62 / 62** — section position, tagline, both filter systems, shared URL state, sorting, genre/platform/technology filters, named collections, modal open/close/Escape/focus/iframe teardown, accessibility, honesty guards |
 | HTML tag-balance parse (`html.parser`) | **Pass** — 0 unclosed tags, 0 mismatches |

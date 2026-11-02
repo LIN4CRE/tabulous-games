@@ -3,8 +3,9 @@
  * Generates the vector cover art used by cards that do not ship a raster cover.
  *
  * Design goals: 1280x720 (16:9, matches the card crop), no external fonts or
- * images, readable at thumbnail size, and a distinct palette per category so the
- * grid still scans quickly. Existing .jpg/.webp/.png covers are left untouched.
+ * images, readable at thumbnail size, and a distinct palette per original
+ * platform so the grid still scans quickly. Existing raster covers are left
+ * untouched.
  *
  * Usage: node scripts/make-covers.mjs [--force]
  */
@@ -17,41 +18,30 @@ const FORCE = process.argv.includes('--force');
 const CHECK = process.argv.includes('--check');
 
 const PALETTES = {
-  survivors: [
-    { a: '#f59e0b', b: '#7c2d12', bg: '#160b05', ink: '#fde68a' },
-    { a: '#fb923c', b: '#5c1a0c', bg: '#140806', ink: '#fed7aa' },
-    { a: '#eab308', b: '#4a2c05', bg: '#12100a', ink: '#fef08a' },
-    { a: '#f97316', b: '#3f1d12', bg: '#120b09', ink: '#ffedd5' },
+  nintendo: [
+    { a: '#ff5a5f', b: '#4c1016', bg: '#140608', ink: '#ffd7d9' },
+    { a: '#fb7185', b: '#4a1026', bg: '#16060e', ink: '#ffe0e7' },
+    { a: '#f97316', b: '#431407', bg: '#130806', ink: '#fed7aa' },
   ],
-  zombies: [
-    { a: '#22c55e', b: '#052e16', bg: '#04120a', ink: '#bbf7d0' },
-    { a: '#4ade80', b: '#134e2a', bg: '#06140d', ink: '#d9f99d' },
-    { a: '#84cc16', b: '#1a2e05', bg: '#0b1204', ink: '#ecfccb' },
-  ],
-  shooters: [
-    { a: '#ef4444', b: '#450a0a', bg: '#120607', ink: '#fecaca' },
-    { a: '#f43f5e', b: '#3b0a1e', bg: '#14060c', ink: '#fecdd3' },
-    { a: '#fb7185', b: '#4c0519', bg: '#12060a', ink: '#ffe4e6' },
-  ],
-  'classic-pc': [
+  playstation: [
+    { a: '#60a5fa', b: '#0b2149', bg: '#050b18', ink: '#dbeafe' },
     { a: '#38bdf8', b: '#082f49', bg: '#050f1a', ink: '#bae6fd' },
-    { a: '#22d3ee', b: '#083344', bg: '#04121a', ink: '#a5f3fc' },
-    { a: '#60a5fa', b: '#0b2149', bg: '#050b18', ink: '#bfdbfe' },
-  ],
-  openworld: [
-    { a: '#a855f7', b: '#2e1065', bg: '#0c0618', ink: '#e9d5ff' },
-    { a: '#d946ef', b: '#3b0764', bg: '#120618', ink: '#f5d0fe' },
     { a: '#818cf8', b: '#1e1b4b', bg: '#07081a', ink: '#e0e7ff' },
   ],
-  strategy: [
-    { a: '#14b8a6', b: '#042f2e', bg: '#04120f', ink: '#99f6e4' },
-    { a: '#2dd4bf', b: '#0b3b36', bg: '#04140f', ink: '#ccfbf1' },
-    { a: '#34d399', b: '#064e3b', bg: '#041310', ink: '#a7f3d0' },
+  xbox: [
+    { a: '#4ade80', b: '#134e2a', bg: '#06140d', ink: '#d9f99d' },
+    { a: '#22c55e', b: '#052e16', bg: '#04120a', ink: '#bbf7d0' },
+    { a: '#a3e635', b: '#1a2e05', bg: '#0b1204', ink: '#ecfccb' },
   ],
-  sports: [
+  arcade: [
+    { a: '#facc15', b: '#422006', bg: '#120f05', ink: '#fef9c3' },
     { a: '#f472b6', b: '#4a044e', bg: '#140614', ink: '#fbcfe8' },
     { a: '#fb923c', b: '#431407', bg: '#130806', ink: '#fed7aa' },
-    { a: '#facc15', b: '#422006', bg: '#120f05', ink: '#fef9c3' },
+  ],
+  multi: [
+    { a: '#a855f7', b: '#2e1065', bg: '#0c0618', ink: '#e9d5ff' },
+    { a: '#22d3ee', b: '#083344', bg: '#04121a', ink: '#cffafe' },
+    { a: '#e879f9', b: '#3b0764', bg: '#120618', ink: '#f5d0fe' },
   ],
   default: [
     { a: '#00f0ff', b: '#0f172a', bg: '#05070f', ink: '#cffafe' },

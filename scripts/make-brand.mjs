@@ -2,6 +2,7 @@
 /**
  * Regenerates every raster brand asset (emblem PNGs, favicons, apple-touch icon,
  * OG card, wordmark banner) from the hand-authored SVGs plus favicon.ico.
+ * The wordmark reads "UNOFFICIAL PC PORT DIRECTORY" to match the catalogue.
  *
  * Dev-only: needs `sharp`, `@resvg/resvg-js` and a Manrope OTF. Run it only when
  * assets/brand/emblem.svg changes, then commit the output.
@@ -79,7 +80,7 @@ function wordmark({ w = 1600, h = 400, tagline = true } = {}) {
   <rect width="${w}" height="${h}" fill="url(#halo)"/>
   <g transform="translate(96 ${h / 2 - 96}) scale(3)">${emblemSvg.replace(/^[\s\S]*?<svg[^>]*>/, '').replace('</svg>', '')}</g>
   <text x="392" y="${h / 2 - 8}" fill="url(#chrome)" font-family="Manrope" font-weight="800" font-size="96" letter-spacing="-1.5">TABULOUS GAMES</text>
-  ${tagline ? `<text x="396" y="${h / 2 + 44}" fill="#8b93a1" font-family="Manrope" font-weight="700" font-size="25" letter-spacing="7">BROWSER GAME VAULT · VERIFIED DAILY</text>` : ''}
+  ${tagline ? `<text x="396" y="${h / 2 + 44}" fill="#8b93a1" font-family="Manrope" font-weight="700" font-size="25" letter-spacing="7">UNOFFICIAL PC PORT DIRECTORY</text>` : ''}
   <rect x="96" y="${h - 3}" width="${w - 192}" height="1" fill="#7dd3fc" fill-opacity="0.25"/>
 </svg>`;
 }
@@ -97,11 +98,11 @@ const og = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" vi
   <g transform="translate(80 74) scale(1.7)">${emblemSvg.replace(/^[\s\S]*?<svg[^>]*>/, '').replace('</svg>', '')}</g>
   <text x="212" y="112" fill="#7dd3fc" font-family="Manrope" font-weight="800" font-size="19" letter-spacing="5">TABULOUS GAMES</text>
   <text x="80" y="300" fill="url(#chrome)" font-family="Manrope" font-weight="800" font-size="86" letter-spacing="-2">THE CURATED</text>
-  <text x="80" y="392" fill="url(#chrome)" font-family="Manrope" font-weight="800" font-size="86" letter-spacing="-2">BROWSER GAME VAULT</text>
-  <text x="82" y="452" fill="#98a2b1" font-family="Manrope" font-weight="700" font-size="27" letter-spacing="1">${COUNT} games, re-verified every 24 hours. No installs, no launchers.</text>
+  <text x="80" y="392" fill="url(#chrome)" font-family="Manrope" font-weight="800" font-size="86" letter-spacing="-2">PC PORT DIRECTORY</text>
+  <text x="82" y="452" fill="#98a2b1" font-family="Manrope" font-weight="700" font-size="27" letter-spacing="1">${COUNT} unofficial PC ports · one curated list · bring your own game files.</text>
   <g font-family="Manrope" font-weight="700" font-size="20">
     <rect x="80" y="500" width="296" height="46" rx="23" fill="#7dd3fc" fill-opacity="0.12" stroke="#7dd3fc" stroke-opacity="0.45"/>
-    <text x="106" y="529" fill="#bfe9ff">WEBASSEMBLY · WEBGL</text>
+    <text x="106" y="529" fill="#bfe9ff">NATIVE PC PORTS</text>
     <rect x="396" y="500" width="252" height="46" rx="23" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.16"/>
     <text x="422" y="529" fill="#d7dee8">BUILT BY ONE DEV</text>
   </g>

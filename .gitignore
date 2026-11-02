@@ -1,7 +1,5 @@
-# Discovery scratch output (the live report itself is committed)
-data/discoveries.fixture.json
-data/discoveries.fixture.md
-data/pending-games.json
+# Dev-only brand regeneration dependencies (installed with --no-save)
+node_modules/
 
 # Editor / OS noise
 .DS_Store

@@ -19,20 +19,11 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Generated HTML and README match games.json
-        run: node scripts/build.mjs --check
+      - name: Generated HTML/README match games.json and artwork is valid
+        run: npm run check
 
-      - name: Every game has cover art
-        run: node scripts/make-covers.mjs --check
-
-      - name: Discovery parsers pass their offline fixtures
+      - name: Curated seed regenerates the same catalogue
         run: |
-          node scripts/discover-games.mjs --fixtures
-          node scripts/finalise-games.mjs --fixtures --list
-
-      - name: Auto-publish stays conservative in a dry run
-        run: node scripts/auto-publish.mjs --fixtures --dry-run --no-repair
-
-      - name: Report fixture output
-        if: always()
-        run: cat data/discoveries.fixture.md
+          cp games.json /tmp/games.json
+          npm run seed
+          diff -u /tmp/games.json games.json

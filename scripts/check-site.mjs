@@ -14,6 +14,8 @@ import vm from 'node:vm';
 const html = fs.readFileSync('index.html', 'utf8');
 const db = JSON.parse(fs.readFileSync('games.json', 'utf8'));
 const games = db.games;
+const ipdb = JSON.parse(fs.readFileSync('instant-play.json', 'utf8'));
+const ipGames = ipdb.games;
 const problems = [];
 const fail = (message) => problems.push(message);
 const assert = (condition, message) => { if (!condition) fail(message); };
@@ -50,9 +52,14 @@ assert(html.indexOf('id="backToTop"') < scriptStart, '#backToTop must be parsed 
 assert(html.indexOf('id="toast"') < scriptStart, '#toast must be parsed before the inline script');
 
 /* 3. Generated blocks and the filter hooks the script needs. */
-for (const marker of ['HERO', 'GAMES', 'CATEGORY-PILLS', 'STATUS-PILLS', 'SOURCE-PILLS']) {
+for (const marker of ['INSTANT', 'HERO', 'GAMES', 'CATEGORY-PILLS', 'STATUS-PILLS', 'SOURCE-PILLS']) {
   assert(html.includes(`<!-- ${marker}:START -->`) && html.includes(`<!-- ${marker}:END -->`), `missing ${marker} markers`);
 }
+const readme = fs.readFileSync('README.md', 'utf8');
+assert(readme.includes('<!-- INSTANT-README:START -->') && readme.includes('<!-- INSTANT-README:END -->'), 'missing INSTANT-README markers in README.md');
+const report = fs.readFileSync('RESEARCH-REPORT.md', 'utf8');
+assert(report.includes('<!-- REPORT:START -->') && report.includes('<!-- REPORT:END -->'), 'missing REPORT markers in RESEARCH-REPORT.md');
+assert(report.includes(`## 3. Verified instant-play catalogue — all ${ipGames.length} games`), 'report catalogue heading is stale');
 assert(html.includes('data-filter="status"'), 'missing status filter group');
 assert(html.includes('data-filter="source"'), 'missing source filter group');
 assert(html.includes('id="clearInline"'), 'missing inline "clear filters" link');
@@ -93,9 +100,44 @@ const externalLinks = [...html.matchAll(/<a class="btn-play" href="([^"]+)"/g)].
 assert(externalLinks.length === games.length, `expected ${games.length} port links, found ${externalLinks.length}`);
 assert(externalLinks.every((link) => link.startsWith('https://')), 'a port link is not HTTPS');
 
+/* 7. Instant Play: position, honesty and completeness of the generated section. */
+const instantStart = html.indexOf('<!-- INSTANT:START -->');
+const intro = html.indexOf('<section class="container intro">');
+const library = html.indexOf('id="library"');
+const gamesStart = html.indexOf('<!-- GAMES:START -->');
+assert(instantStart > 0 && instantStart < intro && intro < library && library < gamesStart,
+  '⚡ INSTANT PLAY is not above the intro, library and all existing games');
+assert(html.includes('Classic games. No downloads. Just click and play.'), 'missing the exact Instant Play tagline');
+assert(html.includes('>⚡ INSTANT PLAY<'), 'missing the ⚡ INSTANT PLAY heading');
+const instantBlock = html.slice(instantStart, html.indexOf('<!-- INSTANT:END -->'));
+const ipCards = [...instantBlock.matchAll(/<article class="ip-card"([^>]*)>/g)].map((m) => m[1]);
+assert(ipCards.length === ipGames.length, `instant grid has ${ipCards.length} cards, instant-play.json has ${ipGames.length}`);
+for (const attr of ['data-id', 'data-genre', 'data-platform', 'data-tech', 'data-year', 'data-title', 'data-tags', 'data-url']) {
+  const missing = ipCards.filter((c) => !c.includes(`${attr}="`)).length;
+  assert(missing === 0, `${missing} instant cards are missing ${attr}`);
+}
+const ipLinks = [...instantBlock.matchAll(/<a class="ip-play" href="([^"]+)"/g)].map((m) => m[1]);
+assert(ipLinks.length === ipGames.length, `expected ${ipGames.length} instant play links, found ${ipLinks.length}`);
+assert(ipLinks.every((l) => l.startsWith('https://')), 'an instant play link is not HTTPS');
+assert(new Set(ipLinks).size === ipLinks.length, 'instant play links are not unique');
+const banned = /vel\.gg|ported2browser|wasm\.rip|aaddpp\.lol|cjoseph\.workers\.dev|playgta5|justplayweb\.com\/game/;
+assert(!ipGames.some((g) => banned.test(g.url)), 'an unlicensed AAA asset-streaming host leaked into the playable grid');
+assert((instantBlock.match(/loading="lazy"/g) || []).length >= ipGames.filter((g) => g.cover).length,
+  'instant-play artwork is not lazy-loaded');
+assert((instantBlock.match(/data-ip-quick=/g) || []).length >= 8, 'named collection quick filters are missing');
+assert(instantBlock.includes('>⚠ Call of Duty &amp; Zombies'), 'Call of Duty category is honestly routed to research');
+assert(instantBlock.includes('href="instant-play.json"'), 'structured database is linked from the site');
+const researchRows = [...instantBlock.matchAll(/<span class="ip-status /g)].length;
+assert(researchRows >= ipdb.research.length, `research table has ${researchRows} classifications for ${ipdb.research.length} entries`);
+assert(new Set(ipGames.map((g) => g.id)).size === ipGames.length, 'duplicate instant-play ids');
+for (const g of ipGames) {
+  assert(g.verification === 'link-verified' && g.lastVerified === ipdb.lastVerified, `${g.id}: missing verification metadata`);
+  assert(g.classification === 'INSTANT PLAY', `${g.id}: non-playable classification`);
+}
+
 if (problems.length) {
   console.error(`site check: ${problems.length} problem(s):`);
   for (const problem of problems) console.error(`  - ${problem}`);
   process.exit(1);
 }
-console.log(`site check: ${games.length} cards, ${queriedIds.size} script ids, ${repos} repos — all consistent`);
+console.log(`site check: ${games.length} ports + ${ipGames.length} instant games, ${queriedIds.size} script ids, ${repos} repos — all consistent`);

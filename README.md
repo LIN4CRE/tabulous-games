@@ -13,9 +13,52 @@
   <img src="assets/brand/banner.svg" alt="Tabulous Games — unofficial PC port directory" width="100%">
 </p>
 
-This repo was rebuilt from scratch around that one list. The old 303-game browser catalogue, its daily discovery bot, its survivors-like expansion write-ups and the transparency audit are gone. What remains is a single-purpose site: **79 unofficial PC ports**, each with the game's original box or key art and a checked link to its download or project page.
+This repo was rebuilt from scratch around that one list. The old 303-game browser catalogue, its daily discovery bot, its survivors-like expansion write-ups and the transparency audit are gone. What remains of the original directory is **79 unofficial PC ports**, each with the game's original box or key art and a checked link to its download or project page. Above it now sits a separate **⚡ INSTANT PLAY** library of rights-cleared browser games (see the next section).
 
 These are *native* PC ports built by community decompilation / recompilation projects. They are not browser games: they run as desktop builds, and **you need your own legally dumped copy of the original game**. This repo hosts no game files, no installers and no ROMs.
+
+---
+
+## ⚡ Instant Play — classic games in Chrome, no downloads
+
+> **Classic games. No downloads. Just click and play.**
+
+The **⚡ INSTANT PLAY** section sits at the very top of the live site, above the 79-port directory. It is a separate, rights-cleared collection of browser games that start on their own host with no installer, no emulator setup, no ROM or game-file download and no account. The two collections are independent: the port directory below is untouched.
+
+<!-- INSTANT-README:START -->
+**176 games playable in Chrome with no downloads, no emulator setup, no ROM/game-file download and no account.** The full catalogue — with title, franchise, genre, original platform, browser technology, playable URL, GitHub repository, discovery source, verification status, mobile compatibility, installation requirements, licence and last-verified date for every entry — lives in [`instant-play.json`](instant-play.json). It is the single source of truth: the section above the port directory and this table are generated from it by `scripts/build.mjs`.
+
+| | Count |
+| :--- | ---: |
+| Playable instant-play games in the main grid | 176 |
+| Independent hosts | 16 |
+| Research entries (AAA / console candidates) | 33 |
+| Research classified INSTANT PLAY | 4 |
+| Research classified BROWSER PORT | 14 |
+| Research classified STREAMING | 3 |
+| Research classified EXPERIMENTAL | 3 |
+| Research classified UNAVAILABLE | 9 |
+| Unofficial native PC ports preserved below | 79 |
+
+**Sources:** [Internet Archive — Software Library: MS-DOS Games (8,943 items)](https://archive.org/details/softwarelibrary_msdos_games) · [Internet Archive — shareware / freeware DOS titles](https://archive.org/advancedsearch.php?q=collection%3Asoftwarelibrary_msdos_games%20AND%20subject%3Ashareware&output=json) · [Internet Archive — Internet Arcade (JSMESS / Emularity)](https://archive.org/details/internetarcade) · [ScummWEB — freeware ScummVM adventures in the browser](https://scummweb.tsilva.eu/) · [Official rights-holder browser releases](https://classic.minecraft.net/) · [Open-source browser / WebAssembly game projects](https://github.com/) · [Cloudflare / Silent Space Marine WebAssembly Doom experiment](https://silentspacemarine.com/)
+
+**Most impressive playable discoveries:** the Internet Archive's EM-DOSBox MS-DOS library (shareware Doom, Wolfenstein 3D, Duke Nukem 3D, Commander Keen, Raptor, Epic Pinball), its Internet Arcade JSMESS collection (Out Run, Defender, Joust, Q\*bert, Tron, Centipede, Marble Madness), ScummVM compiled to WebAssembly hosting seven publisher-released freeware adventures, Cloudflare's WebAssembly Doom multiplayer experiment, and Mojang's official Minecraft Classic.
+
+**Deliberately excluded:** unlicensed AAA WebAssembly ports that stream retail assets (Skate 3, Black Ops Zombies, The Simpsons Hit & Run, NFS Most Wanted, GTA V / Vice City, Resident Evil 4, Tekken 5). Activision DMCA'd Black Ops II browser ports in October 2026; Take-Two DMCA'd DOS Zone's GTA Vice City in December 2025; GTA V's browser build vanished within hours. Ports built from decompilations are catalogued as BROWSER PORT because they need your own ROM/game files — they are not instant play.
+
+**Verification limit:** all 176 destinations were checked for reachability and attribution on 2026-11-02. The build sandbox has no Chrome binary, so in-browser rendering and mobile/gamepad behaviour could not be launched end-to-end and are marked untested rather than promised.
+<!-- INSTANT-README:END -->
+
+### On the site — ⚡ Instant Play
+
+* **At the very top**, before the intro, hero and all 79 existing port cards. Exact heading **⚡ INSTANT PLAY** and tagline **"Classic games. No downloads. Just click and play."**
+* **One click to play** — `▶ Instant Play` opens the host in a new tab; `▣ Here` opens that host's own embeddable player in a page overlay with an always-visible *Open on host ↗* fallback for hosts that block framing. No fake loading screens, no downloads, no accounts.
+* **Find anything** — full-text search, 13 genre pills, original-platform filter, browser-technology filter, five sort modes, and named collections (Classic PC Games, Arcade & Console Classics, Official & Web-native, FPS, Racing & Driving, Platformers, Fighting, RPG, Sports). All state lives in the URL (`ipq`, `ipgenre`, `ipplatform`, `iptech`, `ipsort`) and coexists with the original port directory's query parameters.
+* **Clear compatibility** — every card states its licence class, Chrome-desktop support, "no download / no account", technology, host, year and *mobile untested*. Nothing is claimed as play-tested.
+* **Honest research database** — a collapsible table of 33 AAA/console candidates with `INSTANT PLAY`, `BROWSER PORT`, `STREAMING`, `EXPERIMENTAL` and `UNAVAILABLE` classifications, findings, GitHub repos and source articles. **None of them gets a play button.** The full report is [`RESEARCH-REPORT.md`](RESEARCH-REPORT.md).
+* **Performance & accessibility** — lazy-loaded artwork, CSS-only fallback tiles, no new JS dependencies, one inline script, keyboard-operable controls, `aria-pressed` filters, an accessible focus-trapped dialog with Escape-to-close (which clears the iframe so the game stops), and responsive 1/2/4-column layouts.
+
+To add a game, add one object to `instant-play.json` and run `npm run build`. To re-verify every destination from a machine with normal internet access, run `npm run links:instant`.
 
 ---
 
@@ -190,20 +233,22 @@ Links are editorial references, not mirrors, and can move. `npm run links` re-ch
 
 ## 🧱 How the site is built
 
-`games.json` is the single source of truth. `scripts/build.mjs` regenerates the featured hero, card grid, filter pills and the table above. `scripts/seed-catalog.mjs` holds the curated list of games and source links and can rewrite `games.json` from it. The cover artwork is committed as real JPEGs — there is no cover generator.
+There are **two independent catalogues**. `games.json` is the single source of truth for the original 79-port directory; `instant-play.json` is the single source of truth for the ⚡ Instant Play grid and the research database. `scripts/build.mjs` regenerates the hero, port card grid, filter pills, the ⚡ Instant Play section, the README table and the `RESEARCH-REPORT.md` tables from those two files. `scripts/seed-catalog.mjs` holds the curated list of ports and can rewrite `games.json` from it. The 79 covers are committed as real JPEGs — there is no cover generator; Instant Play artwork is loaded lazily from its original host.
 
-`npm run check` also runs `scripts/check-site.mjs`, a dependency-free structural audit of the hand-written shell: the inline script parses, every `#id` it queries exists *before* the script tag, the generated blocks and filter hooks are present, and every card exposes the data attributes the filters need.
+`npm run check` also runs `scripts/check-site.mjs`, a dependency-free structural audit of the hand-written shell: the inline script parses, every `#id` it queries exists *before* the script tag, the generated blocks and filter hooks are present, every card exposes the data attributes the filters need, ⚡ Instant Play sits above all existing games, and no unlicensed AAA asset-streaming host has leaked into the playable grid.
 
 ```bash
 npm run check        # build --check + artwork check + site structure check (what CI runs)
-npm run build        # regenerate index.html + README table from games.json
+npm run build        # regenerate index.html + README + RESEARCH-REPORT from both catalogues
 npm run seed         # rebuild games.json from the curated port list
-npm run links        # check all 74 outbound links (needs internet)
+npm run links        # check all 74 outbound port links (needs internet)
+npm run links:instant # check every instant-play URL, embed, artwork, repo and reference (needs internet)
+npm run test:dom   # 62 DOM assertions (needs: npm i --no-save jsdom)
 npm run brand        # regenerate emblem PNGs / favicons / OG card
 npm start            # serve the site on :8000
 ```
 
-To add or change a port, edit `PORTS` / `LINKS` in `scripts/seed-catalog.mjs`, add its original cover to `assets/covers/<id>.jpg`, then run `npm run seed && npm run build`.
+To add or change a **port**, edit `PORTS` / `LINKS` in `scripts/seed-catalog.mjs`, add its original cover to `assets/covers/<id>.jpg`, then run `npm run seed && npm run build`. To add or change an **instant-play game or research entry**, edit `instant-play.json` and run `npm run build`.
 
 ---
 
@@ -211,18 +256,22 @@ To add or change a port, edit `PORTS` / `LINKS` in `scripts/seed-catalog.mjs`, a
 
 ```text
 tabulous-games/
-├── index.html                    # The site: hero, sticky filters, search, generated cards
-├── README.md                     # This document (table + counts generated by build.mjs)
-├── games.json                    # Single source of truth: ports, categories, provenance
+├── index.html                    # The site: ⚡ Instant Play, hero, filters, generated cards
+├── README.md                     # This document (tables + counts generated by build.mjs)
+├── games.json                    # Source of truth: 79 ports, categories, provenance
+├── instant-play.json             # Source of truth: 176 playable games + 33 research entries
+├── RESEARCH-REPORT.md            # Full findings report (tables generated by build.mjs)
 ├── manifest.webmanifest          # PWA metadata
 ├── robots.txt · sitemap.xml      # Crawler hints for the Pages deployment
 ├── favicon.ico                   # Legacy icon bundle
 ├── scripts/
 │   ├── seed-catalog.mjs          # Curated port list + source links → games.json
-│   ├── build.mjs                 # Regenerates index.html + README from games.json
+│   ├── build.mjs                 # Regenerates index.html + README + report from both catalogues
 │   ├── check-artwork.mjs         # Validates the committed JPEG covers
 │   ├── check-site.mjs            # Parses the inline script and audits the HTML shell
 │   ├── check-links.mjs           # Checks every outbound port link
+│   ├── check-instant-links.mjs   # Checks every instant-play destination (needs internet)
+│   ├── check-instant-dom.mjs      # 62 jsdom assertions for both filter systems + player
 │   └── make-brand.mjs            # Regenerates emblem PNGs, favicons, OG card, wordmark
 └── assets/
     ├── brand/                    # Emblem, favicons, apple-touch icon, OG card
@@ -236,11 +285,20 @@ tabulous-games/
 
 ## ✅ Policy
 
+**Port directory (the original 79 entries):**
+
 1. Only the games named in the round-up are listed. No auto-discovery, no scraping, no scheduled additions.
 2. Every entry is an **unofficial fan project**; nothing here is affiliated with or endorsed by the rights holders.
 3. You must own the original game and dump its files yourself. Ports contain no game assets, so there is no workaround; no game data is bundled or mirrored.
 4. Requirements and version caveats are stated on each card, and the linked page is the authority for downloads and setup.
-5. Trademarks and game assets belong to their owners.
+
+**⚡ Instant Play (the new section):**
+
+5. This repo hosts **no game files, ROMs, BIOS images or assets** for either collection. Every instant-play button opens a third-party host.
+6. Only official free releases, publisher-released shareware/freeware, open-source projects and Internet Archive preservation copies hosted by the Archive under its own takedown policy are given play buttons. Unlicensed AAA WebAssembly ports that stream retail assets are documented in the research table **without play buttons**.
+7. `STREAMING` (cloud video) is kept distinct from locally browser-executed WebAssembly/WebGL/emulation technology.
+8. Verification status, mobile compatibility and installation requirements are recorded for every entry. `link-verified` means the destination was confirmed reachable and correctly attributed — not that gameplay was launched in a browser.
+9. Trademarks and game assets belong to their respective owners. If a rights holder objects to a link, it will be removed.
 
 ---
 

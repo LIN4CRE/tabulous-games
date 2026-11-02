@@ -10,6 +10,8 @@
     "check": "node scripts/build.mjs --check && node scripts/check-artwork.mjs && node scripts/check-site.mjs",
     "brand": "node scripts/make-brand.mjs",
     "links": "node scripts/check-links.mjs",
+    "links:instant": "node scripts/check-instant-links.mjs",
+    "test:dom": "node scripts/check-instant-dom.mjs",
     "start": "python3 -m http.server 8000 --bind 0.0.0.0"
   },
   "engines": {

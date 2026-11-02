@@ -1371,7 +1371,7 @@ const LINKS = {
   "Virtua Fighter Arcade": "https://www.dsogaming.com/news/virtua-fighter-arcade-perfect-pc-port-available-for-download/",
   "Splinter Cell: Double Agent": "https://www.dsogaming.com/news/splinter-cell-double-agent-xbox-version-gets-an-unofficial-native-pc-port/",
   "Tekken 6": "https://www.dsogaming.com/news/tekken-6-gets-unofficial-pc-port-with-online-multiplayer-rollback-netcode/",
-  "The Legend of Zelda: Wind Waker HD": "https://www.dsogaming.com/news/the-legend-of-zelda-skyward-sword-hd-unofficial-pc-port-released/",
+  "The Legend of Zelda: Wind Waker HD": "https://github.com/ZeldaWWHDRecomp/ZeldaWWHDRecomp",
   "The Legend of Zelda: Breath of the Wild": "https://www.dsogaming.com/news/the-legend-of-zelda-breath-of-the-wild-unofficial-pc-port-released/",
   "Bayonetta 2": "https://www.dsogaming.com/news/bayonetta-2-unofficial-pc-port-available-for-download/",
   "Metroid Dread": "https://www.dsogaming.com/news/metroid-dread-unofficial-pc-port-available-for-download/",
@@ -1391,11 +1391,11 @@ const LINKS = {
   "Xenoblade Chronicles X: Definitive Edition": "https://www.dsogaming.com/news/xenoblade-chronicles-x-definitive-edition-gets-unofficial-pc-port/",
   "Shadow of the Colossus": "https://www.dsogaming.com/news/shadow-of-the-colossus-ps4-remake-gets-unofficial-pc-port/",
   "MediEvil": "https://www.dsogaming.com/news/medievil-ps4-remake-gets-unofficial-pc-port/",
-  "Killzone Shadow Fall": "https://www.dsogaming.com/patches/killzone-shadow-fall-pc-now-has-a-third-person-camera-mode/",
+  "Killzone Shadow Fall": "https://www.dsogaming.com/news/killzone-shadowfall-unofficial-pc-port-available-for-download/",
   "Driveclub": "https://www.dsogaming.com/news/ps4-exclusive-driveclub-gets-an-unofficial-pc-port/",
   "God of War 3 Remastered": "https://www.dsogaming.com/news/god-of-war-3-remastered-unofficial-pc-port-released/",
   "Gran Turismo Sport": "https://www.dsogaming.com/news/gran-turismo-sport-unofficial-pc-port-available-for-download/",
-  "Uncharted: The Nathan Drake Collection": "https://www.dsogaming.com/patches/uncharted-the-nathan-drake-collection-pc-just-got-a-major-update/",
+  "Uncharted: The Nathan Drake Collection": "https://www.dsogaming.com/news/uncharted-the-nathan-drake-collection-unofficial-pc-port-released/",
   "The Order: 1886": "https://www.dsogaming.com/news/ps4-exclusive-the-order-1886-gets-an-unofficial-pc-port/",
   "The Last Guardian": "https://www.dsogaming.com/news/the-last-guardian-just-got-an-unofficial-pc-port/",
   "Zelda 2: The Adventure of Link": "https://www.dsogaming.com/news/zelda-ii-the-adventure-of-link-unofficial-pc-hd-remake-released/",
@@ -1421,7 +1421,7 @@ const LINKS = {
   "Pikmin": "https://www.dsogaming.com/news/nintendo-gamecube-classic-pikmin-gets-an-unofficial-pc-version/",
   "Ninja Gaiden 2": "https://www.dsogaming.com/news/unofficial-pc-version-of-ninja-gaiden-2-released/",
   "Super Smash Bros. Ultimate": "https://www.dsogaming.com/news/super-smash-bros-ultimate-unofficial-pc-port-released/",
-  "Super Paper Mario": "https://www.dsogaming.com/news/nintendo-wii-exclusive-super-paper-mario-gets-an-unofficial-pc-port/",
+  "Super Paper Mario": "https://github.com/josiahg2502-glitch/NewSuperPaperBros",
   "Tekken 3": "https://www.dsogaming.com/news/unofficial-native-pc-versions-of-tekken-3-mario-kart-wii-and-pokemon-crystal-released/"
 };
 
@@ -1476,7 +1476,7 @@ function game(p) {
     url,
     source,
     sourceLabel: sourceName(url),
-    cover: `assets/covers/${p.i}.svg`,
+    cover: `assets/covers/${p.i}.jpg`,
     category: p.c,
     categoryLabel: LABELS[p.c],
     year: p.y,
@@ -1490,7 +1490,7 @@ function game(p) {
     badge: 'UNOFFICIAL PC PORT',
     desc: `${p.b} An unofficial native PC port rebuilds the ${p.y} ${p.p} original as a desktop build rather than an emulator — one of the community projects collected in the ports round-up.`,
     controls: 'Native desktop build. Controls, display and graphics options are set in the port itself; the linked project page lists the exact key bindings and supported hardware.',
-    goodToKnow: `Unofficial fan project, not affiliated with or endorsed by the rights holders. You need your own legally dumped copy of ${p.t} — no game data is bundled with the port or this site. The link opens ${source}, where the download and setup requirements are published.`,
+    goodToKnow: `Unofficial fan project, not affiliated with or endorsed by the rights holders. You need your own legally dumped copy of ${p.t} — no game data is bundled with the port or this site, and there is no workaround: without the original assets the port cannot start. The link opens ${source}, where the download and setup requirements are published.`,
     tags: tagsFor(p),
     alsoKnownAs: p.a || [],
     added: '2026-11-02',
@@ -1517,7 +1517,7 @@ const db = {
     publisher: 'DSOGaming',
     published: '2026-11-02',
     url: 'https://www.dsogaming.com/news/super-mario-odyssey-unofficial-pc-port-available-for-download/',
-    note: 'The catalogue contains only the games named in this round-up. A few articles cover more than one port, so some links legitimately repeat.',
+    note: 'The catalogue contains only the games named in this round-up. A few articles cover more than one port, so some links legitimately repeat. Every link was checked on 2026-11-02; where the round-up linked to the wrong game or to a follow-up patch article, the port project page or the original port announcement is used instead.',
   },
 };
 

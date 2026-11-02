@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Generated HTML, README and covers match games.json
+      - name: Generated HTML/README match games.json and artwork is valid
         run: npm run check
 
       - name: Curated seed regenerates the same catalogue

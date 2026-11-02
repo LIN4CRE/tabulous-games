@@ -7,9 +7,9 @@
   "scripts": {
     "seed": "node scripts/seed-catalog.mjs",
     "build": "node scripts/build.mjs",
-    "check": "node scripts/build.mjs --check && node scripts/make-covers.mjs --check",
-    "covers": "node scripts/make-covers.mjs",
+    "check": "node scripts/build.mjs --check && node scripts/check-artwork.mjs",
     "brand": "node scripts/make-brand.mjs",
+    "links": "node scripts/check-links.mjs",
     "start": "python3 -m http.server 8000 --bind 0.0.0.0"
   },
   "engines": {

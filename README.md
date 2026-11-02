@@ -13,9 +13,30 @@
   <img src="assets/brand/banner.svg" alt="Tabulous Games — unofficial PC port directory" width="100%">
 </p>
 
-This repo was rebuilt from scratch around that one list. The old 303-game browser catalogue, its daily discovery bot, its survivors-like expansion write-ups and the transparency audit are gone. What remains is a single-purpose site: **79 unofficial PC ports**, each card linking to the download or project page used in the round-up.
+This repo was rebuilt from scratch around that one list. The old 303-game browser catalogue, its daily discovery bot, its survivors-like expansion write-ups and the transparency audit are gone. What remains is a single-purpose site: **79 unofficial PC ports**, each with the game's original box or key art and a checked link to its download or project page.
 
 These are *native* PC ports built by community decompilation / recompilation projects. They are not browser games: they run as desktop builds, and **you need your own legally dumped copy of the original game**. This repo hosts no game files, no installers and no ROMs.
+
+---
+
+## 💿 Why you still need a copy of the game
+
+There is **no legitimate way around it**, and this repo cannot provide one. A decompilation or static recompilation rebuilds the game's *code* — the executable logic — but deliberately ships **none** of its copyrighted content: no art, audio, levels, textures, movies or data. Without those files the port has nothing to load and cannot start.
+
+* **What you must do:** own the original game and dump the files from your own disc, cartridge or console, following the linked project's instructions.
+* **What you must not do:** download somebody else's copy. That is piracy, and this directory will never host, mirror or link to game data.
+* **What you *can* skip:** the repeated setup. Most launchers ask for your dump once, build the PC version on your machine, and never need the disc again. It's a one-time step, not a way around ownership.
+* **Check versions first:** some ports accept only one exact revision (Super Mario Odyssey needs v1.0.0 with no updates).
+
+Every card is labelled **Own files** for exactly this reason.
+
+---
+
+## 🖼️ Original artwork
+
+The 79 covers in `assets/covers/` are the games' real box art, key art and arcade flyers — not generated placeholders. They were recovered from the repo's earlier catalogue where a correct image existed and sourced from public cover-art archives (MobyGames, Spong, Wikimedia/Wikipedia, publisher key art) for the rest. Each is stored as a 960×540 JPEG with a blurred backdrop so portrait box art is shown in full.
+
+Artwork is used **for identification only**; all trademarks, characters and cover art belong to their respective publishers and rights holders. See `assets/covers/ARTWORK.md`.
 
 ---
 
@@ -140,27 +161,36 @@ Legend: 📁 needs your own game files. That is the only status in this director
 ## 🔗 Where the links point
 
 * **Super Mario Odyssey** → the [Power Moon Recomp GitLab project](https://gitlab.com/zzzarathustra-dev/power-moon-recomp) (the round-up's "download from here" link). Only game version **1.0.0** is supported: on first run you select your dumped files, the setup validates and copies them, then builds the PC version once.
-* **F-Zero** → the [FZeroRecomp GitHub project](https://github.com/craigshaw/FZeroRecomp).
-* **Everything else** → the DSOGaming article linked for that game in the round-up.
+* **F-Zero**, **Super Paper Mario** and **The Wind Waker HD** → their GitHub project pages ([FZeroRecomp](https://github.com/craigshaw/FZeroRecomp), [NewSuperPaperBros](https://github.com/josiahg2502-glitch/NewSuperPaperBros), [ZeldaWWHDRecomp](https://github.com/ZeldaWWHDRecomp/ZeldaWWHDRecomp)).
+* **Everything else** → the DSOGaming article for that game, as linked in the round-up.
 
-All links are editorial references, not verified mirrors. Download pages can move; if one breaks, open an issue.
+Every one of the **74 distinct links** was checked on 2 November 2026: 72 DSOGaming articles resolved through the site's own post index, and the GitLab/GitHub projects returned HTTP 200. Four links from the round-up were repaired:
+
+| Card | Problem | Now points to |
+| --- | --- | --- |
+| The Wind Waker HD | round-up linked to the *Skyward Sword HD* article | ZeldaWWHDRecomp project |
+| Super Paper Mario | article intermittently returned "Page not found" | NewSuperPaperBros project |
+| Killzone Shadow Fall | round-up linked to a third-person-camera patch post | the original port announcement |
+| Uncharted: The Nathan Drake Collection | round-up linked to an update patch post | the original port announcement |
+
+Links are editorial references, not mirrors, and can move. `npm run links` re-checks all of them (needs internet); if one breaks, open an issue.
 
 ---
 
 ## 🧱 How the site is built
 
-`games.json` is the single source of truth. `scripts/build.mjs` regenerates the card grid inside `index.html` and the table above; `scripts/make-covers.mjs` draws a deterministic 1280×720 SVG cover for each game. `scripts/seed-catalog.mjs` holds the curated list of games and source links and can rewrite `games.json` from it.
+`games.json` is the single source of truth. `scripts/build.mjs` regenerates the card grid inside `index.html` and the table above. `scripts/seed-catalog.mjs` holds the curated list of games and source links and can rewrite `games.json` from it. The cover artwork is committed as real JPEGs — there is no cover generator.
 
 ```bash
-npm run check        # build --check + cover check (what CI runs)
-npm run covers       # regenerate any missing SVG covers
+npm run check        # build --check + artwork check (what CI runs)
 npm run build        # regenerate index.html + README table from games.json
 npm run seed         # rebuild games.json from the curated port list
+npm run links        # check all 74 outbound links (needs internet)
 npm run brand        # regenerate emblem PNGs / favicons / OG card
 npm start            # serve the site on :8000
 ```
 
-To add or change a port, edit `PORTS` / `LINKS` in `scripts/seed-catalog.mjs`, then run `npm run seed && npm run covers && npm run build`.
+To add or change a port, edit `PORTS` / `LINKS` in `scripts/seed-catalog.mjs`, add its original cover to `assets/covers/<id>.jpg`, then run `npm run seed && npm run build`.
 
 ---
 
@@ -177,14 +207,15 @@ tabulous-games/
 ├── scripts/
 │   ├── seed-catalog.mjs          # Curated port list + source links → games.json
 │   ├── build.mjs                 # Regenerates index.html + README from games.json
-│   ├── make-covers.mjs           # Deterministic vector covers (one per port)
+│   ├── check-artwork.mjs         # Validates the committed JPEG covers
+│   ├── check-links.mjs           # Checks every outbound port link
 │   └── make-brand.mjs            # Regenerates emblem PNGs, favicons, OG card, wordmark
 └── assets/
     ├── brand/                    # Emblem, favicons, apple-touch icon, OG card, banner
     ├── fonts/                    # Self-hosted Manrope 700/800
     ├── banner.svg                # Fallback art for missing covers
     ├── retro-arcade-sticker.svg  # Sister-repo badge
-    └── covers/                   # One generated SVG cover per port
+    └── covers/                   # 79 original box/key-art JPEGs + ARTWORK.md
 ```
 
 ---
@@ -193,7 +224,7 @@ tabulous-games/
 
 1. Only the games named in the round-up are listed. No auto-discovery, no scraping, no scheduled additions.
 2. Every entry is an **unofficial fan project**; nothing here is affiliated with or endorsed by the rights holders.
-3. You must own the original game and dump its files yourself. No game data is bundled or mirrored.
+3. You must own the original game and dump its files yourself. Ports contain no game assets, so there is no workaround; no game data is bundled or mirrored.
 4. Requirements and version caveats are stated on each card, and the linked page is the authority for downloads and setup.
 5. Trademarks and game assets belong to their owners.
 
@@ -205,13 +236,13 @@ tabulous-games/
 Open `index.html` directly — all covers and fonts are bundled, so the directory works offline. Or run `npm start` and visit `http://localhost:8000`.
 
 ### GitHub Pages
-Push this folder to a repository, then set **Settings → Pages** to deploy from the default branch.
+The live site is [lin4cre.github.io/tabulous-games](https://lin4cre.github.io/tabulous-games/), served by GitHub Pages from the `main` branch at `/`.
 
 ---
 
 ## 🎨 Design system
 
-The site is one self-contained HTML file with a small design system: dark chrome surfaces, a sky-blue accent, a purple "own files" status, and platform-tinted cover art generated from each game id. Type is self-hosted Manrope 700/800; icons are an inline SVG sprite; reveal and hover motion collapse under `prefers-reduced-motion`.
+The site is one self-contained HTML file with a small design system: dark chrome surfaces, a sky-blue accent, a purple "own files" status, and each game's original cover art. Type is self-hosted Manrope 700/800; icons are an inline SVG sprite; reveal and hover motion collapse under `prefers-reduced-motion`.
 
 Regenerate brand art after editing `assets/brand/emblem.svg`:
 
